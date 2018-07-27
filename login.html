@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script> 
+    $(function(){
+      $("#navbar").load("navigation.html"); 
+    });
+    </script> 
+    <link rel="stylesheet" type="text/css" href="includes/css/login.css">
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="login.html">Books Website</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Category<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Computer Engineering Books</a></li>
+          <li><a href="#">Mechanical Engineering Books</a></li>
+          <li><a href="#">Electronics Engineering Books</a></li>
+          <li><a href="#">Civil Engineering Books</a></li>
+        </ul>
+      </li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="RegistrationPage.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li class="active"><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<h1>LOGIN</h1>
+
+<div id="container">
+  <form class="container1" >
+    Email Id:<br>
+    <input type="Email" name="username"> <br><br>
+    Password:<br>
+    <input type="Password" name="password"> <br><br>
+    
+    <input type="submit" name="submit">
+  </form>
+  <br>
+  <a href="RegistrationPage.html">Register</a>
+</div>
+
+</body>
+</html>
