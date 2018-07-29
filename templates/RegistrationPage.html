@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration page</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="../includes/css/reg_form.css">
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" onclick="goBack()"><span class="glyphicon glyphicon-chevron-left"></span></a>
+	      <script>
+          function goBack() {
+              window.history.back();
+          }
+        </script>
+	      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-chevron-right"></span></a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li><a href="VisitorPage.html">Home</a></li>
+	      <li><a href="#">About</a></li>
+	      <li id="website-name">Online book re-selling portal</li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li class="active"><a href="RegistrationPage.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	      <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container">
+		<h1 class="text-center">Registration Form</h1>
+		<form>
+		Email Id:<br>
+		<input type="Email" name="username" size="46"> <br><br>
+		Password:<br>
+		<input type="Password" name="password" size="46"> <br><br>
+		Confirm Password: <br>
+		<input type="P" name="confirmpwd" size="46"> <br><br>
+		First Name: &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Last Name:<br>
+		<input type="text" style="width: 187px;" name="firstname"> &nbsp;
+		<input type="text" style="width: 186px;" name="lastname"> <br><br>
+		Address:<br>
+		<textarea style="width: 382px; height: 78px;"></textarea> <br><br>
+		Contact number:<br>
+		<input type="text" name="contact" size="46"> <br><br>
+
+		<input type="submit" name="submit" value="REGISTER" style="margin-bottom: 10px;">
+	</form>
+	</div>
+</body>
+</html>

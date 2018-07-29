@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Visitor Page</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="../includes/css/visitor.css">
+</head>
+<body>
+	<nav class="navbar navbar-inverse" style="margin-bottom: auto;">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" onclick="goBack()"><span class="glyphicon glyphicon-chevron-left"></span></a>
+	      <script>
+          function goBack() {
+              window.history.back();
+          }
+        </script>
+	      <a class="navbar-brand" href="VisitorPage.html"><span class="glyphicon glyphicon-chevron-right"></span></a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li><a href="#">Home</a></li>
+	      <li><a href="#">About</a></li>
+	      <li id="website-name">Online book re-selling portal</li>
+	    </ul>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li class="active"><a href="RegistrationPage.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	      <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container-fluid"  style="background: #e7f8f2; border: 10px solid #e7f8f2; ">
+	<div class="input-group input-group full-width-util">
+		<input type="text" name="q" id="searchBox" class="form-control home-search-bar acInput" placeholder="Search by title, author, semester" autocomplete="on">
+	    <button type="submit" value="Search" id="searchButtonInline" class="btn btn-primary no-top-margin">Go </button>
+	</div></div>
+	<br>
+	<div class="col-sm-2" id="category">
+    	<h2>Categories</h2>
+    	<div class="dropdown">
+  			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    			Computer Engineering </button>
+		  <div class="dropdown-menu">
+		    <a class="dropdown-item" href="#">sem1</a>
+		    <a class="dropdown-item" href="#">sem2</a>
+		    <a class="dropdown-item" href="#">sem3</a>
+		    <a class="dropdown-item" href="#">sem4</a>
+		  </div>
+		</div>
+
+		<div class="dropdown">
+  			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    			Electrical Engineering </button>
+		  <div class="dropdown-menu">
+		    <a class="dropdown-item" href="#">sem1</a>
+		    <a class="dropdown-item" href="#">sem2</a>
+		    <a class="dropdown-item" href="#">sem3</a>
+		    <a class="dropdown-item" href="#">sem4</a>
+		  </div>
+		</div>
+
+		<div class="dropdown">
+  			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    			Mechanical Engineering </button>
+		  <div class="dropdown-menu">
+		    <a class="dropdown-item" href="#">sem1</a>
+		    <a class="dropdown-item" href="#">sem2</a>
+		    <a class="dropdown-item" href="#">sem3</a>
+		    <a class="dropdown-item" href="#">sem4</a>
+		  </div>
+		</div>
+
+		<div class="dropdown">
+  			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    			Extc </button>
+		  <div class="dropdown-menu">
+		    <a class="dropdown-item" href="#">sem1</a>
+		    <a class="dropdown-item" href="#">sem2</a>
+		    <a class="dropdown-item" href="#">sem3</a>
+		    <a class="dropdown-item" href="#">sem4</a>
+		  </div>
+		</div>
+	</div>
+</body>
+</html>
