@@ -25,6 +25,78 @@
             <h2>Categories</h2>
             <?php include "templates/sidebar.php"; ?>
         </div>
+		<div class="col-sm-9">
+            <h3>Computer Engineering</h3>
+            <div class="row">
+                <div class="col-sm-3"> 
+                    <div class="thumbnail">
+                            <img src="includes/images/COA.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <div class="caption">
+                            <p align="center">COA</p>
+                        </div>
+                    </div>     
+                </div> 
+                <div class="col-sm-3"> 
+                    <div class="thumbnail">
+                        <img src="includes/images/java.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <div class="caption">
+                            <p align="center">OOPM</p>
+                        </div>
+                    </div>     
+                </div>
+                <div class="col-sm-3"> 
+                    <div class="thumbnail">
+                        <img src="includes/images/ds.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <div class="caption">
+                            <p align="center">Data Structures</p>
+                        </div>
+                    </div>     
+                </div>
+                <div class="col-sm-3"> 
+                    <div class="thumbnail">
+                        <img src="includes/images/AOA.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <div class="caption">
+                            <p align="center">AOA</p>
+                        </div>
+                    </div>     
+                </div>
+            </div> 
+            <h3>Meachanical Engineering</h3>
+            <div class="row">
+                <div class="col-sm-3"> 
+                    <div class="thumbnail">
+                            <img src="includes/images/COA.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <div class="caption">
+                            <p align="center">COA</p>
+                        </div>
+                    </div>     
+                </div> 
+                <div class="col-sm-3"> 
+                    <div class="thumbnail">
+                        <img src="includes/images/java.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <div class="caption">
+                            <p align="center">OOPM</p>
+                        </div>
+                    </div>     
+                </div>
+                <div class="col-sm-3"> 
+                    <div class="thumbnail">
+                        <img src="includes/images/ds.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <div class="caption">
+                            <p align="center">Data Structures</p>
+                        </div>
+                    </div>     
+                </div>
+                <div class="col-sm-3"> 
+                    <div class="thumbnail">
+                        <img src="includes/images/java.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <div class="caption">
+                            <p align="center">OOPM</p>
+                        </div>
+                    </div>     
+                </div>
+            </div> 
+		</div>
     </div>
 </div>
 	
