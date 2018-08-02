@@ -1,3 +1,4 @@
+<?php include "./templates/db.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
