@@ -63,7 +63,7 @@
                     </div>     
                 </div>
             </div> 
-            <h3>Meachanical Engineering</h3>
+            <h3>Mechanical Engineering</h3>
             <div class="row">
                 <div class="col-sm-3"> 
                     <div class="thumbnail">
