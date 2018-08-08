@@ -18,9 +18,15 @@
         <li id="website-name">Online book re-selling portal</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
         <li class="active"><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a data-toggle="modal" href="login.php" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
         </li>
+=======
+        <li><a href="addBook.php"><span class="glyphicon glyphicon-book"></span>Sell Book</a></li>
+        <li class="active"><a href="register.php"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+>>>>>>> cab8b4f69823ef6e5591b17f16af3e855646125f
       </ul>
       <div id="loginModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
