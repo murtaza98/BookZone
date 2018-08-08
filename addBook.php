@@ -14,9 +14,9 @@
 				Book Name <br>
 				<input type="text" class="form-control" placeholder="Enter book name"> <br><br>
 			  	Price <br>
-				<input type="text" class="form-control"> <br><br>		
+				<input type="text" class="form-control" placeholder="Enter price"> <br><br>		
 				Category <br>
-    			<select class="custom-select" id="inputGroupSelect01">
+    			<select class="custom-select">
 				    <option selected>Choose...</option>
 				    <option value="1">Computer</option>
 				    <option value="2">Mechanical</option>

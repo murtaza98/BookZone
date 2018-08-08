@@ -31,7 +31,7 @@
                 <div class="col-sm-3"> 
                     <div class="thumbnail">
                         <a href="book_details.php">
-                            <img src="includes/images/COA.jpg" alt="Lights" style="width:100%; height: 230px;">
+                            <img src="includes/images/coa.jpg" alt="Lights" style="width:100%; height: 230px;">
                             <div class="caption">
                                 <p align="center">COA</p>
                             </div>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-sm-3"> 
                     <div class="thumbnail">
-                        <img src="includes/images/AOA.jpg" alt="Lights" style="width:100%; height: 230px;">
+                        <img src="includes/images/aoa.jpg" alt="Lights" style="width:100%; height: 230px;">
                         <div class="caption">
                             <p align="center">AOA</p>
                         </div>
@@ -67,7 +67,7 @@
             <div class="row">
                 <div class="col-sm-3"> 
                     <div class="thumbnail">
-                            <img src="includes/images/COA.jpg" alt="Lights" style="width:100%; height: 230px;">
+                            <img src="includes/images/coa.jpg" alt="Lights" style="width:100%; height: 230px;">
                         <div class="caption">
                             <p align="center">COA</p>
                         </div>

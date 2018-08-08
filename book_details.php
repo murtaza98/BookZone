@@ -11,7 +11,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-4" style="position: sticky; top: 0;">
-			<img src="includes/images/COA.jpg">
+			<img src="includes/images/coa.jpg">
 			<button type="button" class="btn btn-primary">Bookmark</button>
 			<button type="button" class="btn btn-primary">Buy Now</button>
 		</div>
