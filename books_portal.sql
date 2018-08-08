@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2018 at 05:42 PM
+-- Generation Time: Aug 08, 2018 at 09:43 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -56,7 +56,7 @@ CREATE TABLE `books` (
   `author` varchar(255) NOT NULL,
   `edition` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
-  `category_tag` varchar(255) NOT NULL,
+  `category_id` int(11) NOT NULL DEFAULT '0',
   `book_price` int(11) NOT NULL DEFAULT '0',
   `book_description` varchar(1000) DEFAULT 'No Description Available',
   `book_image` varchar(255) NOT NULL DEFAULT 'default.jpg',
@@ -68,11 +68,12 @@ CREATE TABLE `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_tag`, `book_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
-(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 'mathematics', 500, 'No Description Available', 'default.jpg', 'available', '2018-08-05 14:32:35'),
-(2, 'murtaza', 'Techmax', 'Someone', '2', 'Microprocessor', 'microprocessor', 100, 'No Description Available', 'default.jpg', 'available', '2018-08-05 14:32:35'),
-(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 'aoa', 250, 'No Description Available', 'default.jpg', 'available', '2018-08-05 14:32:35'),
-(4, 'priyesh', 'COA Techmax', 'someone', '6', 'COA', 'coa', 450, 'No Description Available', 'default.jpg', 'available', '2018-08-05 14:32:35');
+INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
+(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 5, 500, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05 14:32:35'),
+(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05 14:32:35'),
+(4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
+(5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 'No Description Available', 'java.jpg', 'available', '2018-08-08 17:48:46'),
+(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08 17:49:41');
 
 -- --------------------------------------------------------
 
@@ -82,18 +83,18 @@ INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `s
 
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
-  `category_name` varchar(255) NOT NULL
+  `category_name` varchar(255) NOT NULL,
+  `parent_category_id` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`category_id`, `category_name`) VALUES
-(1, 'category1'),
-(2, 'category2'),
-(3, 'category3'),
-(4, 'category4');
+INSERT INTO `categories` (`category_id`, `category_name`, `parent_category_id`) VALUES
+(1, 'Computer Engineering', 0),
+(2, 'Mechanical Engineering', 0),
+(5, 'Semester 1', 1);
 
 -- --------------------------------------------------------
 
@@ -136,27 +137,6 @@ INSERT INTO `reviews` (`username`, `book_id`, `ratings`, `review_content`) VALUE
 ('murtaza', 3, 7, 'Nice Book'),
 ('ojas', 4, 8, 'useful'),
 ('priyesh', 1, 4, 'Worth reading');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sub_category`
---
-
-CREATE TABLE `sub_category` (
-  `category_id` int(11) NOT NULL,
-  `sub_category_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sub_category`
---
-
-INSERT INTO `sub_category` (`category_id`, `sub_category_name`) VALUES
-(1, 'Semester 1'),
-(1, 'Semester 2'),
-(2, 'Semester 1'),
-(2, 'Semester 2');
 
 -- --------------------------------------------------------
 
@@ -226,12 +206,6 @@ ALTER TABLE `reviews`
   ADD KEY `fk_book_id_reviews` (`book_id`);
 
 --
--- Indexes for table `sub_category`
---
-ALTER TABLE `sub_category`
-  ADD PRIMARY KEY (`category_id`,`sub_category_name`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -245,13 +219,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

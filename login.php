@@ -1,19 +1,4 @@
-<?php
-    function customPageHeader(){
-    }
-?>
-<!--div class="container">
-  <h1>LOGIN</h1>
-  <form method="post" action="./login.php">
-    Email Id:<br>
-    <input type="text" name="username"> <br><br>
-    Password:<br>
-    <input type="Password" name="password"> <br><br>
-    
-    <input type="submit" name="submit" style="margin-bottom: 10px;">
-  </form>
-</div-->
-
+<?php include "./templates/db.php"; ?>
 <?php
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
@@ -34,40 +19,7 @@
                 }
             }
         }
+    }else{
+        echo "POST submit error";
     }
 ?>
-
-<div class="row">
-    <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px;">&times;</button>
-            <h3 class="modal-title"><b>&nbsp;LOGIN</b></h3>
-    </div>
-    <div class="modal-body">
-        <div class="col-sm-8"> 
-            <form method="post" action="./login.php">
-            EMAIL ADDRESS<br>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="email" type="text" class="form-control" name="email" placeholder="Email">
-                </div> <br>
-            PASSWORD<br>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
-            </div> <br>
-            <input type="submit" class="btn btn-default" style="margin-bottom: 10px;">
-            </form>
-        </div>    
-        <div class="col-sm-4" style=" padding-right: 0;">
-            <br>
-            <h3><b>NOT A MEMBER?</b></h3>
-            <a href="register.php"><button type="button" class="btn btn-default">Register now</button></a>
-        </div>
-    </div>
-    <div class="modal-footer" style="margin-right: 10px;">
-            <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-bottom: 10px; margin-right: 10px; right: 0; bottom: 0">Close</button>
-        </div>
-</div>
-
-<?php include "templates/footer.php"; ?>
-
