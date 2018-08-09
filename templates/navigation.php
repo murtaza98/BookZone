@@ -21,7 +21,7 @@
         <li class="active"><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a data-toggle="modal" href="" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
         </li>
-        <li><a href="addBook.php"><span class="glyphicon glyphicon-book"></span>Sell Book</a></li>
+        <li><a href="addBook.php"><span class="glyphicon glyphicon-book"></span> Sell Book</a></li>
       </ul>
       <?php include "templates/login_modal.php" ?>
     </div>
