@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2018 at 09:43 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Aug 10, 2018 at 08:02 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -69,11 +69,22 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
-(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 5, 500, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05 14:32:35'),
+(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 3, 500, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05 14:32:35'),
 (3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05 14:32:35'),
 (4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
 (5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 'No Description Available', 'java.jpg', 'available', '2018-08-08 17:48:46'),
-(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08 17:49:41');
+(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08 17:49:41'),
+(7, 'priyesh', 'COA', 'someone', '6', 'COA', 6, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
+(8, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 2, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08 17:49:41'),
+(9, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 2, 1000, 'No Description Available', 'java.jpg', 'available', '2018-08-08 17:48:46'),
+(11, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 2, 500, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05 14:32:35'),
+(12, 'priyesh', 'COA', 'someone', '6', 'COA', 3, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
+(13, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 3, 1000, 'No Description Available', 'java.jpg', 'available', '2018-08-08 17:48:46'),
+(14, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 3, 250, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05 14:32:35'),
+(15, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 4, 250, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05 14:32:35'),
+(16, 'priyesh', 'COA', 'someone', '6', 'COA', 4, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
+(17, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 4, 500, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05 14:32:35'),
+(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08 17:49:41');
 
 -- --------------------------------------------------------
 
@@ -94,7 +105,12 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`category_id`, `category_name`, `parent_category_id`) VALUES
 (1, 'Computer Engineering', 0),
 (2, 'Mechanical Engineering', 0),
-(5, 'Semester 1', 1);
+(3, 'Civil Engineering', 0),
+(4, 'Electrical Engineering', 0),
+(5, 'Semester 1', 1),
+(6, 'Semester 1', 2),
+(7, 'Semester 1', 3),
+(8, 'Semester 1', 4);
 
 -- --------------------------------------------------------
 
@@ -219,14 +235,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --
