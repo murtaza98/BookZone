@@ -34,18 +34,18 @@
 <div class="container">
     <h1 class="text-center">Registration Form</h1>
     <form method="post" action="./register.php">
-        Email Id:<br>
+        <i class="fa fa-info-circle"></i> Email Id:<br>
         <input type="Email" name="username" size="46"> <br><br>
-        Password:<br>
+        <i class="fa fa-info-circle"></i> Password:<br>
         <input type="Password" name="password" size="46"> <br><br>
-        Confirm Password: <br>
+        <i class="fa fa-info-circle"></i> Confirm Password: <br>
         <input type="Password" name="confirmpwd" size="46"> <br><br>
-        First Name: &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; Last Name:<br>
+        <i class="fa fa-info-circle"></i> First Name: &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;<i class="fa fa-info-circle"></i> Last Name:<br>
         <input type="text" style="width: 187px;" name="firstname"> &nbsp;
         <input type="text" style="width: 186px;" name="lastname"> <br><br>
-        Address:<br>
+        <i class="fa fa-info-circle"></i> Address:<br>
         <textarea name="address" style="width: 382px; height: 78px;"></textarea> <br><br>
-        Contact number:<br>
+        <i class="fa fa-info-circle"></i> Contact number:<br>
         <input type="text" name="contact" size="46"> <br><br>
 
         <input type="submit" name="submit" value="REGISTER" style="margin-bottom: 10px;">

@@ -12,9 +12,15 @@
 		<div class="row">
 			<div class="col-lg-6">
 				Book Name <br>
-				<input type="text" class="form-control" placeholder="Enter book name"> <br><br>
+				<div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-book"></i></span>
+					<input type="text" class="form-control" placeholder="Enter book name">
+				</div>  <br><br>
 			  	Price <br>
-				<input type="text" class="form-control" placeholder="Enter price"> <br><br>		
+				<div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-inr"></i></span>
+                    <input type="text" class="form-control" placeholder="Enter price">
+                </div> 	 <br><br>
 				Category <br>
     			<select class="custom-select">
 				    <option selected>Choose...</option>
@@ -25,10 +31,24 @@
 			</div>
 			<div class="col-lg-6">
 				Author <br>
-				<input type="text" class="form-control" placeholder="Enter author name"> <br><br>
+				<div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>	
+					<input type="text" class="form-control" placeholder="Enter author name"> 
+				</div> <br><br>
 				Edition <br>
-				<input type="text" class="form-control" placeholder="Enter book edition"> <br><br>
+				<input type="text" class="form-control" placeholder="Enter book edition"> 
 			</div>
 	</div>
+	Book description <br><br>
+	<div class="btn-toolbar" role="toolbar" style="margin-left: 0px; background-color: #9e9e9e;">
+		<ul>
+			<li class="btn btn-secondary" title="Bold"><i class="fa fa-bold"></i></li>
+			<li class="btn btn-secondary" title="Italics"><i class="fa fa-italic"></i></li>
+			<li class="btn btn-secondary" title="Underline"><i class="fa fa-underline"></i></li>
+			<li class="btn btn-secondary" title="Unordered list"><i class="fa fa-list-ul"></i></li>
+			<li class="btn btn-secondary" title="Ordered List"><i class="fa fa-list-ol"></i></li>
+		</ul>
+	</div>
+	<textarea class="form-control" rows="5" placeholder="Enter book's description" style="resize: none;"></textarea>
 	</form>
 </div>
