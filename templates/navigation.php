@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" style="background-color: #181e46">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" onclick="goBack()"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -12,13 +12,15 @@
           }  
         </script>
       </div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-left">
         <li><a href="index.php">Home</a></li>
         <li><a href="#">About</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-center">
         <li id="website-name">Online book re-selling portal</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a data-toggle="modal" href="" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
         </li>
         <li><a href="addBook.php"><span class="glyphicon glyphicon-book"></span> Sell Book</a></li>
