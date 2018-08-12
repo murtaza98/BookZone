@@ -21,13 +21,8 @@
                     <span class="input-group-addon"><i class="fa fa-inr"></i></span>
                     <input type="text" class="form-control" placeholder="Enter price" required="true">
                 </div> 	 <br><br>
-				Category <br>
-    			<select class="custom-select">
-				    <option selected>Choose...</option>
-				    <option value="1">Computer</option>
-				    <option value="2">Mechanical</option>
-				    <option value="3">Civil</option>
-			  	</select> <br><br>
+				Edition <br>
+				<input type="text" class="form-control" placeholder="Enter book edition" required="true">
 			</div>
 			<div class="col-lg-6">
 				Author <br>
@@ -35,8 +30,18 @@
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>	
 					<input type="text" class="form-control" placeholder="Enter author name" required="true"> 
 				</div> <br><br>
-				Edition <br>
-				<input type="text" class="form-control" placeholder="Enter book edition" required="true"> 
+				Original Price <br>
+				<div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-inr"></i></span>
+                    <input type="text" class="form-control" placeholder="Enter price" required="true">
+                </div> 	 <br><br>
+                Category <br>
+    			<select class="custom-select">
+				    <option selected>Choose...</option>
+				    <option value="1">Computer</option>
+				    <option value="2">Mechanical</option>
+				    <option value="3">Civil</option>
+			  	</select> <br><br>
 			</div>
 	</div>
 	Book description <br><br>
