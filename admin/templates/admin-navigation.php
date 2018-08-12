@@ -50,40 +50,39 @@
       <ul class="nav navbar-nav side-nav">
         <li>
           <a href="./"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-      </li>
-      <li>
-          <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Books <i class="fa fa-fw fa-caret-down"></i></a>
-          <ul id="posts_dropdown" class="collapse">
-              <li>
-                  <a href="#">View All Books</a>
-              </li>
-              <li>
-                  <a href="#">Add Books</a>
-              </li>
-          </ul>
-      </li>
-      <li>
-          <a href="#"><i class="fa fa-fw fa-desktop"></i> Categories</a>
-      </li>
-      <li>
-          <a href="#"><i class="fa fa-fw fa-wrench"></i> Reviews</a>
-      </li>
-      <li>
-          <a href="javascript:;" data-toggle="collapse" data-target="#users_toggle"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
-          <ul id="users_toggle" class="collapse">
-              <li>
-                  <a href="#">View All Users</a>
-              </li>
-              <li>
-                  <a href="#">Add User</a>
-              </li>
-          </ul>
-      </li>
-      <li class="active">
-          <a href="#"><i class="fa fa-fw fa-file"></i> Profile</a>
-      </li>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Books <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="posts_dropdown" class="collapse">
+                <li>
+                    <a href="#">View All Books</a>
+                </li>
+                <li>
+                    <a href="#">Add Books</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-fw fa-desktop"></i> Categories</a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-fw fa-wrench"></i> Reviews</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#users_toggle"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="users_toggle" class="collapse">
+                <li>
+                    <a href="#">View All Users</a>
+                </li>
+                <li>
+                    <a href="#">Add User</a>
+                </li>
+            </ul>
+        </li>
+        <li class="active">
+            <a href="#"><i class="fa fa-fw fa-file"></i> Profile</a>
+        </li>
       </ul>
-      
     </div>
 
 </nav>
