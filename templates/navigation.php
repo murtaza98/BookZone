@@ -19,13 +19,9 @@
       <ul class="nav navbar-nav navbar-center">
         <li id="website-name">Online book re-selling portal</li>
       </ul>
-      <div class="nav navbar-nav navbar-right">
-        <li><a href="./admin/index.php"><span class="glyphicon glyphicon-book"></span> Admin</a></li>
-        <li class="active"><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a data-toggle="modal" href="" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-        </li>
-        <li><a href="addBook.php"><span class="glyphicon glyphicon-book"></span> Sell Book</a></li>
-      </div>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
       <?php include "templates/login_modal.php" ?>
     </div>
 </nav>
