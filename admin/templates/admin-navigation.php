@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
     </div>
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -63,7 +63,7 @@
             </ul>
         </li>
         <li>
-            <a href="#"><i class="fa fa-fw fa-desktop"></i> Categories</a>
+            <a href="categories.php"><i class="fa fa-fw fa-desktop"></i> Categories</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-fw fa-wrench"></i> Reviews</a>
