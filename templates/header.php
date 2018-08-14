@@ -1,3 +1,5 @@
+<?php ob_start(); ?>
+<?php session_start(); ?>
 <?php include "./templates/db.php"; ?>
 <!DOCTYPE html>
 <html>

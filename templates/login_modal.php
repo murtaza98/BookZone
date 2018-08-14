@@ -8,7 +8,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-8"> 
-            <form method="post" action="./login.php">
+            <form method="post" action="./templates/login.php">
 
               <div class="form-group">
                 <label for="email">Username</label>
