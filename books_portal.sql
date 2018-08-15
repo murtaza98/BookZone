@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2018 at 08:02 AM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Generation Time: Aug 15, 2018 at 07:15 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,9 +39,9 @@ CREATE TABLE `bookmark` (
 --
 
 INSERT INTO `bookmark` (`username`, `book_id`, `date`) VALUES
-('murtaza', 3, '2018-08-05 12:01:05'),
-('ojas', 4, '2018-08-05 12:01:17'),
-('priyesh', 1, '2018-08-05 12:01:27');
+('murtaza', 3, '2018-08-05 06:31:05'),
+('ojas', 4, '2018-08-05 06:31:17'),
+('priyesh', 1, '2018-08-05 06:31:27');
 
 -- --------------------------------------------------------
 
@@ -58,33 +58,35 @@ CREATE TABLE `books` (
   `subject` varchar(255) NOT NULL,
   `category_id` int(11) NOT NULL DEFAULT '0',
   `book_price` int(11) NOT NULL DEFAULT '0',
+  `book_original_price` int(11) NOT NULL DEFAULT '0',
   `book_description` varchar(1000) DEFAULT 'No Description Available',
   `book_image` varchar(255) NOT NULL DEFAULT 'default.jpg',
   `book_status` varchar(255) NOT NULL DEFAULT 'available',
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `date` date NOT NULL DEFAULT '1920-05-20'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
-(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 3, 500, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05 14:32:35'),
-(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05 14:32:35'),
-(4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
-(5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 'No Description Available', 'java.jpg', 'available', '2018-08-08 17:48:46'),
-(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08 17:49:41'),
-(7, 'priyesh', 'COA', 'someone', '6', 'COA', 6, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
-(8, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 2, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08 17:49:41'),
-(9, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 2, 1000, 'No Description Available', 'java.jpg', 'available', '2018-08-08 17:48:46'),
-(11, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 2, 500, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05 14:32:35'),
-(12, 'priyesh', 'COA', 'someone', '6', 'COA', 3, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
-(13, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 3, 1000, 'No Description Available', 'java.jpg', 'available', '2018-08-08 17:48:46'),
-(14, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 3, 250, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05 14:32:35'),
-(15, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 4, 250, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05 14:32:35'),
-(16, 'priyesh', 'COA', 'someone', '6', 'COA', 4, 450, 'No Description Available', 'coa.jpg', 'available', '2018-08-05 14:32:35'),
-(17, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 4, 500, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05 14:32:35'),
-(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08 17:49:41');
+INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_original_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
+(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 3, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
+(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 0, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05'),
+(4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
+(5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
+(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08'),
+(7, 'priyesh', 'COA', 'someone', '6', 'COA', 6, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
+(8, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 2, 0, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08'),
+(9, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 2, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
+(11, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 2, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
+(12, 'priyesh', 'COA', 'someone', '6', 'COA', 3, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
+(13, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 3, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
+(14, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 3, 250, 0, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05'),
+(15, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 4, 250, 0, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05'),
+(16, 'priyesh', 'COA', 'someone', '6', 'COA', 4, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
+(17, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 4, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
+(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 0, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08'),
+(19, 'murtaza', 'asd', 'asd', 'asd', 'asd', 1, 132, 456, 'basjbdjk', 'default.jpg', 'available', '2018-08-14');
 
 -- --------------------------------------------------------
 
@@ -110,7 +112,8 @@ INSERT INTO `categories` (`category_id`, `category_name`, `parent_category_id`) 
 (5, 'Semester 1', 1),
 (6, 'Semester 1', 2),
 (7, 'Semester 1', 3),
-(8, 'Semester 1', 4);
+(8, 'Semester 1', 4),
+(9, 'Semester 2', 1);
 
 -- --------------------------------------------------------
 
@@ -181,6 +184,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`username`, `password`, `first_name`, `middle_name`, `last_name`, `role`, `street_no`, `area`, `city`, `pincode`, `user_category`) VALUES
 ('murtaza', '1234', 'murtaza', NULL, 'patrawala', 'admin', -1, 'mumbai', 'Mumbai', 400070, 'FirstYear'),
 ('ojas', '1234', 'ojas', NULL, 'kapre', 'admin', -1, 'mumbai', 'Mumbai', 400070, 'SecondYear'),
+('patrawalamurtaza52@gmail.com', '1234', 'Gabrielle', NULL, 'Lewis', 'user', -1, '9-65, Western Express Highway', '', -1, 'FirstYear'),
 ('priyesh', '1234', 'priyesh', NULL, 'patel', 'admin', -1, 'mumbai', 'Mumbai', 400070, 'ThirdYear');
 
 --
@@ -199,7 +203,10 @@ ALTER TABLE `bookmark`
 --
 ALTER TABLE `books`
   ADD PRIMARY KEY (`book_id`),
-  ADD KEY `fk_books_username` (`username`);
+  ADD KEY `fk_books_username` (`username`),
+  ADD KEY `book_price` (`book_price`),
+  ADD KEY `book_name` (`book_name`),
+  ADD KEY `book_image` (`book_image`);
 
 --
 -- Indexes for table `categories`
@@ -235,12 +242,14 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- Constraints for dumped tables
 --
