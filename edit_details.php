@@ -7,6 +7,31 @@
 
 <?php include "./templates/navigation.php"; ?>
 
+<!--Update User details-->
+<?php
+    if(isset($_POST['submit'])){
+        $user_flatNo = $_POST['street_no'];
+        $user_area = $_POST['area'];
+        $user_city = $_POST['city'];
+        $user_pincode = $_POST['pincode'];
+        $user_contact = $_POST['contact'];
+        $user_category = $_POST['category'];
+        
+        $query = "UPDATE users SET street_no=$user_flatNo,area='$user_area',city='$user_city',pincode=$user_pincode,user_category='$user_category' WHERE username='".addslashes($_SESSION['username'])."'";
+//        echo $query;
+        $query_result = mysqli_query($connection,$query);
+        
+        if(!$query_result){
+            die("QUERY FAILED ".mysqli_error($connection));
+        }else{
+            echo "<h2 class='text-center text-success'><b>Changes made</b></h2>";
+        }
+        
+    }
+?>
+
+
+
 <!--View User details-->
 <?php  
 	$query = "SELECT * FROM users WHERE username='".addslashes($_SESSION['username'])."'";
@@ -37,27 +62,7 @@
         } 
 ?>
 
-<!--Update User details-->
-<?php
-    if(isset($_POST['submit'])){
-        $user_flatNo = $_POST['street_no'];
-        $user_area = $_POST['area'];
-        $user_city = $_POST['city'];
-        $user_pincode = $_POST['pincode'];
-        $user_contact = $_POST['contact'];
-        
-        $query = "UPDATE users SET street_no='$user_flatNo',area='$user_area',city='$user_city',pincode='$user_pincode' WHERE username='".addslashes($_SESSION['username'])."'";
-        echo $query;
-        $query_result = mysqli_query($connection,$query);
-        
-        if(!$query_result){
-            die("QUERY FAILED ".mysqli_error($connection));
-        }else{
-            echo "<h2 class='text-center text-success'><b>Changes made</b></h2>";
-        }
-        
-    }
-?>
+
 
   <div class="container">
     <h1 class="text-center"><?php echo $_SESSION['username']?>'s details</h1>
@@ -74,7 +79,7 @@
                     <label for="passwd">Password</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="Password" class="form-control" id="passwd" value="<?php echo $password?>" placeholder="Password" disabled> 
+                        <input type="Password" class="form-control" id="passwd" value="<?php //echo $password?>" placeholder="Password" disabled> 
                     </div>
                     -->
                     <div class="row">
@@ -108,46 +113,45 @@
                             <label for="flatNo">Flat No.</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input type="text" class="form-control" id="flatNo" value="<?php echo $flatNo?>" placeholder="Flat no. , Street no.">
+                                <input name="street_no" type="number" class="form-control" id="flatNo" value="<?php echo $flatNo?>" placeholder="Flat no. , Street no.">
                             </div>
                             <label for="area">Area</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input type="text" class="form-control" id="area" value="<?php echo $area?>" placeholder="Area">
+                                <input name="area" type="text" class="form-control" id="area" value="<?php echo $area?>" placeholder="Area">
                             </div>
                             <label for="contact">Contact</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                                <input type="number" class="form-control" id="contact" value="<?php echo $contactNo?>" placeholder="Contact Number">
+                                <input name="contact" type="number" class="form-control" id="contact" value="<?php echo $contactNo?>" placeholder="Contact Number">
                             </div><br>
-                            <input type="submit" class="form-control btn btn-primary" value="Save Changes">
+                            <input name="submit" type="submit" class="form-control btn btn-primary" value="Save Changes">
                         </div>
                     
                         <div class="col-sm-6">
                             <label for="city">City</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input type="text" class="form-control" id="city" value="<?php echo $city?>" placeholder="City">
+                                <input name="city" type="text" class="form-control" id="city" value="<?php echo $city?>" placeholder="City">
                             </div>
                             <label for="pincode">Pincode</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input type="text" class="form-control" id="pincode" value="<?php echo $pincode?>" placeholder="Pincode">
+                                <input name="pincode" type="text" class="form-control" id="pincode" value="<?php echo $pincode?>" placeholder="Pincode">
                             </div>
                             <div class="form-group">
                                   <label for="preference">Category</label>
-                                  <select class="form-control" id="preference">
-                                        <option>FirstYear</option>
-                                        <option>SecondYear</option>
-                                        <option>ThirdYear</option>
-                                        <option>LastYear</option>
+                                  <select name="category" class="form-control" id="preference">
+                                        <option <?php if($category=='FirstYear'){echo 'selected';} ?> value="FirstYear">FirstYear</option>
+                                        <option <?php if($category=='SecondYear'){echo 'selected';} ?> value="SecondYear">SecondYear</option>
+                                        <option <?php if($category=='ThirdYear'){echo 'selected';} ?> value="ThirdYear">ThirdYear</option>
+                                        <option <?php if($category=='LastYear'){echo 'selected';} ?> value="LastYear">LastYear</option>
                                   </select>
                             </div>
                         </div>
                     </div>
                 </div>
             <div class="col-sm-3"></div>
-            </div>
         </div>
     </form>
 </div>
