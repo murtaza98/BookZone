@@ -22,9 +22,6 @@
     <!--include navigation bar css -->  
     <link rel='stylesheet' type='text/css' href='includes/css/navbar.css'>
     
-    <!--Javascript to add textarea functions to sell book page-->
-    <script type="text/javascript" src="includes/javascript/textareaFunctions.js"></script>
-    
     <?php 
         if(function_exists('customPageHeader')){
             customPageHeader();
