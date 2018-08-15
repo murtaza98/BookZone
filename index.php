@@ -85,6 +85,7 @@
                                 $title_printed = true;
                             }
                             while($product_row = mysqli_fetch_assoc($product_query_result)){
+                                $book_id = $product_row['book_id'];
                                 $book_name = $product_row['book_name'];
                                 $book_author = $product_row['author'];
                                 $book_edition = $product_row['edition'];
@@ -94,7 +95,7 @@
 ?>
                                 <div class="col-sm-3"> 
                                     <div class="thumbnail">
-                                        <a href="book_details.php">
+                                        <a href="book_details.php?book_id=<?php echo $book_id?>">
                                             <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">
                                             <div class="caption" style="height: 60px">
                                                 <p align="center"><?php echo $book_name ?></p>
@@ -119,77 +120,3 @@
 </div>
 	
 <?php include "templates/footer.php"; ?>
-
-
-<!-- <h3>Computer Engineering</h3>
-            <div class="row">
-                <div class="col-sm-3"> 
-                    <div class="thumbnail">
-                        <a href="book_details.php">
-                            <img src="includes/images/coa.jpg" alt="Lights" style="width:100%; height: 230px;">
-                            <div class="caption">
-                                <p align="center">COA</p>
-                            </div>
-                        </a>
-                    </div>     
-                </div> 
-                <div class="col-sm-3"> 
-                    <div class="thumbnail">
-                        <img src="includes/images/java.jpg" alt="Lights" style="width:100%; height: 230px;">
-                        <div class="caption">
-                            <p align="center">OOPM</p>
-                        </div>
-                    </div>     
-                </div>
-                <div class="col-sm-3"> 
-                    <div class="thumbnail">
-                        <img src="includes/images/ds.jpg" alt="Lights" style="width:100%; height: 230px;">
-                        <div class="caption">
-                            <p align="center">Data Structures</p>
-                        </div>
-                    </div>     
-                </div>
-                <div class="col-sm-3"> 
-                    <div class="thumbnail">
-                        <img src="includes/images/aoa.jpg" alt="Lights" style="width:100%; height: 230px;">
-                        <div class="caption">
-                            <p align="center">AOA</p>
-                        </div>
-                    </div>     
-                </div>
-            </div> --> 
-            <!-- <h3>Mechanical Engineering</h3>
-            <div class="row">
-                <div class="col-sm-3"> 
-                    <div class="thumbnail">
-                            <img src="includes/images/coa.jpg" alt="Lights" style="width:100%; height: 230px;">
-                        <div class="caption">
-                            <p align="center">COA</p>
-                        </div>
-                    </div>     
-                </div> 
-                <div class="col-sm-3"> 
-                    <div class="thumbnail">
-                        <img src="includes/images/java.jpg" alt="Lights" style="width:100%; height: 230px;">
-                        <div class="caption">
-                            <p align="center">OOPM</p>
-                        </div>
-                    </div>     
-                </div>
-                <div class="col-sm-3"> 
-                    <div class="thumbnail">
-                        <img src="includes/images/ds.jpg" alt="Lights" style="width:100%; height: 230px;">
-                        <div class="caption">
-                            <p align="center">Data Structures</p>
-                        </div>
-                    </div>     
-                </div>
-                <div class="col-sm-3"> 
-                    <div class="thumbnail">
-                        <img src="includes/images/java.jpg" alt="Lights" style="width:100%; height: 230px;">
-                        <div class="caption">
-                            <p align="center">OOPM</p>
-                        </div>
-                    </div>     
-                </div>
-            </div>  -->
