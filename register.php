@@ -10,7 +10,7 @@
 
 <?php
     if(isset($_POST['submit'])){
-        $user_name = $_POST['username'];
+        $username = $_POST['username'];
         $user_password = $_POST['password'];
         $user_email = $_POST['email'];
         $user_firstName = $_POST['firstname'];
@@ -21,22 +21,19 @@
         $user_contact = $_POST['contact'];
         $user_category = $_POST['user_category'];
         $user_role = "user";
+        //CALL procedure
+        $query = "CALL addUser('$username','$user_password','$user_email','$user_firstName','$user_middleName','$user_lastname','$user_city',$user_pincode,'$user_category','$user_role',$user_contact)";
         
-        $query = "INSERT INTO users(username,password,email,first_name,middle_name,last_name,city,pincode,user_category,role) VALUES('$user_name','$user_password','$user_email','$user_firstName','$user_middleName','$user_lastname','$user_city','$user_pincode','$user_category','$user_role');";
-        $query .= " INSERT INTO contacts(contact_no) VALUES($user_contact) where username = '$username'";
-
-
-        if(mysqli_multi_query($connection,$query)){
-            do{
-                if($query_result = mysqli_store_result($connection)){
-                    // Free result set
-                    mysqli_free_result($query_result);
-                }
-            }while(mysqli_next_result($connection));
-        }else{
+        $query_result = mysqli_query($connection,$query);
+        
+        if(!$query_result){
             die('QUERY FAILED '.mysqli_error($connection));
+        }else{
+            echo "<h3 class='text-center'>
+                        <strong>Registration Successfull</strong>
+                    </h3>";
+            echo "<h5 class='text-center'><a data-toggle='modal' data-target='#loginModal'>Click Here to Login</a></h5>";
         }
-
     }
 ?>
 <div class="container">
