@@ -20,8 +20,6 @@
         		$firstName = $detail_row['first_name'];
         		$middleName = $detail_row['middle_name'];
         		$lastName = $detail_row['last_name'];
-        		$flatNo = $detail_row['street_no'];
-        		$area = $detail_row['area'];
         		$city = $detail_row['city'];
         		$pincode = $detail_row['pincode'];
                 $category = $detail_row['user_category'];
@@ -83,31 +81,22 @@
                     
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="flatNo">Flat No.</label>
+                          <label for="city">City</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input type="text" class="form-control" id="flatNo" value="<?php echo $flatNo?>" placeholder="Flat no. , Street no." disabled>
+                                <input type="text" class="form-control" id="city" value="<?php echo $city?>" placeholder="City" disabled>
                             </div>
-                            <label for="area">Area</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input type="text" class="form-control" id="area" value="<?php echo $area?>" placeholder="Area" disabled>
-                            </div>
+
                             <label for="contact">Contact</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
                                 <input type="number" class="form-control" id="contact" value="<?php echo $contactNo?>" placeholder="Contact Number" disabled>
                             </div><br>
-                            <a href="edit_details.php">Edit</a> 
+                            <a href="edit_details.php" class="btn btn-primary form-control">Edit</a>
 
                         </div>
                     
                         <div class="col-sm-6">
-                            <label for="city">City</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input type="text" class="form-control" id="city" value="<?php echo $city?>" placeholder="City" disabled>
-                            </div>
                             <label for="pincode">Pincode</label>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
