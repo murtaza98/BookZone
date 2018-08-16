@@ -31,7 +31,6 @@
 ?>
 
 
-
 <!--View User details-->
 <?php  
 	$query = "SELECT * FROM users WHERE username='".addslashes($_SESSION['username'])."'";
@@ -125,7 +124,6 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
                                 <input name="contact" type="number" class="form-control" id="contact" value="<?php echo $contactNo?>" placeholder="Contact Number">
                             </div><br>
-                            <input name="submit" type="submit" class="form-control btn btn-primary" value="Save Changes">
                         </div>
                     
                         <div class="col-sm-6">
@@ -148,6 +146,15 @@
                                         <option <?php if($category=='LastYear'){echo 'selected';} ?> value="LastYear">LastYear</option>
                                   </select>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <input name="submit" type="submit" class="form-control btn btn-primary" value="Save Changes">
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <a data-toggle="modal" href="" data-target="#changePwdModal" class="btn btn-primary form-control">Change Password</a>
+                            <?php include "changePasswd.php" ?>
                         </div>
                     </div>
                 </div>
