@@ -87,7 +87,7 @@
         $openPage = "bookmark.php"; 
     }
     // add else here to print message
-    // 
+
     $review_query = "SELECT * FROM reviews WHERE book_id='$book_id'";
     $review_result = mysqli_query($connection, $review_query);
     if (!$review_result) {
@@ -96,8 +96,9 @@
         $review_set = mysqli_fetch_assoc($review_result);
         $ratings = $review_set['ratings'];
         $content = $review_set['review_content'];
-        }
+    }
  ?>
+
 
 <div class="container">
 	<div class="row">
@@ -136,7 +137,7 @@
 			<p><?php echo $book_description; ?></p>
 		</div>
         <div class="bookReview">
-            <h5><strong>Reviews</strong></h5>
+            <h5><strong>Ratings</strong></h5>
             <p id="rating"><?php echo $ratings; ?>
                 <script type="text/javascript" >
                 var rating = <?php echo $ratings ?>;
@@ -153,10 +154,32 @@
                 }
                 output += '</div>';
                 document.getElementById('rating').innerHTML = output;
-</script>
+                </script>
             </p>
             <p>
-                <?php echo $content; ?>
+                <h5><strong>Reviews</strong></h5>   
+                <?php
+                    $review_query = "SELECT review_content FROM reviews WHERE book_id='$book_id'";
+                    $review_result = mysqli_query($connection, $review_query);
+                    if (!$review_result) {
+                        die('REVIEWS QUERY FAILED '.mysqli_error($connection));
+                    }
+
+                    $user_query = "SELECT first_name, last_name FROM users WHERE username IN (SELECT username FROM reviews WHERE book_id ='$book_id')";
+                    $user_result = mysqli_query($connection, $user_query);
+                    if(!$user_result) {
+                        die('QUERY FAILED'.mysqli_error($connection));
+                    }else {
+                        while($user_set = mysqli_fetch_assoc($user_result)) {
+                        $review_set = mysqli_fetch_assoc($review_result);
+                        $firstName = $user_set['first_name'];
+                        $lastName = $user_set['last_name'];
+                        $review_content = $review_set['review_content'];
+                        echo '  <h4><strong>'.$firstName.'</strong></h4>
+                                '.$review_content.'';
+                        }
+                    }
+                ?>
             </p>
         </div>
 	</div>
