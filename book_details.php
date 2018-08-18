@@ -87,6 +87,16 @@
         $openPage = "bookmark.php"; 
     }
     // add else here to print message
+    // 
+    $review_query = "SELECT * FROM reviews WHERE book_id='$book_id'";
+    $review_result = mysqli_query($connection, $review_query);
+    if (!$review_result) {
+        die('REVIEWS QUERY FAILED '.mysqli_error($connection));
+    }else {
+        $review_set = mysqli_fetch_assoc($review_result);
+        $ratings = $review_set['ratings'];
+        $content = $review_set['review_content'];
+        }
  ?>
 
 <div class="container">
@@ -125,5 +135,29 @@
 			<h5><strong>Book Description</strong></h5>
 			<p><?php echo $book_description; ?></p>
 		</div>
+        <div class="bookReview">
+            <h5><strong>Reviews</strong></h5>
+            <p id="rating"><?php echo $ratings; ?>
+                <script type="text/javascript" >
+                var rating = <?php echo $ratings ?>;
+                var filledStars = Math.round(rating);
+                var emptyStars = 10 - filledStars;
+                var output = '<div title="'+rating+'">';
+                while (filledStars > 0) {
+                    output += '<i class="fa fa-star";></i>';
+                    filledStars--;
+                }
+                while (emptyStars >= 1) {
+                    output += '<i class="fa fa-star" style="color: yellow; "></i>';
+                    emptyStars--;
+                }
+                output += '</div>';
+                document.getElementById('rating').innerHTML = output;
+</script>
+            </p>
+            <p>
+                <?php echo $content; ?>
+            </p>
+        </div>
 	</div>
 </div>
