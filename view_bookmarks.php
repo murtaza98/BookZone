@@ -15,6 +15,7 @@
 		die('QUERY FAILED '.mysqli_error($connection));
 	}else {
 		while($query_set = mysqli_fetch_assoc($query_result)){
+			$bookId = $query_set['book_id'];
 			$bookName = $query_set['book_name'];
 			$author = $query_set['author'];
 			$edition = $query_set['edition'];
@@ -31,6 +32,7 @@
 			echo '<div class="container">
 						<div class="media">
 						  	<div class="media-left media-top">
+						  		<a href="remove_bookmark.php?book_id='.$bookId.'"><i class="glyphicon glyphicon-remove" style="color: red;"></i></a>
 						    	<img src="includes/images/'.$bookImage.'" class="media-object" style="width:60px">
 						  	</div>
 						  	<div class="media-body">
