@@ -82,11 +82,18 @@
     }
 ?>
 
+<?php 
+    if (isset($_SESSION['username'])) {
+        $openPage = "bookmark.php"; 
+    }
+    // add else here to print message
+ ?>
+
 <div class="container">
 	<div class="row">
 		<div class="col-sm-4" style="position: sticky; top: 0;">
 			<img style="width:100%;" src="includes/images/<?php echo $book_image; ?>">
-			<button type="button" class="btn" style="width: 49.3%; background-color: #396a94; color: white">Bookmark</button>
+			<a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" type="button" class="btn" style="width: 49.3%; background-color: #396a94; color: white">Bookmark</a>
 			<button type="button" class="btn" style="width: 49.3%; background-color: #18456b; color: white">Buy Now</button>
 		</div>
 		<div class="col-sm-6">
