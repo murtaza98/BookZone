@@ -1,5 +1,6 @@
 <?php
     function customPageHeader(){
+        echo "<script type='text/javascript' src='./includes/javascript/register.js'></script>";
     }
 ?>
 
@@ -38,76 +39,99 @@
 ?>
 <div class="container">
     <h1 class="text-center">Registration Form</h1>
+    <p id="errorMsg" style='color:#F00'></p>
     <form method="post" action="./register.php">
         <div class="row">
             <div class="col-sm-3"></div>
                 <div class="col-sm-6">
-                    <label for="username">Username</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input name="username" type="text" class="form-control" id="username" placeholder="Username" required="true"> 
+                   <div class='form-group'>
+                        <label for="username">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input name="username" type="text" class="form-control" id="username" placeholder="Username" required="true"> 
+                        </div>                   
                     </div>
-                    <label for="passwd">Password</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input name="password" type="Password" class="form-control" id="passwd" placeholder="Password" required="true"> 
+                    <div class='form-group'>
+                        <label for="passwd">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input name="password" type="Password" class="form-control" id="passwd" placeholder="Password" required="true"> 
+                        </div>
                     </div>
-                    <label for="confirmpwd">Confirm Password</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input name="confirmpassword" type="Password" class="form-control" id="confirmpwd" placeholder="Re-type password" required="true">
+                    
+                    <div class='form-group'>
+                        <label for="confirmpwd">Confirm Password</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input onfocusout="sayHello()"  name="confirmpassword" type="Password" class="form-control" id="confirmpwd" placeholder="Re-type password" required="true">
+                        </div>
+                        <p id="error_msg_confirmpwd" style="color:#F00; padding-top: 5px; display:none">ERROR!!! Password doesnt match</p> 
                     </div>
-                    <label for="email">Email</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input name="email" type="Email" class="form-control" id="email" placeholder="Enter Email" required="true">
+                    <div class='form-group'>
+                        <label for="email">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input name="email" type="Email" class="form-control" id="email" placeholder="Enter Email" required="true">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4">
-                            <label for="fname">First Name</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input name="firstname" type="text" class="form-control" id="fname" placeholder="First name" required="true">
+                            <div class='form-group'>
+                                <label for="fname">First Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input name="firstname" type="text" class="form-control" id="fname" placeholder="First name" required="true">
+                                </div>
                             </div>
                         </div>
                     
                         <div class="col-sm-4">
-                            <label for="mname">Middle Name</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input name="middlename" type="text" class="form-control" id="mname" placeholder="Middle name">
+                           <div class='form-group'>
+                                <label for="mname">Middle Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input name="middlename" type="text" class="form-control" id="mname" placeholder="Middle name">
+                                </div>
                             </div>
                         </div>
                     
                         <div class="col-sm-4">
-                            <label for="lname">Last Name</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input name="lastname" type="text" class="form-control" id="lname" placeholder="Last name" required="true">
+                           <div class='form-group'>
+                                <label for="lname">Last Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input name="lastname" type="text" class="form-control" id="lname" placeholder="Last name" required="true">
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-sm-6">
-                            <label for="city">City</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input name="city" type="text" class="form-control" id="city" placeholder="City" required="true">
-                            </div>                            
-                            <label for="contact">Contact</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                                <input name="contact" type="number" class="form-control" id="contact" placeholder="Contact Number" valid><br>
+                           <div class='form-group'>
+                                <label for="city">City</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+                                    <input name="city" type="text" class="form-control" id="city" placeholder="City" required="true">
+                                </div>
+                            </div> 
+                            <div class='form-group'>                           
+                                <label for="contact">Contact</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                    <input name="contact" type="number" class="form-control" id="contact" placeholder="Contact Number" valid><br>
+                                </div>
                             </div>
                         </div>
                     
                         <div class="col-sm-6">
                             
-                            <label for="pincode">Pincode</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                <input name="pincode" type="number" class="form-control" id="pincode" placeholder="Pincode" required="true" valid>
+                            <div class='form-group'>
+                                <label for="pincode">Pincode</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+                                    <input name="pincode" type="number" class="form-control" id="pincode" placeholder="Pincode" required="true" valid>
+                                </div>
                             </div>
                             <div class="form-group">
                                   <label for="preference">Your Preference</label>
@@ -121,13 +145,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class='form-group'>
                     <input name="submit" type="submit" class="btn btn-primary" value="REGISTER">
+                    </div>
                 </div>
             <div class="col-sm-3"></div>
-            </div>
         </div>
     </form>
 </div>
+
+
 
 
 <?php include "templates/footer.php"; ?>
