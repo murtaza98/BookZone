@@ -10,14 +10,4 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 <?php include "templates/admin-footer.php"; ?>

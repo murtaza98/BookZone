@@ -3,7 +3,6 @@
         echo "<link rel='stylesheet' type='text/css' href='includes/css/categories.css'>";
     }
 ?>
-
 <?php include "./templates/admin-header.php"; ?>
 
 <?php include "./templates/admin-navigation.php"; ?>
