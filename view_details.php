@@ -92,7 +92,6 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
                                 <input type="number" class="form-control" id="contact" value="<?php echo $contactNo?>" placeholder="Contact Number" disabled>
                             </div><br>
-                            <a href="edit_details.php" class="btn btn-primary form-control">Edit</a>
 
                         </div>
                     
@@ -107,7 +106,15 @@
                                 <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
                                 <input type="text" class="form-control" id="pincode" value="<?php echo $category?>" placeholder="category" disabled>
                             </div><br> 
-                            <button class=" form-control btn btn-warning">Report</button>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a href="edit_details.php" class="btn btn-primary form-control"><i class="glyphicon glyphicon-edit"> Edit</i></a>
+                            </div>
+                                <button class=" form-control btn btn-warning">Report</button>
+                            <div class="col-sm-6">
+                            </div>
                         </div>
                     </div>
                 </div>

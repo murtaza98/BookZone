@@ -93,7 +93,7 @@
                                 $book_price = $product_row['book_price'];
                                 $book_image = $product_row['book_image'];
 ?>
-                                <div class="col-sm-3"> 
+                                <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6"> 
                                     <div class="thumbnail">
                                         <a href="book_details.php?book_id=<?php echo $book_id?>">
                                             <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">
