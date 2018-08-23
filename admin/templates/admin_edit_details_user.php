@@ -1,15 +1,7 @@
-<?php
-    function customPageHeader(){
-    }
-?>
-
-<?php include "./templates/header.php"; ?>
-
-<?php include "./templates/navigation.php"; ?>
-
 <!--Update User details-->
 <?php
     if(isset($_POST['submit'])){
+        $username = $_GET['edit'];
         $user_flatNo = $_POST['street_no'];
         $user_area = $_POST['area'];
         $user_city = $_POST['city'];
@@ -17,15 +9,20 @@
         $user_contact = $_POST['contact'];
         $user_category = $_POST['category'];
         
-        $query = "UPDATE users SET street_no=$user_flatNo,area='$user_area',city='$user_city',pincode=$user_pincode,user_category='$user_category' WHERE username='".addslashes($_SESSION['username'])."'";
+        $query = "UPDATE users SET street_no=$user_flatNo,area='$user_area',city='$user_city',pincode=$user_pincode,user_category='$user_category' WHERE username='".addslashes($username)."'";
 //        echo $query;
         $query_result = mysqli_query($connection,$query);
         
         if(!$query_result){
             die("QUERY FAILED ".mysqli_error($connection));
         }else{
-            echo "<h2 class='text-center text-success'><b>Changes made</b></h2>";
+            // echo "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            // echo "<h2 class='text-center text-success'><b>Changes made</b></h2>";
+            $_SESSION['ALERT'] = "<h2 class='text-center text-success'><b>Changes made</b></h2>";
+            $redirect_url = "http://{$_SERVER['HTTP_HOST']}"."{$_SERVER['REQUEST_URI']}";
+            header("Location: $redirect_url");
         }
+
         
     }
 ?>
@@ -33,39 +30,44 @@
 
 <!--View User details-->
 <?php  
-	$query = "SELECT * FROM users WHERE username='".addslashes($_SESSION['username'])."'";
-	$details_set = mysqli_query($connection, $query);
-	if(!$details_set){
-            die("QUERY FAILED ".mysqli_error($connection));
-        }else{
-                $detail_row = mysqli_fetch_assoc($details_set);
-        		$username = $detail_row['username'];
-        		$password = $detail_row['password'];
-        		$firstName = $detail_row['first_name'];
-        		$middleName = $detail_row['middle_name'];
-        		$lastName = $detail_row['last_name'];
-        		$flatNo = $detail_row['street_no'];
-        		$area = $detail_row['area'];
-        		$city = $detail_row['city'];
-        		$pincode = $detail_row['pincode'];
-                $category = $detail_row['user_category'];
-        	}
+    if(isset($_GET['edit'])){
+        $username = $_GET['edit'];
+        $query = "SELECT * FROM users WHERE username='".addslashes($username)."'";
+        $details_set = mysqli_query($connection, $query);
+        if(!$details_set){
+                die("QUERY FAILED ".mysqli_error($connection));
+            }else{
+                    $detail_row = mysqli_fetch_assoc($details_set);
+                    $username = $detail_row['username'];
+                    $password = $detail_row['password'];
+                    $firstName = $detail_row['first_name'];
+                    $middleName = $detail_row['middle_name'];
+                    $lastName = $detail_row['last_name'];
+                    $flatNo = $detail_row['street_no'];
+                    $area = $detail_row['area'];
+                    $city = $detail_row['city'];
+                    $pincode = $detail_row['pincode'];
+                    $category = $detail_row['user_category'];
+                }
 
-    $contactQuery = "SELECT contact_no FROM contacts WHERE username='".addslashes($_SESSION['username'])."'";
-    $contacts_set = mysqli_query($connection, $contactQuery);
-    if(!$contacts_set){
+        $contactQuery = "SELECT contact_no FROM contacts WHERE username='".addslashes($username)."'";
+        $contacts_set = mysqli_query($connection, $contactQuery);
+        if(!$contacts_set){
             die("QUERY FAILED ".mysqli_error($connection));
         }else{
                 $contact_row = mysqli_fetch_assoc($contacts_set); 
                 $contactNo = $contact_row['contact_no'];  
-        } 
+        }
+
+    }
+	 
 ?>
 
 
 
   <div class="container">
-    <h1 class="text-center"><?php echo $_SESSION['username']?>'s details</h1>
-    <form method="post" action="./edit_details.php">
+    <h1 class="text-center"><?php echo $username?>'s details</h1>
+    <form method="post" action="">
         <div class="row">
             <div class="col-sm-3"></div>
                 <div class="col-sm-6">
@@ -154,7 +156,7 @@
                         </div>
                         <div class="col-sm-6 form-group">
                             <a data-toggle="modal" href="" data-target="#changePwdModal" class="btn btn-primary form-control">Change Password</a>
-                            <?php include "templates/changePasswd.php" ?>
+                            <?php include "../templates/changePasswd.php" ?>
                         </div>
                     </div>
                 </div>
