@@ -41,7 +41,7 @@
 									while ($row = mysqli_fetch_assoc($query_result)) {
 										$username = $row['username'];
 										$email = $row['email'];
-										$name = $row['first_name'] . $row['middle_name'] .$row['last_name'];
+										$name = $row['first_name'] . " " . $row['middle_name']. " " .$row['last_name'];
 										$role = $row['role'];
 										$city = $row['city'];
 										$pincode = $row['pincode'];
@@ -52,7 +52,7 @@
 										<tr>
 											<td class="text-center"><?php echo $username ?></td>
 											<td class="text-center"><?php echo $email ?></td>
-											<td class="text-center"<?php echo $name ?></td>
+											<td class="text-center"><?php echo $name ?></td>
 											<td class="text-center"><?php echo $role ?></td>
 											<td class="text-center"><?php echo $city ?></td>
 											<td class="text-center"><?php echo $pincode ?></td>
