@@ -1,4 +1,4 @@
-function starRating(value) {
+function starRating(id, value) {
     var rating = value ;
     var filledStars = Math.round(rating);
     var emptyStars = 10 - filledStars;
@@ -12,5 +12,5 @@ function starRating(value) {
         emptyStars--;
     }
     output += '</div>';
-    return output;
+    document.getElementById(id).innerHTML = output;
  }            

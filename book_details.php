@@ -2,6 +2,7 @@
     function customPageHeader(){
         echo "<link rel='stylesheet' type='text/css' href='includes/css/bookDetails.css'>";
         echo "<script type='text/javascript' src='includes/javascript/ratings.js'></script>";
+        echo "<script type='text/javascript' src='includes/javascript/editor.js'></script>";
     }
 ?>
 
@@ -120,7 +121,7 @@
         		<div class="price">
                     <span style="font-size: 16px; color: #878787">MRP </span><span style="font-size: 16px; color: #878787; text-decoration: line-through;">&#x20b9; <?php echo $book_original_price; ?></span><br>
         			<span style="font-size: 28px;">&#x20b9; <?php echo $book_price; ?></span>
-                    <span id="discount" style="font-size: 12px; color: #878787; border-style: solid; border-width: 1px;padding: 4px;margin-left: 8px; color: red;border-color: red">
+                    <span id="discount" style="font-size: 12px; color: #878787; border-style: solid; border-width: 1px;padding: 4px;margin-left: 8px; color: green;border-color: green">
                         <script type="text/javascript">
                             var discount = Math.round((<?php echo $book_original_price;?> - <?php echo $book_price; ?>)*100/<?php echo $book_original_price; ?>);
                             document.getElementById('discount').innerHTML = discount+'% off';
@@ -149,15 +150,16 @@
         		</div>
                 <div class="bookReview">
                     <h5><strong>Ratings</strong></h5>
-                    <p class="rating"><?php echo $ratings; ?>
-                        <script>document.getClassByName("rating") = starRating(<?php echo $ratings ?>)</script>  
+                    <p id="avgRating">
+                        <script>starRating('avgRating', <?php echo $ratings ?>)</script>  
                     </p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <p>
-                        <h5><strong>Reviews</strong></h5>   
+                        <h5><strong>Reviews</strong></h5>
+                         <textarea class="form-control" id="editor" rows='3' placeholder="Give review" style="resize: none;"></textarea>
                         <?php
                             $review_query = "SELECT ratings,review_content FROM reviews WHERE book_id='$book_id'";
                             $review_result = mysqli_query($connection, $review_query);
@@ -176,10 +178,12 @@
                                 $lastName = $user_set['last_name'];
                                 $review_content = $review_set['review_content'];
                                 $ratings = $review_set['ratings'];
-                                echo '  <h4><strong>'.$firstName.'</strong></h4><script>starRating($ratings)</script><br>'.$review_content.'';
+                                echo '<h4><strong>'.$firstName.'</strong></h4><p id="ratings">';
                                 }
                             }
                         ?>
+                        <script>starRating("ratings",<?php echo $ratings ?>)</script></p><br>
+                        <?php echo $review_content  ?>
                     </p>
                 </div>
             </div>

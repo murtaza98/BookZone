@@ -108,7 +108,7 @@
 				<li class="btn btn-secondary" title="Ordered List"><i class="fa fa-list-ol"></i></li>
 			</ul>
 		</div>
-		<textarea name="book_description" class="form-control" rows="5" id="description" placeholder="Enter book's description" style="resize: none;"></textarea><br>
+		<textarea name="book_description" class="form-control" rows="5" placeholder="Enter book's description" style="resize: none;"></textarea><br>
 	    <input name="submit" type="submit" class="btn btn-primary" value="REGISTER">
 	</form>
 </div>
