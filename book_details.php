@@ -5,7 +5,6 @@
         echo '<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>';
     }
 ?>
-
 <?php include "./templates/header.php"; ?>
 
 <?php include "./templates/navigation.php"; ?>
@@ -89,7 +88,9 @@
         $openPage = "bookmark.php"; 
     }
     // add else here to print message
-
+    if (isset($_SESSION['username']) && $book_status=="available") {
+        $openBuyNow = "buy_now.php";
+    }
     $review_query = "SELECT * FROM reviews WHERE book_id='$book_id'";
     $review_result = mysqli_query($connection, $review_query);
     if (!$review_result) {
@@ -107,7 +108,7 @@
         <div class="col-sm-4" id="bookImage">
             <img style="width:100%;" src="includes/images/<?php echo $book_image; ?>">
             <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style="background-color: #396a94; color: white">Bookmark</a>
-            <button type="button" class="btn" id="buyNow" style="background-color: #18456b; color: white">Buy Now</button>
+            <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #18456b; color: white">Buy Now</a>
         </div>
         <div class="col-sm-8">
         <div class="row">
