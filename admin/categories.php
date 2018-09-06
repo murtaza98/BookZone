@@ -7,6 +7,16 @@
 
 <?php include "./templates/admin-navigation.php"; ?>
 
+<?php
+
+	if(isset($_POST['add_category'])){
+		$category_name = $_POST['category-name'];
+		$query = "INSERT INTO categories(category_name,parent_category_id) VALUES('$category_name',0)";
+		
+	}
+
+?>
+
 <div id="wrapper">
 	
 
@@ -15,6 +25,15 @@
 			<div class="row">
 				<div class="col-lg-6 col-sm-12">
 					<h3>ADD CATEGORY</h3>
+					<form method="POST" action="">
+						<div class='form-group'>
+	                        <label for="category-name">Category Name</label>
+	                        <input name="category-name" type="text" class="form-control" id="category-name" placeholder="Name" required="true">                
+	                    </div>
+	                    <div class='form-group'>
+		                    <input name="add_category" type="submit" class="btn btn-primary" value="ADD CATEGORY">
+	                	</div>
+					</form>
 				</div>
 				<div class="col-lg-6 col-sm-12">
 					<h2 class="text-center"><b><u>All Categories</u></b></h2>
