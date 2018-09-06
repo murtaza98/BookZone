@@ -113,6 +113,7 @@
         <div class="col-sm-8">
         <div class="row">
             <div class="col-sm-4">
+
                 <div class="bookName" style="font-size: 28px; font-weight: bold;">
                     <?php echo $book_name; ?>
                 </div>
@@ -129,34 +130,38 @@
                         </script>
                     </span>
                 </div>
-                <div class="Edition">
-                    <h5><strong>Edition</strong></h5>
-                    <p><?php echo $edition; ?></p>
+
+                <div class="Edition" style="margin-bottom: 20px">
+                    <h5><font size="4"><strong>Edition</strong>&nbsp;&nbsp; 
+                    <?php echo $edition; ?></font></h5>
                 </div>  
-                <div class="seller">
-                    <h5><strong>Seller's information</strong></h5>
-                    <p><?php echo $seller_username; ?></p>
+                <div class="seller" style="margin-bottom: 20px">
+                    <h5><font size="4"><strong>Seller's information</strong>&nbsp;&nbsp;
+                    <?php echo $seller_username; ?></font></h5>
                 </div>
-                <div class="subject">
-                    <h5><strong>Subject</strong></h5>
-                    <p><?php echo $subject; ?></p>
+                <div class="subject" style="margin-bottom: 20px">
+                    <h5><font size="4"><strong>Subject</strong>&nbsp;&nbsp;
+                    <?php echo $subject; ?></font></h5>
                 </div>
-                <div class="category">
-                    <h5><strong>Category</strong></h5>
-                    <p><?php echo $category_name; ?></p>
+                <div class="category" style="margin-bottom: 20px">
+                    <h5><font size="4"><strong>Category</strong>&nbsp;&nbsp;
+                    <?php echo $category_name; ?></font></h5>
                 </div>          
-                <div class="bookDesc">
-                    <h5><strong>Book Description</strong></h5>
-                    <p><?php echo $book_description; ?></p>
+                <div class="bookDesc" style="margin-bottom: 20px">
+                    <h5><font size="4"><strong>Book Description</strong>&nbsp;&nbsp;
+                    <?php echo $book_description; ?></font></h5>
+
                 </div>
                 <div class="bookReview">
-                    <h5><strong>Ratings</strong></h5>
+                    <h5><font size="4"><strong>Ratings</strong></font></h5>
                     <p id="avgRating">
                         <script>starRating('avgRating', <?php echo $ratings ?>)</script>  
                     </p>
                 </div>
             </div>
-            <div class="col-sm-8">
+
+            <div class="col-sm-6">
+
                     <h5><strong>Reviews</strong></h5>
                      <textarea class="form-control" id="editor" rows='10' placeholder="Give review" style="resize: none;"></textarea>
                      <script>
