@@ -103,16 +103,74 @@
  ?>
 
 
-<div class="container">
+<div class="container" style="width: 100%;margin-left: 2%;margin-right: 2%;">
     <div class="row">
-        <div class="col-sm-4" id="bookImage">
-            <img style="width:100%;" src="includes/images/<?php echo $book_image; ?>">
-            <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style="background-color: #396a94; color: white">Bookmark</a>
-            <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #18456b; color: white">Buy Now</a>
+        <div class="col-lg-6 col-sm-12 col-xs-12 col-md-12" id="bookImage">
+            <img style="width:50%;margin-top: 5%;margin-left: 25%;margin-right: 25%" src="includes/images/<?php echo $book_image; ?>">
         </div>
-        <div class="col-sm-8">
-        <div class="row">
-            <div class="col-sm-4">
+        <div class="col-lg-6 col-sm-12 col-xs-12 col-md-12">
+            <div style="margin-top: 5%"></div>
+            <div class="bookName" style="font-size: 28px; font-family: "Comic Sans MS", cursive, sans-serif">
+                <?php echo $book_name; ?>
+            </div>
+            <div class="author" style="font-size: 20px;">
+                by <?php echo $author; ?>
+            </div><br>
+            <div class="price">
+                <span style="font-size: 16px; color: #878787">MRP </span><span style="font-size: 16px; color: #878787; text-decoration: line-through;">&#x20b9; <?php echo $book_original_price; ?></span><br>
+                <span style="font-size: 28px;">&#x20b9; <?php echo $book_price; ?></span>
+                <span id="discount" style="font-size: 12px; color: #878787; border-style: solid; border-width: 1px;padding: 4px;margin-left: 8px; color: green;border-color: green">
+                    <script type="text/javascript">
+                        var discount = Math.round((<?php echo $book_original_price;?> - <?php echo $book_price; ?>)*100/<?php echo $book_original_price; ?>);
+                        document.getElementById('discount').innerHTML = discount+'% off';
+                    </script>
+                </span>
+            </div>
+
+            <div class="Edition" style="margin-bottom: 20px">
+                <h5><font size="4"><strong>Edition</strong>&nbsp;&nbsp; 
+                <?php echo $edition; ?></font></h5>
+            </div>  
+            <div class="seller" style="margin-bottom: 20px">
+                <h5><font size="4"><strong>Seller's information</strong>&nbsp;&nbsp;
+                <?php echo $seller_username; ?></font></h5>
+            </div>
+            <div class="subject" style="margin-bottom: 20px">
+                <h5><font size="4"><strong>Subject</strong>&nbsp;&nbsp;
+                <?php echo $subject; ?></font></h5>
+            </div>
+            <div class="category" style="margin-bottom: 20px">
+                <h5><font size="4"><strong>Category</strong>&nbsp;&nbsp;
+                <?php echo $category_name; ?></font></h5>
+            </div>          
+            <div class="bookDesc" style="margin-bottom: 20px">
+                <h5><font size="4"><strong>Book Description</strong>&nbsp;&nbsp;
+                <?php echo $book_description; ?></font></h5>
+
+            </div>
+            <div class="bookReview">
+                <h5><font size="4"><strong>Ratings</strong></font></h5>
+                <p id="avgRating">
+                    <script>starRating('avgRating', <?php echo $ratings ?>)</script>  
+                </p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="row">
+            <div class="col-lg-12">
 
                 <div class="bookName" style="font-size: 28px; font-weight: bold;">
                     <?php echo $book_name; ?>
@@ -160,7 +218,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-6">
+            <div class="col-lg-6">
 
                     <h5><strong>Reviews</strong></h5>
                      <textarea class="form-control" id="editor" rows='10' placeholder="Give review" style="resize: none;"></textarea>
@@ -199,6 +257,9 @@
                         }
                     ?>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
+
+<!-- <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style="background-color: #396a94; color: white">Bookmark</a>
+            <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #18456b; color: white">Buy Now</a> -->
