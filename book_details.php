@@ -146,19 +146,45 @@
                     <a href="#" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
 ;"><u>Write a review</u></a>
                 </span>
+                &nbsp;&nbsp;
+                <span>
+                    <a href="#" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
+;"><u>See all reviews</u></a>
+                </span>
             </div>
             <br>
             <br>
+            
+            <div class="info" style="margin-bottom: 20px">
+                <h5><font size="4"><b>Subject:</b>&nbsp;&nbsp;
+                <?php echo $subject; ?></font></h5>
+            </div>
+            
+            <div class="info" style="margin-bottom: 20px">
+                <h5><font size="4"><b>Category:</b>&nbsp;&nbsp;
+                <?php echo $category_name; ?></font></h5>
+            </div>
+            
+            <div>
+                <a href="#" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More Details</u>
+                </a>                 
+            </div>
+            
+            <br>
+            <br>            
             
             <hr style="width: 60%;margin: 0; border-color: #bcbcbc">
 
             <br>
 
             <div>
-                <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style="background-color: #396a94; color: white">Bookmark</a>
-            <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #18456b; color: white">Buy Now</a>
+                <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #666; color: white">Buy Now</a>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style=" color: black">Bookmark</a>
+                
             </div>
 
+<!--
             <div class="Edition" style="margin-bottom: 20px">
                 <h5><font size="4"><strong>Edition</strong>&nbsp;&nbsp; 
                 <?php echo $edition; ?></font></h5>
@@ -167,19 +193,14 @@
                 <h5><font size="4"><strong>Seller's information</strong>&nbsp;&nbsp;
                 <?php echo $seller_username; ?></font></h5>
             </div>
-            <div class="subject" style="margin-bottom: 20px">
-                <h5><font size="4"><strong>Subject</strong>&nbsp;&nbsp;
-                <?php echo $subject; ?></font></h5>
-            </div>
-            <div class="category" style="margin-bottom: 20px">
-                <h5><font size="4"><strong>Category</strong>&nbsp;&nbsp;
-                <?php echo $category_name; ?></font></h5>
-            </div>          
+            
+                      
             <div class="bookDesc" style="margin-bottom: 20px">
                 <h5><font size="4"><strong>Book Description</strong>&nbsp;&nbsp;
                 <?php echo $book_description; ?></font></h5>
 
             </div>
+-->
 
 
 
