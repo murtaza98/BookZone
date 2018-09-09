@@ -1,5 +1,5 @@
-.{
-	font-family: "Comic Sans MS", cursive, sans-serif;
+div{
+	font-family: "URW Chancery L", cursive;
 }
 
 #bookmark,#buyNow {
@@ -13,7 +13,7 @@
 		top: 0;
 	}
 	#bookmark,#buyNow {
-		width: 49.3%; 
+		width: 30%; 
 	}
 }
 

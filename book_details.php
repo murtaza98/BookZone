@@ -2,7 +2,7 @@
     function customPageHeader(){
         echo "<link rel='stylesheet' type='text/css' href='includes/css/bookDetails.css'>";
         echo "<script type='text/javascript' src='includes/javascript/ratings.js'></script>";
-        echo '<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>';
+        // echo '<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>';
     }
 ?>
 <?php include "./templates/header.php"; ?>
@@ -110,21 +110,53 @@
         </div>
         <div class="col-lg-6 col-sm-12 col-xs-12 col-md-12">
             <div style="margin-top: 5%"></div>
-            <div class="bookName" style="font-size: 28px; font-family: "Comic Sans MS", cursive, sans-serif">
+            <div class="bookName" style="font-size: 35px;font-weight: 550; font-family: Karla, Arial, Helvetica">
                 <?php echo $book_name; ?>
             </div>
             <div class="author" style="font-size: 20px;">
                 by <?php echo $author; ?>
-            </div><br>
-            <div class="price">
-                <span style="font-size: 16px; color: #878787">MRP </span><span style="font-size: 16px; color: #878787; text-decoration: line-through;">&#x20b9; <?php echo $book_original_price; ?></span><br>
-                <span style="font-size: 28px;">&#x20b9; <?php echo $book_price; ?></span>
-                <span id="discount" style="font-size: 12px; color: #878787; border-style: solid; border-width: 1px;padding: 4px;margin-left: 8px; color: green;border-color: green">
+            </div>
+            <br>
+            <div class="price" style="font-family: Karla, Arial, Helvetica, sans-serif
+; ">
+                <div style="font-size: 28px">
+                    <span>Was : </span><span style="text-decoration: line-through;">&#x20b9; <?php echo $book_original_price; ?></span>
+                </div>
+
+                <div style="font-size: 28px">
+                    <span>Now : </span><span>&#x20b9; <?php echo $book_price; ?></span>
+                </div>
+                <br>
+                <!-- <span id="discount" style="font-size: 12px; color: #878787; border-style: solid; border-width: 1px;padding: 4px;margin-left: 8px; color: green;border-color: green">
                     <script type="text/javascript">
                         var discount = Math.round((<?php echo $book_original_price;?> - <?php echo $book_price; ?>)*100/<?php echo $book_original_price; ?>);
                         document.getElementById('discount').innerHTML = discount+'% off';
                     </script>
+                </span> -->
+            </div>
+
+            <div class="bookReview">
+<!--                <h5><font size="4"><strong>Ratings</strong></font></h5>-->
+                
+                <span id="avgRating" style="font-size: 15px">
+                    <script>starRating('avgRating', <?php echo $ratings ?>)</script>  
                 </span>
+                &nbsp;&nbsp;
+                <span>
+                    <a href="#" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
+;"><u>Write a review</u></a>
+                </span>
+            </div>
+            <br>
+            <br>
+            
+            <hr style="width: 60%;margin: 0; border-color: #bcbcbc">
+
+            <br>
+
+            <div>
+                <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style="background-color: #396a94; color: white">Bookmark</a>
+            <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #18456b; color: white">Buy Now</a>
             </div>
 
             <div class="Edition" style="margin-bottom: 20px">
@@ -148,12 +180,8 @@
                 <?php echo $book_description; ?></font></h5>
 
             </div>
-            <div class="bookReview">
-                <h5><font size="4"><strong>Ratings</strong></font></h5>
-                <p id="avgRating">
-                    <script>starRating('avgRating', <?php echo $ratings ?>)</script>  
-                </p>
-            </div>
+
+
 
 
 
