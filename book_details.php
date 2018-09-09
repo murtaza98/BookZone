@@ -153,7 +153,27 @@
                 </span>
             </div>
             <br>
+<!--            <hr style="width: 60%;margin: 0; border-color: #bcbcbc">-->
+            
             <br>
+            <br>
+            
+            
+            
+            <div id="buynow_parent">
+                <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style=" color: black">Bookmark</a>
+                
+            </div>
+            
+            <br>
+                        
+            
+<!--            <hr style="width: 60%;margin: 0; border-color: #bcbcbc">-->
+
+            <br>
+            
             
             <div class="info" style="margin-bottom: 20px">
                 <h5><font size="4"><b>Subject:</b>&nbsp;&nbsp;
@@ -169,20 +189,8 @@
                 <a href="#" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More Details</u>
                 </a>                 
             </div>
-            
-            <br>
-            <br>            
-            
-            <hr style="width: 60%;margin: 0; border-color: #bcbcbc">
 
-            <br>
-
-            <div>
-                <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #666; color: white">Buy Now</a>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style=" color: black">Bookmark</a>
-                
-            </div>
+            
 
 <!--
             <div class="Edition" style="margin-bottom: 20px">
