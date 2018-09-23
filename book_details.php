@@ -1,7 +1,8 @@
 <?php
     function customPageHeader(){
-        echo "<link rel='stylesheet' type='text/css' href='includes/css/bookDetails.css'>";
+        echo "<link rel='stylesheet' type='text/css' href='includes/css/book_details.css'>";
         echo "<script type='text/javascript' src='includes/javascript/ratings.js'></script>";
+        echo "<script type='text/javascript' src='includes/javascript/book_details.js'></script>";
         // echo '<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>';
     }
 ?>
@@ -186,7 +187,7 @@
             </div>
             
             <div>
-                <a href="#" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More Details</u>
+                <a href="#desc_container" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More Details</u>
                 </a>                 
             </div>
 
@@ -315,8 +316,53 @@
                     ?>
             </div>
         </div> -->
+        </div>
     </div>
 </div>
+<div class="container" id="desc_container">
+    <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" onclick="openCity(event, 'Description')" id="defaultOpen">Description</button>
+<!--      <button class="tablinks" onclick="openCity(event, '')">Paris</button>-->
+<!--      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
+    </div>
+
+    <!-- Tab content -->
+    <div id="Description" class="tabcontent">
+<!--
+      <h3>Description</h3>
+      <p>London is the capital city of England.</p>
+-->
+    <div class="desc_content" style="margin-bottom: 20px">
+        <h5><font size="4"><b>Subject:</b>&nbsp;&nbsp;
+        <?php echo $subject; ?></font></h5>
+    </div>
+
+    <div class="desc_content" style="margin-bottom: 20px">
+        <h5><font size="4"><b>Category:</b>&nbsp;&nbsp;
+        <?php echo $category_name; ?></font></h5>
+    </div>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+      <h3>Paris</h3>
+      <p>Paris is the capital of France.</p> 
+    </div>
+
+    <div id="Tokyo" class="tabcontent">
+      <h3>Tokyo</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+    
+</div>
+
+<script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
+
 
 <!-- <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style="background-color: #396a94; color: white">Bookmark</a>
             <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #18456b; color: white">Buy Now</a> -->
