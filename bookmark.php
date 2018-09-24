@@ -2,7 +2,6 @@
     function customPageHeader(){
     }
 ?>
-
 <?php include "./templates/header.php"; ?>
 <?php 
     if(isset($_GET['book_id'])){

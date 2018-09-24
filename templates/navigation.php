@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" style="background-color: #181e46">
+<nav class="navbar navbar-inverse" id="navbar" style="border-bottom: 2px solid white;">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" onclick="goBack()"><span class="glyphicon glyphicon-chevron-left"></span></a>
@@ -21,9 +21,6 @@
 
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
-        </ul>
-        <ul class="nav navbar-nav">
           <li id="website-name">BookZone</li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -31,6 +28,7 @@
             if(isset($_SESSION['username'])){
               //SHOW SELL BOOK AND LOGOUT IN NAVBAR
           ?>
+            <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
             <li><a href="#"><i class="fa fa-info">  About</a></i></li>
             <li><a href="addBook.php"><span class="glyphicon glyphicon-book"></span> Sell Book</a></li>
             <li class="dropdown">
@@ -57,6 +55,7 @@
             }else{
               //SHOW LOGIN AND SIGN UP IN NAVBAR
           ?>
+              <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
               <li><a href="#"><i class="fa fa-info">  About</a></i></li>
               <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
               <li><a data-toggle="modal" href="" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

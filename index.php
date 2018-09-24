@@ -1,15 +1,18 @@
 <?php
     function customPageHeader(){
         echo "<link rel='stylesheet' type='text/css' href='includes/css/index.css'>";
+        echo '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">';
     }
 ?>
-
 <?php include "./templates/header.php"; ?>
-
-<?php include "./templates/navigation.php"; ?>
+<div class="container-fluid row" style=" background-image:url('includes/images/bgimage.jpg'); background-repeat: no-repeat; background-size:100% 100%; height: 400px;">
+    <?php include "./templates/navigation.php"; ?>
+<script type="text/javascript">
+    document.getElementById('navbar').style.backgroundColor = 'transparent'
+</script>
 
 <!-- search box start -->
-<div class="container-fluid"  style="background: #fff; border: 10px solid #fff; ">
+<div class="container-fluid"  style="background-color: transparent">
     <div class="full-width-util input-group" id="searchBox">
         <input type="text" name="q"  class="form-control home-search-bar acInput" placeholder="Search by title, author, semester" autocomplete="on">
         <span class="input-group-btn">
@@ -18,7 +21,8 @@
     </div>
 </div>
 <!-- search box end -->
-
+<p align="center" style="color: white; font-size: 30px;font-family: fantasy;">Buy and Sell Books Online</p>
+</div>
 <br>
 <div class="container">
     <div class="row" >        
@@ -95,9 +99,14 @@
 ?>
                                 <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6"> 
                                     <div class="thumbnail">
-                                        <a href="book_details.php?book_id=<?php echo $book_id?>">
-                                            <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">
-                                            <div class="caption" style="height: 60px">
+                                        <div class="w3-display-container w3-hover-opacity">
+                                            <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">                                           
+                                            <div class="w3-display-middle w3-display-hover">
+                                                <a href="book_details.php?book_id=<?php echo $book_id?>">   
+                                                    <button class="w3-button" style="background-color: #0b113e; color: white">View Details</button></a>
+                                            </div>
+                                        </div>
+                                            <div class="caption" style="height: 60px; border-top: 5px solid blue">
                                                 <p align="center"><?php echo $book_name ?></p>
                                             </div>
                                         </a>
