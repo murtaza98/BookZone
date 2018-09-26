@@ -187,7 +187,7 @@
             </div>
             
             <div>
-                <a href="#desc_container" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More Details</u>
+                <a href="#more_details" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More Details</u>
                 </a>                 
             </div>
 
@@ -319,47 +319,172 @@
         </div>
     </div>
 </div>
-<div class="container" id="desc_container">
-    <!-- Tab links -->
-    <div class="tab">
-      <button class="tablinks" onclick="openCity(event, 'Description')" id="defaultOpen">Description</button>
-<!--      <button class="tablinks" onclick="openCity(event, '')">Paris</button>-->
-<!--      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
-    </div>
 
-    <!-- Tab content -->
-    <div id="Description" class="tabcontent">
-<!--
-      <h3>Description</h3>
-      <p>London is the capital city of England.</p>
--->
-    <div class="desc_content" style="margin-bottom: 20px">
-        <h5><font size="4"><b>Subject:</b>&nbsp;&nbsp;
-        <?php echo $subject; ?></font></h5>
-    </div>
+<div class="row" id="more_details">
+   <div class="col-lg-6">
+       <div class="container desc_container">
+            <!-- Tab links -->
+            <div class="tab">
+              <button class="tablinks active" onclick="openCity(event, 'Description')" id="defaultOpen">DESCRIPTION</button>
+        <!--      <button class="tablinks" onclick="openCity(event, '')">Paris</button>-->
+        <!--      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
+            </div>
 
-    <div class="desc_content" style="margin-bottom: 20px">
-        <h5><font size="4"><b>Category:</b>&nbsp;&nbsp;
-        <?php echo $category_name; ?></font></h5>
-    </div>
-    </div>
+            <!-- Tab content -->
+            <div id="Description" class="tabcontent">
+                <div class="desc_content" style="margin-bottom: 20px;line-height:10;">
+                    <p style="line-height: 2;"><font size="3">
+                    <?php echo $book_description; ?></font></p>
+                </div>
+            </div>
+        </div>
+   </div>    
+   <div class="col-lg-6">
+       <div class="container desc_container">
+            <!-- Tab links -->
+            <div class="tab">
+              <button class="tablinks active" onclick="openCity(event, 'Description')" id="defaultOpen">DETAILED INFO</button>
+        <!--      <button class="tablinks" onclick="openCity(event, '')">Paris</button>-->
+        <!--      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
+            </div>
 
-    <div id="Paris" class="tabcontent">
-      <h3>Paris</h3>
-      <p>Paris is the capital of France.</p> 
-    </div>
+            <!-- Tab content -->
+            <div id="Description" class="tabcontent">
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Subject:</b>&nbsp;&nbsp;
+                    <?php echo $subject; ?></font></h5>
+                </div>
 
-    <div id="Tokyo" class="tabcontent">
-      <h3>Tokyo</h3>
-      <p>Tokyo is the capital of Japan.</p>
-    </div>
-    
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Category:</b>&nbsp;&nbsp;
+                    <?php echo $category_name; ?></font></h5>
+                </div>
+
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Book Name:</b>&nbsp;&nbsp;
+                    <?php echo $book_name; ?></font></h5>
+                </div>
+
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Author:</b>&nbsp;&nbsp;
+                    <?php echo $author; ?></font></h5>
+                </div>
+
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Original Price:</b>&nbsp;&nbsp;
+                    <?php echo $book_original_price; ?></font></h5>
+                </div>
+
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Book Price:</b>&nbsp;&nbsp;
+                    <?php echo $book_price; ?></font></h5>
+                </div>
+
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Edition:</b>&nbsp;&nbsp;
+                    <?php echo $edition; ?></font></h5>
+                </div>
+
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Subject:</b>&nbsp;&nbsp;
+                    <?php echo $subject; ?></font></h5>
+                </div>
+
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Category:</b>&nbsp;&nbsp;
+                    <?php echo $category_name; ?></font></h5>
+                </div>
+
+                <div class="desc_content" style="margin-bottom: 20px">
+                    <h5><font size="4"><b>Sold By:</b>&nbsp;&nbsp;
+                    <?php echo $seller_username; ?></font></h5>
+                </div>
+            </div>
+        </div>
+   </div>
 </div>
 
+
+<div id="detailed_review_div">
+    <span class="heading">User Rating</span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <p>4.1 average based on 254 reviews.</p>
+    <hr style="border:3px solid #f1f1f1">
+
+    <div class="row" style="margin:10px;">
+      <div class="side">
+        <div>5 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-5"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>150</div>
+      </div>
+      <div class="side">
+        <div>4 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-4"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>63</div>
+      </div>
+      <div class="side">
+        <div>3 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-3"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>15</div>
+      </div>
+      <div class="side">
+        <div>2 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-2"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>6</div>
+      </div>
+      <div class="side">
+        <div>1 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-1"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>20</div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!--
 <script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
+-->
 
 
 
