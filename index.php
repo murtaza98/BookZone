@@ -24,7 +24,7 @@
 <p align="center" style="color: white; font-size: 30px;font-family: fantasy;">Buy and Sell Books Online</p>
 </div>
 <br>
-<div class="container">
+<div class="container" id='container'>
     <div class="row" >        
     <!--   id="#category"-->
         <div class="col-sm-3">
@@ -100,10 +100,18 @@
                                 <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6"> 
                                     <div class="thumbnail">
                                         <div class="w3-display-container w3-hover-opacity">
-                                            <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">                                           
+                                            <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">                                          
                                             <div class="w3-display-middle w3-display-hover">
                                                 <a href="book_details.php?book_id=<?php echo $book_id?>">   
                                                     <button class="w3-button" style="background-color: #0b113e; color: white">View Details</button></a>
+                                            </div>
+                                            <div class="w3-display-topright w3-display-hover">
+                                                <script type="text/javascript">
+                                                    function f1() {
+                                                        document.getElementById('modal01').style.display='block';
+                                                    }
+                                                </script>
+                                                <button class="glyphicon glyphicon-zoom-in" style="color: black; size: 32px;" onclick="f1()"></button>
                                             </div>
                                         </div>
                                             <div class="caption" style="height: 60px; border-top: 5px solid blue">
@@ -127,5 +135,10 @@
 		</div>
     </div>
 </div>
-	
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+        <img src="includes/images/<?php echo $book_image ?>" style="width:30%">
+    </div>
+</div> 
 <?php include "templates/footer.php"; ?>
