@@ -97,9 +97,62 @@
     if (!$review_result) {
         die('REVIEWS QUERY FAILED '.mysqli_error($connection));
     }else {
-        $review_set = mysqli_fetch_assoc($review_result);
-        $ratings = $review_set['ratings'];
-        $content = $review_set['review_content'];
+        $avg_rating = 0;
+        $total_5 = 0;
+        $total_4 = 0;
+        $total_3 = 0;
+        $total_2 = 0;
+        $total_1 = 0;
+        
+        $total_reviews = mysqli_num_rows($review_result);
+        
+        $reviewers_name = [];
+        $reviewers_ratings = [];
+        $reviewers_content = [];
+        
+        $sum_of_all_rating = 0;
+        
+        while($row = mysqli_fetch_assoc($review_result)){
+            $review_username = $row['username'];
+            $rating = $row['ratings'];
+            $content = $row['review_content'];
+            
+            $sum_of_all_rating = $sum_of_all_rating + $rating;
+            
+            array_push($reviewers_name,$review_username);
+            array_push($reviewers_ratings,$rating);
+            array_push($reviewers_content,$content);
+            
+            switch($rating){
+                case 1:
+                    $total_1 = $total_1 + 1;
+                    break;
+                case 2:
+                    $total_2 = $total_2 + 1;
+                    break;
+                case 3:
+                    $total_3 = $total_3 + 1;
+                    break;
+                case 4:
+                    $total_4 = $total_4 + 1;
+                    break;
+                case 5:
+                    $total_5 = $total_5 + 1;
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+        
+        if($sum_of_all_rating>0){
+            $avg_rating = ($sum_of_all_rating)/$total_reviews;
+        }
+        
+        
+        
+        
+    
     }
  ?>
 
@@ -140,7 +193,7 @@
 <!--                <h5><font size="4"><strong>Ratings</strong></font></h5>-->
                 
                 <span id="avgRating" style="font-size: 15px">
-                    <script>starRating('avgRating', <?php echo $ratings ?>)</script>  
+                    <script>starRating('avgRating', <?php echo $avg_rating ?>)</script>  
                 </span>
                 &nbsp;&nbsp;
                 <span>
@@ -149,7 +202,7 @@
                 </span>
                 &nbsp;&nbsp;
                 <span>
-                    <a href="#" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
+                    <a href="#detailed_review_div" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
 ;"><u>See all reviews</u></a>
                 </span>
             </div>
@@ -407,11 +460,11 @@
 
 <div id="detailed_review_div">
     <span class="heading">User Rating</span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star checked"></span>
-    <span class="fa fa-star"></span>
+    <span class="fa fa-star checked review_star"></span>
+    <span class="fa fa-star checked review_star"></span>
+    <span class="fa fa-star checked review_star"></span>
+    <span class="fa fa-star checked review_star"></span>
+    <span class="fa fa-star review_star"></span>
     <p>4.1 average based on 254 reviews.</p>
     <hr style="border:3px solid #f1f1f1">
 
@@ -471,6 +524,71 @@
       <div class="side right">
         <div>20</div>
       </div>
+    </div>
+</div>
+<div id="detailed_review_detail">
+    <div>
+        <!-- Left-aligned -->
+        <div class="media">
+          <div class="media-left">
+            <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">John Doe</h4>
+            <span id="avgRating1" style="font-size: 15px">
+                <script>starRating('avgRating1', <?php echo $ratings ?>)</script>  
+            </span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
+          </div>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <!-- Left-aligned -->
+        <div class="media">
+          <div class="media-left">
+            <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">John Doe</h4>
+            <span id="avgRating2" style="font-size: 15px">
+                <script>starRating('avgRating2', <?php echo $ratings ?>)</script>  
+            </span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
+          </div>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <!-- Left-aligned -->
+        <div class="media">
+          <div class="media-left">
+            <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">John Doe</h4>
+            <span id="avgRating3" style="font-size: 15px">
+                <script>starRating('avgRating3', <?php echo $ratings ?>)</script>  
+            </span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
+          </div>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <!-- Left-aligned -->
+        <div class="media">
+          <div class="media-left">
+            <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">John Doe</h4>
+            <span id="avgRating4" style="font-size: 15px">
+                <script>starRating('avgRating4', <?php echo $ratings ?>)</script>  
+            </span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
+          </div>
+        </div>
     </div>
 </div>
 

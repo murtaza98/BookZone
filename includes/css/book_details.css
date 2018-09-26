@@ -94,12 +94,23 @@ div{
     padding: 20px;
 }
 
+#detailed_review_detail{
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: Arial;
+    margin: 15px auto; /* Center website */
+    max-width: 800px; /* Max width */
+    padding: 20px;
+}
+
+
+
 .heading {
     font-size: 25px;
     margin-right: 25px;
 }
 
-.fa {
+.review_star {
     font-size: 25px;
 }
 
