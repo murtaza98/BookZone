@@ -149,9 +149,12 @@
             $avg_rating = ($sum_of_all_rating)/$total_reviews;
         }
         
-        
-        
-        
+        $percent_1 = $total_1 != 0 ? round($total_1/$total_reviews) * 100 : 0;
+        $percent_2 = $total_2 != 0 ? round($total_2/$total_reviews) * 100 : 0;
+        $percent_3 = $total_3 != 0 ? round($total_3/$total_reviews) * 100 : 0;
+        $percent_4 = $total_4 != 0 ? round($total_4/$total_reviews) * 100 : 0;
+        $percent_5 = $total_5 != 0 ? round($total_5/$total_reviews) * 100 : 0;
+          
     
     }
  ?>
@@ -461,12 +464,21 @@
 
 <div id="detailed_review_div">
     <span class="heading">User Rating</span>
+    
+    <span id="average_review"></span>
+    <script>
+        bigStarRating('average_review',<?php echo round($avg_rating); ?>)
+    </script>
+    
+    
+<!--
     <span class="fa fa-star checked review_star"></span>
     <span class="fa fa-star checked review_star"></span>
     <span class="fa fa-star checked review_star"></span>
     <span class="fa fa-star checked review_star"></span>
     <span class="fa fa-star review_star"></span>
-    <p>4.1 average based on 254 reviews.</p>
+-->
+    <p><?php echo $avg_rating; ?> average based on <?php echo $total_reviews; ?> reviews.</p>
     <hr style="border:3px solid #f1f1f1">
 
     <div class="row" style="margin:10px;">
@@ -476,10 +488,13 @@
       <div class="middle">
         <div class="bar-container">
           <div class="bar-5"></div>
+          <script>
+                review_bar('bar-5','<?php echo $percent_5; ?>')    
+          </script>
         </div>
       </div>
       <div class="side right">
-        <div>150</div>
+        <div><?php echo $total_5; ?></div>
       </div>
       <div class="side">
         <div>4 star</div>
@@ -487,10 +502,13 @@
       <div class="middle">
         <div class="bar-container">
           <div class="bar-4"></div>
+          <script>
+                review_bar('bar-4','<?php echo $percent_4; ?>')    
+          </script>
         </div>
       </div>
       <div class="side right">
-        <div>63</div>
+        <div><?php echo $total_4; ?></div>
       </div>
       <div class="side">
         <div>3 star</div>
@@ -498,10 +516,13 @@
       <div class="middle">
         <div class="bar-container">
           <div class="bar-3"></div>
+          <script>
+                review_bar('bar-3','<?php echo $percent_3; ?>')    
+          </script>
         </div>
       </div>
       <div class="side right">
-        <div>15</div>
+        <div><?php echo $total_3; ?></div>
       </div>
       <div class="side">
         <div>2 star</div>
@@ -509,10 +530,13 @@
       <div class="middle">
         <div class="bar-container">
           <div class="bar-2"></div>
+          <script>
+                review_bar('bar-2','<?php echo $percent_2; ?>')    
+          </script>
         </div>
       </div>
       <div class="side right">
-        <div>6</div>
+        <div><?php echo $total_2; ?></div>
       </div>
       <div class="side">
         <div>1 star</div>
@@ -520,16 +544,50 @@
       <div class="middle">
         <div class="bar-container">
           <div class="bar-1"></div>
+          <script>
+                review_bar('bar-1','<?php echo $percent_1; ?>')    
+          </script>
         </div>
       </div>
       <div class="side right">
-        <div>20</div>
+        <div><?php echo $total_1; ?></div>
       </div>
     </div>
 </div>
 <div id="detailed_review_detail">
+   
+   <?php
+    
+        for($i = 0 ; $i < $total_reviews ; $i++){
+         
+    ?>  
+        <div>
+            <!-- Left-aligned -->
+            <div class="media">
+              <div class="media-left">
+                <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><?php echo $reviewers_name[$i]; ?></h4>
+                <span id="avgRating<?php echo $i; ?>" style="font-size: 15px">
+                    <script>starRating('avgRating<?php echo $i; ?>', <?php echo $reviewers_ratings[$i]; ?>)</script>  
+                </span>
+                <p><?php echo $reviewers_content[$i]; ?></p>
+              </div>
+            </div>
+        </div>
+        <hr>            
+            
+    <?php
+        }
+    
+    ?>
+   
+   
+   
+<!--
     <div>
-        <!-- Left-aligned -->
+         Left-aligned 
         <div class="media">
           <div class="media-left">
             <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
@@ -537,60 +595,14 @@
           <div class="media-body">
             <h4 class="media-heading">John Doe</h4>
             <span id="avgRating1" style="font-size: 15px">
-                <script>starRating('avgRating1', <?php echo $ratings ?>)</script>  
+                <script>starRating('avgRating1', <?php// echo $ratings ?>)</script>  
             </span>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
           </div>
         </div>
     </div>
     <hr>
-    <div>
-        <!-- Left-aligned -->
-        <div class="media">
-          <div class="media-left">
-            <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">John Doe</h4>
-            <span id="avgRating2" style="font-size: 15px">
-                <script>starRating('avgRating2', <?php echo $ratings ?>)</script>  
-            </span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
-          </div>
-        </div>
-    </div>
-    <hr>
-    <div>
-        <!-- Left-aligned -->
-        <div class="media">
-          <div class="media-left">
-            <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">John Doe</h4>
-            <span id="avgRating3" style="font-size: 15px">
-                <script>starRating('avgRating3', <?php echo $ratings ?>)</script>  
-            </span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
-          </div>
-        </div>
-    </div>
-    <hr>
-    <div>
-        <!-- Left-aligned -->
-        <div class="media">
-          <div class="media-left">
-            <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">John Doe</h4>
-            <span id="avgRating4" style="font-size: 15px">
-                <script>starRating('avgRating4', <?php echo $ratings ?>)</script>  
-            </span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
-          </div>
-        </div>
-    </div>
+-->
 </div>
 
 
