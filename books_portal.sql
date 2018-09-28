@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2018 at 07:15 AM
+-- Generation Time: Sep 28, 2018 at 08:45 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -22,6 +22,17 @@ SET time_zone = "+00:00";
 -- Database: `books_portal`
 --
 
+DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addUser` (IN `param_username` VARCHAR(255), IN `param_password` VARCHAR(255), IN `param_email` VARCHAR(255), IN `param_firstName` VARCHAR(255), IN `param_middleName` VARCHAR(255), IN `param_lastName` VARCHAR(255), IN `param_city` VARCHAR(255), IN `param_pincode` INT(11), IN `param_category` VARCHAR(255), IN `param_role` VARCHAR(255), IN `param_contact` INT(20))  BEGIN
+        	INSERT INTO users(username,password,email,first_name,middle_name,last_name,city,pincode,user_category,role)  VALUES(param_username,param_password,param_email,param_firstName,param_middleName,param_lastName,param_city,param_pincode,param_category,param_role);
+            INSERT INTO contacts(username,contact_no) VALUES(param_username,param_contact);
+       END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -33,15 +44,6 @@ CREATE TABLE `bookmark` (
   `book_id` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bookmark`
---
-
-INSERT INTO `bookmark` (`username`, `book_id`, `date`) VALUES
-('murtaza', 3, '2018-08-05 06:31:05'),
-('ojas', 4, '2018-08-05 06:31:17'),
-('priyesh', 1, '2018-08-05 06:31:27');
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_original_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
 (1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 3, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
-(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 0, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05'),
+(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-08-05'),
 (4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
 (5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
 (6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08'),
@@ -123,7 +125,7 @@ INSERT INTO `categories` (`category_id`, `category_name`, `parent_category_id`) 
 
 CREATE TABLE `contacts` (
   `username` varchar(255) NOT NULL,
-  `contact_no` int(255) NOT NULL
+  `contact_no` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -131,6 +133,7 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`username`, `contact_no`) VALUES
+('admin', 789),
 ('murtaza', 123456789),
 ('ojas', 789456132),
 ('priyesh', 456789132);
@@ -153,9 +156,9 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`username`, `book_id`, `ratings`, `review_content`) VALUES
-('murtaza', 3, 7, 'Nice Book'),
-('ojas', 4, 8, 'useful'),
-('priyesh', 1, 4, 'Worth reading');
+('murtaza', 3, 4, 'Nice Book'),
+('ojas', 4, 3, 'useful'),
+('priyesh', 1, 1, 'Worth reading');
 
 -- --------------------------------------------------------
 
@@ -166,26 +169,28 @@ INSERT INTO `reviews` (`username`, `book_id`, `ratings`, `review_content`) VALUE
 CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL DEFAULT 'noemail@noemail@noemail',
   `first_name` varchar(255) NOT NULL,
   `middle_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL,
-  `street_no` int(11) DEFAULT '-1',
-  `area` varchar(255) DEFAULT NULL,
   `city` varchar(255) NOT NULL,
   `pincode` int(11) NOT NULL DEFAULT '-1',
-  `user_category` varchar(255) NOT NULL DEFAULT 'FirstYear'
+  `user_category` varchar(255) NOT NULL DEFAULT 'FirstYear',
+  `role` varchar(255) NOT NULL,
+  `street_no` int(11) DEFAULT '-1',
+  `area` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`username`, `password`, `first_name`, `middle_name`, `last_name`, `role`, `street_no`, `area`, `city`, `pincode`, `user_category`) VALUES
-('murtaza', '1234', 'murtaza', NULL, 'patrawala', 'admin', -1, 'mumbai', 'Mumbai', 400070, 'FirstYear'),
-('ojas', '1234', 'ojas', NULL, 'kapre', 'admin', -1, 'mumbai', 'Mumbai', 400070, 'SecondYear'),
-('patrawalamurtaza52@gmail.com', '1234', 'Gabrielle', NULL, 'Lewis', 'user', -1, '9-65, Western Express Highway', '', -1, 'FirstYear'),
-('priyesh', '1234', 'priyesh', NULL, 'patel', 'admin', -1, 'mumbai', 'Mumbai', 400070, 'ThirdYear');
+INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `city`, `pincode`, `user_category`, `role`, `street_no`, `area`) VALUES
+('admin', 'asd', 'patrawalamurtaza52@gmail.com', 'Gabrielle', 'asd', 'Lewis', 'Mumbai', 400055, 'Computer', 'user', -1, NULL),
+('murtaza', '1234', 'noemail@noemail@noemail', 'murtaza', NULL, 'patrawala', 'Mumbai', 400070, 'ThirdYear', 'admin', 8, 'mumbai'),
+('ojas', '1234', 'noemail@noemail@noemail', 'ojas', NULL, 'kapre', 'Mumbai', 400070, 'SecondYear', 'admin', -1, 'mumbai'),
+('patrawalamurtaza52@gmail.com', '1234', 'noemail@noemail@noemail', 'Gabrielle', NULL, 'Lewis', '', -1, 'FirstYear', 'user', -1, '9-65, Western Express Highway'),
+('priyesh', '1234', 'noemail@noemail@noemail', 'priyesh', NULL, 'patel', 'Mumbai', 400070, 'ThirdYear', 'admin', -1, 'mumbai');
 
 --
 -- Indexes for dumped tables
@@ -271,7 +276,7 @@ ALTER TABLE `books`
 -- Constraints for table `contacts`
 --
 ALTER TABLE `contacts`
-  ADD CONSTRAINT `fk_username_contacts` FOREIGN KEY (`username`) REFERENCES `users` (`username`);
+  ADD CONSTRAINT `fk_username_contacts` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `reviews`
