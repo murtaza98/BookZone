@@ -4,8 +4,9 @@
         echo '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">';
     }
 ?>
-<div class= "container" id="page-content-wrapper" style="margin: 0px; padding: 0px">
 <?php include "./templates/header.php"; ?>
+<div id="wrapper">
+<div class= "container" id="page-content-wrapper" style="margin: 0px; padding: 0px">
 <div class="container-fluid row" style=" background-image:url('includes/images/image1.jpg'); background-repeat: no-repeat; background-size:100% 100%; height: 400px;">
     <?php include "./templates/navigation.php"; ?>
 <script type="text/javascript">
@@ -141,5 +142,6 @@
         <img src="includes/images/<?php echo $book_image ?>" style="width:30%">
     </div>
 </div> 
+</div>
 </div>
 <?php include "templates/footer.php"; ?>

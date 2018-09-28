@@ -56,9 +56,9 @@
               //SHOW LOGIN AND SIGN UP IN NAVBAR
           ?>
               <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
-              <li><a href="#"><i class="fa fa-info">  About</a></i></li>
-              <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-              <li><a data-toggle="modal" href="" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li><a href="#"><i class="fa fa-info" style="color: white">  About</a></i></li>
+              <li><a href="register.php" style="color: white"><span class="glyphicon glyphicon-user" style="color: white"></span> Sign Up</a></li>
+              <li><a data-toggle="modal" href="" data-target="#loginModal" style="color: white"><span class="glyphicon glyphicon-log-in" style="color: white"></span> Login</a></li>
               <?php include "templates/login_modal.php" ?>
           <?php
             }
@@ -69,7 +69,6 @@
     </div>
 </nav>
 
- <div id="wrapper">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -78,6 +77,7 @@
                     <a href="#">
                         Bookmark
                     </a>
+                    <button class="w3-bar-item w3-button w3-right w3-padding-16" id="close_sidebar">×</button>
                 </li>
                 <?php 
                   $username = $_SESSION['username'];
@@ -147,10 +147,19 @@
                 </li-->
             </ul>
         </div>
-</div>
 <script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+
+    $("#close_sidebar").click(function(e) {
+        $("#wrapper").removeClass("toggled");
+    });
+
+    // $(document).ready(function(){
+    //   $("#page-content-wrapper").on('click', function(e) {
+    //     // document.getElementById('wrapper').style.display = none;
+    //     $("#wrapper").removeClass("toggled");    });
+    // });
     </script>
