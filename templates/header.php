@@ -21,7 +21,7 @@
       
     <!--include navigation bar css -->  
     <link rel='stylesheet' type='text/css' href='includes/css/navbar.css'>
-    
+    <link type='text/css' href="includes/css/simple-sidebar.css" rel="stylesheet">
     <?php 
         if(function_exists('customPageHeader')){
             customPageHeader();

@@ -11,3 +11,11 @@ function sayHello(){
 window.onload = function(){
     
 }
+
+function validateForm() {
+    var x = document.getElementById('email').value;
+    var error_p = document.getElementById('error_msg_email')
+    if (x == "") {
+        error_p.style.display = 'block'
+    }
+}

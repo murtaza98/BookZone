@@ -4,15 +4,15 @@
         echo '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">';
     }
 ?>
+<div class= "container" id="page-content-wrapper" style="margin: 0px; padding: 0px">
 <?php include "./templates/header.php"; ?>
-<div class="container-fluid row" style=" background-image:url('includes/images/bgimage.jpg'); background-repeat: no-repeat; background-size:100% 100%; height: 400px;">
+<div class="container-fluid row" style=" background-image:url('includes/images/image1.jpg'); background-repeat: no-repeat; background-size:100% 100%; height: 400px;">
     <?php include "./templates/navigation.php"; ?>
 <script type="text/javascript">
-    document.getElementById('navbar').style.backgroundColor = 'transparent'
+    document.getElementById('navbar').style.backgroundColor = ''
 </script>
-
 <!-- search box start -->
-<div class="container-fluid"  style="background-color: transparent">
+<div class="container-fluid"  style="background-color: transparent; margin-top: 20px;">
     <div class="full-width-util input-group" id="searchBox">
         <input type="text" name="q"  class="form-control home-search-bar acInput" placeholder="Search by title, author, semester" autocomplete="on">
         <span class="input-group-btn">
@@ -141,4 +141,5 @@
         <img src="includes/images/<?php echo $book_image ?>" style="width:30%">
     </div>
 </div> 
+</div>
 <?php include "templates/footer.php"; ?>

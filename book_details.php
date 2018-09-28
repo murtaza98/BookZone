@@ -179,14 +179,15 @@
 
                 <div style="font-size: 28px">
                     <span>Now : </span><span>&#x20b9; <?php echo $book_price; ?></span>
-                </div>
-                <br>
-                <!-- <span id="discount" style="font-size: 12px; color: #878787; border-style: solid; border-width: 1px;padding: 4px;margin-left: 8px; color: green;border-color: green">
+                    <span id="discount" style="font-size: 12px; color: #878787; border-style: solid; border-width: 1px;padding: 4px;margin-left: 8px; color: green;border-color: green">
                     <script type="text/javascript">
                         var discount = Math.round((<?php echo $book_original_price;?> - <?php echo $book_price; ?>)*100/<?php echo $book_original_price; ?>);
                         document.getElementById('discount').innerHTML = discount+'% off';
                     </script>
-                </span> -->
+                </span>
+                </div>
+                <br>
+                
             </div>
 
             <div class="bookReview">
