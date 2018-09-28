@@ -4,16 +4,15 @@
         echo '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">';
     }
 ?>
+
 <?php include "./templates/header.php"; ?>
 <div id="wrapper">
-<div class= "container" id="page-content-wrapper" style="margin: 0px; padding: 0px">
+<?php include "./templates/navigation.php"; ?>
+<div class= "container close_bookmark_sidebar" id="page-content-wrapper" style="margin: 0px; padding: 0px">
 <div class="container-fluid row" style=" background-image:url('includes/images/image1.jpg'); background-repeat: no-repeat; background-size:100% 100%; height: 400px;">
-    <?php include "./templates/navigation.php"; ?>
-<script type="text/javascript">
-    document.getElementById('navbar').style.backgroundColor = ''
-</script>
+
 <!-- search box start -->
-<div class="container-fluid"  style="background-color: transparent; margin-top: 20px;">
+<div class="container-fluid close_bookmark_sidebar"  style="background-color: transparent; margin-top: 20px;">
     <div class="full-width-util input-group" id="searchBox">
         <input type="text" name="q"  class="form-control home-search-bar acInput" placeholder="Search by title, author, semester" autocomplete="on">
         <span class="input-group-btn">
@@ -25,7 +24,7 @@
 <p align="center" style="color: white; font-size: 30px;font-family: fantasy;">Buy and Sell Books Online</p>
 </div>
 <br>
-<div class="container" id='container'>
+<div class="container close_bookmark_sidebar" id='container'>
     <div class="row" >        
     <!--   id="#category"-->
         <div class="col-sm-3">
@@ -118,7 +117,6 @@
                                             <div class="caption" style="height: 60px; border-top: 5px solid blue">
                                                 <p align="center"><?php echo $book_name ?></p>
                                             </div>
-                                        </a>
                                     </div>     
                                 </div>
 <?php
