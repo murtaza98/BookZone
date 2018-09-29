@@ -152,10 +152,4 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-
-    // $(document).ready(function(){
-    //   $("#page-content-wrapper").on('click', function(e) {
-    //     // document.getElementById('wrapper').style.display = none;
-    //     $("#wrapper").removeClass("toggled");    });
-    // });
 </script>
