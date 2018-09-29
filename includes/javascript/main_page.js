@@ -112,7 +112,10 @@ function autocomplete(inp,parent_element) {
         if (this.readyState==4 && this.status==200) {
     //      document.getElementById("livesearch").innerHTML=this.responseText;
     //      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+//            alert(this.responseText);
             var data = JSON.parse(this.responseText);
+            
+//            alert(data.length);
     //        for (var i = 0; i < data.length; i++) {
     //            console.log(data[i].name + ' is a ');
     //        }
