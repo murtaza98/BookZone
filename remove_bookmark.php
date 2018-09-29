@@ -7,7 +7,7 @@
 
 <?php include "./templates/navigation.php"; ?>
 
-<?php 
+<?php
 	if(isset($_GET['book_id'])) {
 		$bookId = $_GET['book_id'];
 		$query = "DELETE FROM bookmark WHERE book_id='$bookId'";
@@ -15,7 +15,7 @@
 		if(!$query_result){
             die('QUERY FAILED '.mysqli_error($connection));
         }else{
-        	header('location: view_bookmarks.php');
+        	header('location: index.php');
             echo "<script>
                     window.alert('Removed from bookmark');
                   </script>";

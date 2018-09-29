@@ -9,7 +9,7 @@
           }
           function goForward(){
                 window.history.forward();
-          }  
+          }
         </script>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -63,9 +63,9 @@
           <?php
             }
           ?>
-          
+
         </ul>
-      </div> 
+      </div>
     </div>
 </nav>
 
@@ -74,12 +74,10 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
-                        Bookmark
-                    </a>
-                    <button class="w3-bar-item w3-button w3-right w3-padding-16" id="close_sidebar">×</button>
-                </li>
-                <?php 
+                    <a href="#" style="font-size: 35px;font-weight: 550; color: white;font-family: Karla, Arial, Helvetica; background-color: black">Bookmarks</a>
+                    <button id="close_sidebar" style="position: absolute; top: 0; right: 0; color: red; border: 0; background-color: transparent"><i class="glyphicon glyphicon-remove"></i></button>
+                </li><br>
+                <?php
                   $username = $_SESSION['username'];
                   $query = "SELECT * FROM books WHERE book_id IN ( SELECT book_id FROM bookmark WHERE username='$username')";
                   $query_result = mysqli_query($connection, $query);
@@ -101,50 +99,32 @@
                       $category_result = mysqli_query($connection, $category_query);
                       $category_set = mysqli_fetch_assoc($category_result);
                       $categoryName = $category_set['category_name'];
-                      echo '<li class="sidebar-brand">
-                            <div class="container">
-                            <div class="media">
-                                <div class="media-left media-top">
-                                  <a href="remove_bookmark.php?book_id='.$bookId.'"><i class="glyphicon glyphicon-remove" style="color: red;"></i></a>
-                                  <img src="includes/images/'.$bookImage.'" class="media-object" style="width:60px">
+                      echo '<div class="w3-display-container w3-hover-opacity">
+                              <li class="sidebar-brand" style: "font-family: Karla, Arial, Helvetica">
+                                <div class="container">
+                                  <div class="media">
+                                    <div class="w3-display-topright w3-display-hover">
+                                      <a href="remove_bookmark.php?book_id='.$bookId.'"><button class="w3-button" style="color: white; background-color:red">Remove</button></a>
+                                    </div>
+                                    <!--div class="w3-display-bottomright w3-display-hover">
+                                      <a href="book_details.php?book_id='.$bookId.'"><button class="w3-button" style="color: white; background-color:blue">View</button></a>
+                                    </div-->
+                                    <div class="media-left media-top">
+                                      <img src="includes/images/'.$bookImage.'" class="media-object" style="width:60px">
+                                    </div>
+                                    <div class="media-body">
+                                      <h4 class="media-heading" style="color: black;"><b>'.$bookName.'</b>&nbsp;<small><b>'.$author.'</b></small></h4>
+                                      <div class="price">
+                                        <span style="font: 20px;color: black;">&#x20b9; '.$bookPrice.'</span>
+                                      </div>
+                                    </div>
+                                  </div> 
                                 </div>
-                                <div class="media-body">
-                                  <h4 class="media-heading"><b>'.$bookName.'</b>&nbsp;<small><b>'.$author.'</b></small></h4>
-                                  <div class="price">
-                                <span style="font-size: 28px;"><?php echo $bookPrice; ?></span>
-                                <span style="font-size: 16px; color: #878787; text-decoration: line-through;"><?php echo $originalPrice; ?></span>
-                              </div>
-                              <div class="Edition">
-                                <h5><strong>Edition</strong>&nbsp'.$edition.'</h5>
-                              </div>  
-                                  
-                                </div>
-                            </div>
-                          </div></li>';
+                              </li>
+                            </div>';
                     }
                   }
                  ?>
-                <!--<li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li-->
             </ul>
         </div>
 <script>
@@ -153,9 +133,7 @@
         $("#wrapper").toggleClass("toggled");
     });
 
-    // $(document).ready(function(){
-    //   $("#page-content-wrapper").on('click', function(e) {
-    //     // document.getElementById('wrapper').style.display = none;
-    //     $("#wrapper").removeClass("toggled");    });
-    // });
+    $("#close_sidebar").click(function(e) {
+       $("#wrapper").removeClass("toggled");
+    });
 </script>

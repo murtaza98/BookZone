@@ -25,7 +25,7 @@
 </div>
 <br>
 <div class="container close_bookmark_sidebar" id='container'>
-    <div class="row" >        
+    <div class="row" >
     <!--   id="#category"-->
         <div class="col-sm-3">
             <h2>Categories</h2>
@@ -53,7 +53,7 @@
                 //DO ONE MORE CALL AND FIND ALL SUB CATEGORIES
 
                 //THE PRESENT MEHTOD WILL ONLY WORK FOR ONE NESTED SUB-CATEGORY
-                //TO MAKE IT WORK FOR MORE NESTED SUB CATEGORIES, USE  AND USE QUEUES 
+                //TO MAKE IT WORK FOR MORE NESTED SUB CATEGORIES, USE  AND USE QUEUES
                 //REFERENCE https://stackoverflow.com/questions/15741398/best-way-to-store-categories-and-product-type-in-db
 
                 $sub_query = "SELECT * FROM categories WHERE parent_category_id = {$category_id}";
@@ -97,12 +97,12 @@
                                 $book_price = $product_row['book_price'];
                                 $book_image = $product_row['book_image'];
 ?>
-                                <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6"> 
+                                <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6">
                                     <div class="thumbnail">
                                         <div class="w3-display-container w3-hover-opacity">
-                                            <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">                                          
+                                            <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">
                                             <div class="w3-display-middle w3-display-hover">
-                                                <a href="book_details.php?book_id=<?php echo $book_id?>">   
+                                                <a href="book_details.php?book_id=<?php echo $book_id?>">
                                                     <button class="w3-button" style="background-color: #0b113e; color: white">View Details</button></a>
                                             </div>
                                             <div class="w3-display-topright w3-display-hover">
@@ -117,17 +117,17 @@
                                             <div class="caption" style="height: 60px; border-top: 5px solid blue">
                                                 <p align="center"><?php echo $book_name ?></p>
                                             </div>
-                                    </div>     
+                                    </div>
                                 </div>
 <?php
                             }
                         }
-                    }                 
+                    }
                 }
                 if($title_printed){
                     //row div end
                     echo "</div>";
-                }                                
+                }
             }
         }
 ?>
@@ -139,7 +139,7 @@
     <div class="w3-modal-content w3-animate-zoom">
         <img src="includes/images/<?php echo $book_image ?>" style="width:30%">
     </div>
-</div> 
+</div>
 </div>
 </div>
 <?php include "templates/footer.php"; ?>
