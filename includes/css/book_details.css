@@ -151,6 +151,14 @@ div{
     color: white;
 }
 
+.bookmarked { 
+    background-color: orange;
+}
+
+.not-bookmarked {
+    background-color: white;
+}
+
 /* Individual bars */
 /*
 .bar-5 {width: 60%; height: 18px; background-color: #4CAF50;}

@@ -20,15 +20,67 @@ function openCity(evt, cityName) {
 }
 
 function addToBookmark(book_id){
-    var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-//      alert("bookmark added");
-        var element = document.getElementById("bookmark");
-        element.style.background = 'orange';
-        element.innerHTML = "Bookmarked";
+    var element = document.getElementById("bookmark");
+    alert(element.innerHTML);
+    if(element.innerHTML=="Bookmark"){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                element.style.background = 'orange';
+                element.innerHTML = "Bookmarked";
+            }
+        };
+        xhttp.open("GET", "bookmark.php?book_id="+book_id+"&type=addToBookmark", true);
+        xhttp.send();
     }
-  };
-  xhttp.open("GET", "bookmark.php?book_id="+book_id, true);
-  xhttp.send();
+}
+
+function removeFromBookmark(book_id){
+    var element = document.getElementById("bookmark");
+    alert(element.innerHTML);
+    if(element.innerHTML=="Bookmarked"){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                element.style.background = 'white';
+                element.innerHTML = "Bookmark";
+            }
+        };
+        xhttp.open("GET", "bookmark.php?book_id="+book_id+"&type=removeFromBookmark", true);
+        xhttp.send();
+    }
+}
+
+function handleBookmark(book_id){
+    var element = document.getElementById("bookmark");
+    switch(element.innerHTML){
+        case "Bookmark":
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        element.style.background = 'orange';
+                        element.innerHTML = "Bookmarked";
+                    }
+                };
+                xhttp.open("GET", "bookmark.php?book_id="+book_id+"&type=addToBookmark", true);
+                xhttp.send();
+            break;
+        case "Bookmarked":
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        element.style.background = 'white';
+                        element.innerHTML = "Bookmark";
+                    }
+                };
+                xhttp.open("GET", "bookmark.php?book_id="+book_id+"&type=removeFromBookmark", true);
+                xhttp.send();
+            break;
+        default:
+            break;
+    }
+}
+
+function showLoginModal(modal_id) {
+    $(modal_id).modal('show');
 }
