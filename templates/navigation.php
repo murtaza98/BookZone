@@ -107,15 +107,15 @@
                       $category_result = mysqli_query($connection, $category_query);
                       $category_set = mysqli_fetch_assoc($category_result);
                       $categoryName = $category_set['category_name'];
-                      echo '<div class="w3-display-container w3-hover-opacity">
+                      echo '<div id="bookmark'.$bookId.'" class="w3-display-container w3-hover-opacity">
                               <li class="sidebar-brand" style: "font-family: Karla, Arial, Helvetica">
                                 <div class="container">
                                   <div class="media">
                                     <div class="w3-display-topright w3-display-hover">
-                                      <a href="remove_bookmark.php?book_id='.$bookId.'"><button class="w3-button" style="color: white; background-color:red">Remove</button></a>
+                                      <a href="javascript:removeFromBookmark('.$bookId.',\'bookmark'.$bookId.'\');"><button class="w3-button" style="color: white; background-color:red">Remove</button></a>
                                     </div>
                                     <!--div class="w3-display-bottomright w3-display-hover">
-                                      <a href="book_details.php?book_id='.$bookId.'"><button class="w3-button" style="color: white; background-color:blue">View</button></a>
+                                      <a href="javascript:removeFromBookmark('.$bookId.');"><button class="w3-button" style="color: white; background-color:blue">View</button></a>
                                     </div-->
                                     <div class="media-left media-top">
                                       <img src="includes/images/'.$bookImage.'" class="media-object" style="width:60px">

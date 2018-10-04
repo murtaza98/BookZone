@@ -36,12 +36,11 @@ function addToBookmark(book_id){
 }
 
 function removeFromBookmark(book_id){
-    var element = document.getElementById("bookmark");
-    alert(element.innerHTML);
     if(element.innerHTML=="Bookmarked"){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
+                var element = document.getElementById("bookmark");
                 element.style.background = 'white';
                 element.innerHTML = "Bookmark";
             }
