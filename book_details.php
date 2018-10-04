@@ -89,9 +89,6 @@
         $openPage = "bookmark.php"; 
     }
     // add else here to print message
-    if (isset($_SESSION['username']) && $book_status=="available") {
-        $openBuyNow = "buy_now.php";
-    }
     $review_query = "SELECT * FROM reviews WHERE book_id='$book_id'";
     $review_result = mysqli_query($connection, $review_query);
     if (!$review_result) {
@@ -174,8 +171,7 @@
                 by <?php echo $author; ?>
             </div>
             <br>
-            <div class="price" style="font-family: Karla, Arial, Helvetica, sans-serif
-; ">
+            <div class="price" style="font-family: Karla, Arial, Helvetica, sans-serif; ">
                 <div style="font-size: 28px">
                     <span>Was : </span><span style="text-decoration: line-through;">&#x20b9; <?php echo $book_original_price; ?></span>
                 </div>
@@ -217,7 +213,11 @@
             <br>
             
             
-            
+            <?php 
+                if (isset($_SESSION['username'])) {
+                    $openBuyNow = "buy_now.php";
+                }
+            ?>
             <div id="buynow_parent">
                 <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
