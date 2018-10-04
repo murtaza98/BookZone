@@ -29,26 +29,28 @@
               //SHOW SELL BOOK AND LOGOUT IN NAVBAR
           ?>
             <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
-            <li><a href="#"><i class="fa fa-info">About</i></a></li>
-            <li><a href="addBook.php"><span class="glyphicon glyphicon-book"></span> Sell Book</a></li>
+            <li><a href="#"><i class="fa fa-info" style="color: white"> About</i></a></li>
+            <li><a href="addBook.php"><span class="glyphicon glyphicon-book" style="color: white"></span> Sell Book</a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> WELCOME <?php echo $_SESSION['username'] ?><b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" style="color: white"></i><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="view_details.php"><i class="fa fa-fw fa-user"></i>Profile</a>
-                    </li>
-                    <li>
-                        <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-fw fa-book"></i>Bookmarks</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i>Settings</a>
+                       <a>WELCOME <?php echo $_SESSION['username'] ?></a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="./templates/logout.php"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
+                        <a href="view_details.php"><i class="fa fa-fw fa-user" style="color: white"></i>Profile</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-gear" style="color: white"></i>Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="./templates/logout.php"><i class="fa fa-fw fa-power-off" style="color: white"></i>Log Out</a>
                     </li>
                 </ul>
             </li>
+            <li><a href="#menu-toggle" id="menu-toggle" title="Bookmark"><font size="4"><i class="fas fa-shopping-cart" style="color: white"></i></font></a></li>
 
 
           <?php
@@ -61,6 +63,12 @@
               <li><a data-toggle="modal" href="" data-target="#loginModal" style="color: white"><span class="glyphicon glyphicon-log-in" style="color: white"></span> Login</a></li>
               <?php include "templates/login_modal.php" ?>
           <?php
+            if(isset($_SESSION['autostart_modal'])){
+                echo "<script>$(window).on('load', function(){
+                    $('#loginModal').modal('show');
+                  });</script>";
+                  $_SESSION['autostart_modal'] = null;
+              }
             }
           ?>
 

@@ -157,12 +157,7 @@
                                                     <button class="w3-button" style="background-color: #0b113e; color: white">View Details</button></a>
                                             </div>
                                             <div class="w3-display-topright w3-display-hover">
-                                                <script type="text/javascript">
-                                                    function f1() {
-                                                        document.getElementById('modal01').style.display='block';
-                                                    }
-                                                </script>
-                                                <button class="glyphicon glyphicon-zoom-in" style="color: black; size: 32px;" onclick="f1()"></button>
+                                                <a data-toggle="modal" href="" data-target="#quick_view" style="color: white" title="quick look"><button><span class="glyphicon glyphicon-zoom-in" style="color: black"></span></button></a>
                                             </div>
                                         </div>
                                             <div class="caption" style="height: 60px; border-top: 5px solid blue">
@@ -185,12 +180,29 @@
 		</div>
     </div>
 </div>
-<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-    <div class="w3-modal-content w3-animate-zoom">
-        <img src="includes/images/<?php echo $book_image ?>" style="width:30%">
+
+<div id="quick_view" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><h4 style="width: auto;">Quick Look</h4>
+                <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px; width: auto;">&times;</button></span>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="includes/images/<?php echo $book_image ?>">
+                    </div>
+                    <div class="col-sm-7">
+                        <?php echo $book_name ?>
+                        &#x20b9; <?php echo $book_price ?>
+                    </div>
+                </div>
+            <div class="modal-footer" style="margin-right: 10px;">
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-bottom: 10px; margin-right: 10px; right: 0; bottom: 0">Close</button>
+            </div>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </div>
 <?php include "templates/footer.php"; ?>

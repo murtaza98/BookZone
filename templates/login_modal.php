@@ -5,6 +5,11 @@
         <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px;">&times;</button>
         <h3 class="modal-title"><b>&nbsp;LOGIN</b></h3>
       </div>
+      <?php 
+        if(isset($_SESSION['autostart_modal'])){
+          echo "<p style='padding-left: 7px; color: red;'>Username or Password is incorrect</p>";
+        }
+      ?>
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-8"> 
@@ -14,10 +19,16 @@
                 <label for="email">Username</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                    <input id="text" type="text" class="form-control" name="username" placeholder="Username">
+                    <?php 
+                      if(isset($_SESSION['autostart_modal'])){
+                        $username = $_SESSION['temp_username'];
+                        echo '<input id="text" type="text" class="form-control" name="username" value="'.$username.'">';
+                        }else{
+                          echo '<input id="text" type="text" class="form-control" name="username" placeholder="Username">';
+                        }
+                      ?>
                 </div>                     
               </div>
-
               <div class="form-group">
                 <label for="password">Password</label>
                 <div class="input-group">

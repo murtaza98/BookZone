@@ -4,7 +4,7 @@
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
-
+        $_SESSION['temp_username'] = $username; 
         //To prevent SQL injection
         $username = mysqli_real_escape_string($connection,$username);
         $password = mysqli_real_escape_string($connection,$password);
@@ -36,6 +36,10 @@
 
 
                 }
+            }
+            else{
+                $_SESSION['autostart_modal'] = 'true';
+                header('Location: ../');
             }
         }
     }else{
