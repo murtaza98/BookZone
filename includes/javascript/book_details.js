@@ -18,3 +18,17 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+function addToBookmark(book_id){
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+//      alert("bookmark added");
+        var element = document.getElementById("bookmark");
+        element.style.background = 'orange';
+        element.innerHTML = "Bookmarked";
+    }
+  };
+  xhttp.open("GET", "bookmark.php?book_id="+book_id, true);
+  xhttp.send();
+}
