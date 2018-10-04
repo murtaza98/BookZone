@@ -20,10 +20,10 @@
 
 
 <!-- search box start -->
-<form method="GET" action="">
+<form method="GET" action="./search.php">
     <div class="container-fluid close_bookmark_sidebar autocomplete"  style="background-color: transparent; margin-top: 20px;">
         <div class="full-width-util input-group" id="searchBox">
-            <input id="myInput" type="text" name="search_box"  class="form-control home-search-bar acInput" placeholder="Search by title, author, semester" autocomplete="off" style="width:100%; background-color:#fff">
+            <input id="myInput" type="text" name="search"  class="form-control home-search-bar acInput" placeholder="Search by title, author, semester" autocomplete="off" style="width:100%; background-color:#fff" required>
             <span class="input-group-btn">
                 <button type="submit" value="Search" id="searchButtonInline" class="btn btn-primary no-top-margin">Go!</button>
             </span>
