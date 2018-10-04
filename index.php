@@ -16,9 +16,9 @@
 <br>
 <br>
 
-<p align="center" style="color: white; font-size: 30px;font-family: fantasy;">Buy and Sell Books Online</p>
+<!--<p align="center" style="color: #484848; font-size: 30px;font-family: fantasy;">Buy and Sell Books Online</p>-->
 
-
+<p align="center"><img style="width:22%;" src="includes/images/103.gif"></p>
 <!-- search box start -->
 <form method="GET" action="">
     <div class="container-fluid close_bookmark_sidebar autocomplete"  style="background-color: transparent; margin-top: 20px;">
