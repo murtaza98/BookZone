@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Sep 28, 2018 at 08:45 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Host: localhost
+-- Generation Time: Oct 04, 2018 at 08:05 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,6 +44,13 @@ CREATE TABLE `bookmark` (
   `book_id` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bookmark`
+--
+
+INSERT INTO `bookmark` (`username`, `book_id`, `date`) VALUES
+('ojas', 5, '2018-10-04 17:52:58');
 
 -- --------------------------------------------------------
 
@@ -93,6 +100,21 @@ INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `buyers`
+--
+
+CREATE TABLE `buyers` (
+  `username` varchar(255) NOT NULL,
+  `book_name` varchar(255) NOT NULL,
+  `seller_name` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `price` float NOT NULL,
+  `transaction_method` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -137,6 +159,19 @@ INSERT INTO `contacts` (`username`, `contact_no`) VALUES
 ('murtaza', 123456789),
 ('ojas', 789456132),
 ('priyesh', 456789132);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `notification_id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -214,6 +249,14 @@ ALTER TABLE `books`
   ADD KEY `book_image` (`book_image`);
 
 --
+-- Indexes for table `buyers`
+--
+ALTER TABLE `buyers`
+  ADD PRIMARY KEY (`username`),
+  ADD KEY `fk_username_users` (`username`),
+  ADD KEY `fk_book_name` (`book_name`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -225,6 +268,13 @@ ALTER TABLE `categories`
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`contact_no`),
   ADD KEY `fk_username_contacts` (`username`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`notification_id`),
+  ADD KEY `fk_username_users` (`username`);
 
 --
 -- Indexes for table `reviews`
