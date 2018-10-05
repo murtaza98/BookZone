@@ -42,7 +42,7 @@
                         <a href="view_details.php"><i class="fa fa-fw fa-user" style="color: white"></i>Profile</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-gear" style="color: white"></i>Settings</a>
+                        <a href="notification.php"><i class="fa fa-fw fa-gear" style="color: white"></i>Notifications</a>
                     </li>
                     <li class="divider"></li>
                     <li>

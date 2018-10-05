@@ -76,29 +76,34 @@
                     </div>
                 </div>
                 <div class="col-sm-7">
-                    <div class="form-group">
-                        <label for="sel1">Payment Method:</label>
-                        <select class="form-control" id="sel1">
-                            <option>PayTM</option>
-                            <option>Cash</option>
-                            <option>Net Banking</option>
-                            <option>Freecharge</option>
-                        </select>
-                    </div>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="sel1">Payment Method:</label>
+                            <select class="form-control" name="payment_method" id="sel1">
+                                <option>None</option>
+                                <option>PayTM</option>
+                                <option>Cash</option>
+                                <option>Net Banking</option>
+                                <option>Freecharge</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="sel1">Delivery Method:</label>
-                        <select class="form-control" id="sel1">
-                            <option>Personal</option>
-                            <option>Courier</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="sel2">Delivary Method:</label>
+                            <select class="form-control" name="delivary_method" id="sel2">
+                                <option>None</option>
+                                <option>Personal</option>
+                                <option>Courier</option>
+                            </select>
+                        </div>
 
-                <input type="submit" class="btn btn-primary form-control" value="Order" style="">
+                        <input type="submit" id="order" class="btn btn-primary form-control" value="Order" name="order">
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
     <hr>
     <span style="font-size: 24px;font-weight: 450; font-family: Karla, Arial, Helvetica; color: ">More from <?php echo $seller_username ?></span>
     <div class='row'>
@@ -122,7 +127,7 @@
         <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6">
             <div class="thumbnail">
                 <div class="w3-display-container w3-hover-opacity">
-                    <img src="includes/images/<?php echo $morebook_image ?>" alt="<?php echo $morebook_name ?>" style="width:100%; height: 230px;">
+                    <img src="includes/images/<?php echo $morebook_image ?>" alt="<?php echo $morebook_name ?>" style="width:100%; height: 290px;">
                     <div class="w3-display-middle w3-display-hover">
                         <a href="book_details.php?book_id=<?php echo $morebook_id?>">
                             <button class="w3-button" style="background-color: #0b113e; color: white">View Details</button></a>
@@ -144,28 +149,68 @@
     </div>
 </div>
 
-    <div id="quick_look" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span><h4 style="width: auto;">Quick Look</h4>
-                    <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px; width: auto;">&times;</button></span>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <img src="includes/images/<?php echo $morebook_image ?>">
-                        </div>
-                        <div class="col-sm-7">
-                            <?php echo $morebook_name ?>
-                            &#x20b9; <?php echo $morebook_price ?>
-                        </div>
+<div id="quick_look" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span><h4 style="width: auto;">Quick Look</h4>
+                <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px; width: auto;">&times;</button></span>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <img src="includes/images/<?php echo $morebook_image ?>">
                     </div>
-                <div class="modal-footer" style="margin-right: 10px;">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-bottom: 10px; margin-right: 10px; right: 0; bottom: 0">Close</button>
+                    <div class="col-sm-7">
+                        <?php echo $morebook_name ?>
+                        &#x20b9; <?php echo $morebook_price ?>
+                    </div>
                 </div>
-                </div>
+            <div class="modal-footer" style="margin-right: 10px;">
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-bottom: 10px; margin-right: 10px; right: 0; bottom: 0">Close</button>
+            </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- adding detials in buyer table -->
+    <?php 
+        if (isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+        }
+        if (isset($_POST['order'])) {
+            $payment_method = $_POST['payment_method'];
+            $delivary_method = $_POST['delivary_method'];
+            $date = date("d/m/Y");
+            $query = "INSERT INTO buyers VALUES('{$username}','{$book_name}','{$seller_username}','{$date}','{$book_price}','{$payment_method}')";
+            $query_result = mysqli_query($connection,$query);
+            
+            if(!$query_result){
+                die('QUERY FAILED '.mysqli_error($connection));
+            }else{
+                echo "<h2>Book ordered</h2>";
+                echo "<script type='text/javascript'>
+                        document.getElementById('order').setAttribute('value', 'Ordered');
+                        var att = document.createAttribute('disabled');
+                        att.value = 'disabled';
+                        document.getElementById('order').setAttributeNode(att);
+                        document.getElementById('order').style.backgroundColor = 'red';
+                    </script>";
+            }
+        }
+
+        if (isset($_POST['order'])) {
+            $message = "{$username} is interested in buying {$book_name} , Preferred payment method: {$payment_method} , Preferred delivary mode: {$delivary_method}";
+            $buyer_query = "INSERT INTO notification VALUES(NULL,'$seller_username','$message','Unseen','$username','$date','pending')";
+            $buyer_query_result = mysqli_query($connection, $buyer_query);
+            if(!$buyer_query_result){
+                die('QUERY FAILED '.mysqli_error($connection));
+            }else{
+                echo "Notification send";
+            }
+        }
+    ?>
+
+
 <?php include "templates/footer.php"; ?>

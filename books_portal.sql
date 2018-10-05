@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 04, 2018 at 08:05 PM
+-- Generation Time: Oct 05, 2018 at 09:05 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -45,13 +45,6 @@ CREATE TABLE `bookmark` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `bookmark`
---
-
-INSERT INTO `bookmark` (`username`, `book_id`, `date`) VALUES
-('ojas', 5, '2018-10-04 17:52:58');
-
 -- --------------------------------------------------------
 
 --
@@ -81,21 +74,21 @@ CREATE TABLE `books` (
 INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_original_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
 (1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 3, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
 (3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-08-05'),
-(4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
-(5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
-(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08'),
+(4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 0, 'No Description Available', 'coa.jpg', 'unavailable', '2018-08-05'),
+(5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 0, 'No Description Available', 'java.jpg', 'unavailable', '2018-08-08'),
+(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-08-08'),
 (7, 'priyesh', 'COA', 'someone', '6', 'COA', 6, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
-(8, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 2, 0, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08'),
+(8, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 2, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-08-08'),
 (9, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 2, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
-(11, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 2, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
+(11, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 2, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'unavailable', '2018-08-05'),
 (12, 'priyesh', 'COA', 'someone', '6', 'COA', 3, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
 (13, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 3, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
-(14, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 3, 250, 0, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05'),
-(15, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 4, 250, 0, 'No Description Available', 'aoa.jpg', 'available', '2018-08-05'),
+(14, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 3, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-08-05'),
+(15, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 4, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-08-05'),
 (16, 'priyesh', 'COA', 'someone', '6', 'COA', 4, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
 (17, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 4, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
-(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 0, 0, 'No Description Available', 'ds.jpg', 'available', '2018-08-08'),
-(19, 'murtaza', 'asd', 'asd', 'asd', 'asd', 1, 132, 456, 'basjbdjk', 'default.jpg', 'available', '2018-08-14');
+(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-08-08'),
+(19, 'murtaza', 'asd', 'asd', 'asd', 'asd', 1, 132, 456, 'basjbdjk', 'default.jpg', 'unavailable', '2018-08-14');
 
 -- --------------------------------------------------------
 
@@ -111,6 +104,17 @@ CREATE TABLE `buyers` (
   `price` float NOT NULL,
   `transaction_method` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `buyers`
+--
+
+INSERT INTO `buyers` (`username`, `book_name`, `seller_name`, `date`, `price`, `transaction_method`) VALUES
+('ojas', 'JAVA,The Complete Reference', 'murtaza', '05/10/2018', 1000, 'None'),
+('ojas', 'Kumbhojkar', 'murtaza', '05/10/2018', 500, 'None'),
+('murtaza', 'AOA', 'ojas', '05/10/2018', 250, 'None'),
+('murtaza', 'Data Structures Using C', 'ojas', '05/10/2018', 0, 'None'),
+('ojas', 'AOA', 'ojas', '05/10/2018', 250, 'None');
 
 -- --------------------------------------------------------
 
@@ -169,9 +173,21 @@ INSERT INTO `contacts` (`username`, `contact_no`) VALUES
 CREATE TABLE `notification` (
   `notification_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `message` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL
+  `message` varchar(1000) NOT NULL,
+  `status` varchar(255) NOT NULL DEFAULT 'Unseen',
+  `buyer_name` varchar(255) DEFAULT NULL,
+  `date` varchar(255) DEFAULT NULL,
+  `offer_status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`notification_id`, `username`, `message`, `status`, `buyer_name`, `date`, `offer_status`) VALUES
+(8, 'ojas', 'murtaza is interested in buying AOA , Preferred payment method: None , Preferred delivary mode: None', 'Unseen', 'murtaza', '05/10/2018', 'accepted'),
+(9, 'ojas', 'murtaza is interested in buying Data Structures Using C , Preferred payment method: None , Preferred delivary mode: None', 'Unseen', 'murtaza', '05/10/2018', 'pending'),
+(10, 'ojas', 'ojas is interested in buying AOA , Preferred payment method: None , Preferred delivary mode: None', 'Unseen', 'ojas', '05/10/2018', 'pending');
 
 -- --------------------------------------------------------
 
@@ -252,7 +268,6 @@ ALTER TABLE `books`
 -- Indexes for table `buyers`
 --
 ALTER TABLE `buyers`
-  ADD PRIMARY KEY (`username`),
   ADD KEY `fk_username_users` (`username`),
   ADD KEY `fk_book_name` (`book_name`);
 
@@ -304,6 +319,12 @@ ALTER TABLE `books`
 --
 ALTER TABLE `categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
