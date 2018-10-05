@@ -25,5 +25,6 @@
             customPageHeader();
         }
     ?>
+    <script type='text/javascript' src='includes/javascript/navigation.js'></script>
 </head>
 <body>

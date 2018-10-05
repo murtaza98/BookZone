@@ -155,6 +155,23 @@
     
     }
  ?>
+ 
+<?php
+    if(isset($_SESSION['username'])){
+        //bookmark query
+//        $query = "SELECT * FROM bookmark where book_id = ".$_GET['book_id']." AND username ="."'$_SESSION['username']'";
+        $query = "SELECT * FROM bookmark where book_id = {$_GET['book_id']} AND username ='{$_SESSION['username']}'";   
+        $query_result_bookmark = mysqli_query($connection,$query);
+        if(!$query_result_bookmark){
+            die("QUERY FAILED ".mysqli_error($connection));
+        }
+        $temp_no_of_bookmarks = mysqli_num_rows($query_result_bookmark);
+        $book_is_bookmarked = false;
+        if($temp_no_of_bookmarks == 1){
+            $book_is_bookmarked = true;
+        }
+    }
+?>
 
 
 <div class="container" style="width: 100%;margin-left: 2%;margin-right: 2%;">
@@ -221,7 +238,24 @@
             <div id="buynow_parent">
                 <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <a id="bookmark" onclick="addToBookmark(<?php echo $book_id; ?>)" type="button" class="btn" style=" color: black">Bookmark</a>
+                
+                <?php
+                    if(isset($_SESSION["username"]) && $_SESSION["username"]){
+                        if(isset($book_is_bookmarked)&&$book_is_bookmarked){
+                ?>
+                            <a id="bookmark" onclick="handleBookmark(<?php echo $book_id; ?>)" type="button" class="btn" style=" color: black;background-color:orange;">Bookmarked</a>
+                <?php        
+                        }else{
+                ?>
+                            <a id="bookmark" onclick="handleBookmark(<?php echo $book_id; ?>)" type="button" class="btn" style=" color: black">Bookmark</a>
+                <?php
+                        }
+                    }else{
+                ?>
+                        <a id="bookmark" onclick="javascript:showLoginModal('#loginModal')" type="button" class="btn" style=" color: black">Bookmark</a>
+                <?php                        
+                    }   
+                ?>
             </div>
             <br>
                         
