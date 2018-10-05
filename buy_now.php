@@ -209,6 +209,17 @@
             }else{
                 echo "Notification send";
             }
+
+            $mail_query = "SELECT email FROM users WHERE username = '{$username}'";
+            $mail_query_result = mysqli_query($connection,$mail_query);
+            if(!$mail_query_result){
+                die('QUERY FAILED '.mysqli_error($connection));
+            }else{
+                $row = mysqli_fetch_assoc($mail_query_result);
+                $email = $row['email'];
+            }
+            $subject = "";
+            mail($email, $subject, $message);
         }
     ?>
 

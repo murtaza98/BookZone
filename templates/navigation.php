@@ -44,6 +44,9 @@
                     <li>
                         <a href="notification.php"><i class="fa fa-fw fa-gear" style="color: white"></i>Notifications</a>
                     </li>
+                    <li>
+                        <a href="purchase_history.php"><i class="fa fa-fw fa-user" style="color: white"></i>Purchase history</a>
+                    </li>
                     <li class="divider"></li>
                     <li>
                         <a href="./templates/logout.php"><i class="fa fa-fw fa-power-off" style="color: white"></i>Log Out</a>
