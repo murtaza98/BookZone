@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 05, 2018 at 09:05 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Host: 127.0.0.1
+-- Generation Time: Oct 05, 2018 at 08:26 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,6 +44,13 @@ CREATE TABLE `bookmark` (
   `book_id` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bookmark`
+--
+
+INSERT INTO `bookmark` (`username`, `book_id`, `date`) VALUES
+('murtaza', 3, '2018-10-05 18:00:45');
 
 -- --------------------------------------------------------
 
@@ -114,7 +121,9 @@ INSERT INTO `buyers` (`username`, `book_name`, `seller_name`, `date`, `price`, `
 ('ojas', 'Kumbhojkar', 'murtaza', '05/10/2018', 500, 'None'),
 ('murtaza', 'AOA', 'ojas', '05/10/2018', 250, 'None'),
 ('murtaza', 'Data Structures Using C', 'ojas', '05/10/2018', 0, 'None'),
-('ojas', 'AOA', 'ojas', '05/10/2018', 250, 'None');
+('ojas', 'AOA', 'ojas', '05/10/2018', 250, 'None'),
+('murtaza', 'AOA', 'ojas', '05/10/2018', 250, 'Cash'),
+('ojas', 'JAVA,The Complete Reference', 'murtaza', '05/10/2018', 1000, 'Net Banking');
 
 -- --------------------------------------------------------
 
@@ -176,7 +185,7 @@ CREATE TABLE `notification` (
   `message` varchar(1000) NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'Unseen',
   `buyer_name` varchar(255) DEFAULT NULL,
-  `date` varchar(255) DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `offer_status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -185,9 +194,10 @@ CREATE TABLE `notification` (
 --
 
 INSERT INTO `notification` (`notification_id`, `username`, `message`, `status`, `buyer_name`, `date`, `offer_status`) VALUES
-(8, 'ojas', 'murtaza is interested in buying AOA , Preferred payment method: None , Preferred delivary mode: None', 'Unseen', 'murtaza', '05/10/2018', 'accepted'),
-(9, 'ojas', 'murtaza is interested in buying Data Structures Using C , Preferred payment method: None , Preferred delivary mode: None', 'Unseen', 'murtaza', '05/10/2018', 'pending'),
-(10, 'ojas', 'ojas is interested in buying AOA , Preferred payment method: None , Preferred delivary mode: None', 'Unseen', 'ojas', '05/10/2018', 'pending');
+(11, 'ojas', 'murtaza is interested in buying AOA , Preferred payment method: Cash , Preferred delivary mode: Courier', 'Unseen', 'murtaza', '0000-00-00 00:00:00', 'accepted'),
+(12, 'murtaza', 'ojas is interested in buying JAVA,The Complete Reference , Preferred payment method: Net Banking , Preferred delivary mode: Personal', 'Unseen', 'ojas', '0000-00-00 00:00:00', 'rejected'),
+(15, 'ojas', 'murtaza has rejected your order', 'Unseen', 'murtaza', '2018-10-05 18:13:22', 'reply'),
+(16, 'murtaza', 'ojas has accepted your order', 'Unseen', 'ojas', '2018-10-05 18:13:56', 'reply');
 
 -- --------------------------------------------------------
 
@@ -324,7 +334,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
