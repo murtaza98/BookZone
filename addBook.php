@@ -1,5 +1,7 @@
 <?php
     function customPageHeader(){
+        echo '<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>';
+        echo '<script type="text/javascript" src="includes/javascript/add_book.js"></script>';
     }
 ?>
 
@@ -40,6 +42,9 @@
 	}
 ?>
 
+<h3 class="text-center text-success"><b><u>Tell us more about your book</u></b></h3>
+<br>
+<br>
 <div class="container">
 	<form method="POST" action="">
 		<div class="row">
@@ -97,18 +102,16 @@
 			  	</select> <br><br>
 			</div>
 		</div>
-		Book description <br><br>
-		<div class="btn-toolbar" role="toolbar" style="margin-left: 0px; background-color: #9e9e9e;">
-			<ul>
-				<li class="btn btn-secondary" title="Bold" onclick="boldText();
-				"><i class="fa fa-bold"></i></li>
-				<li class="btn btn-secondary" title="Italics"><i class="fa fa-italic"></i></li>
-				<li class="btn btn-secondary" title="Underline"><i class="fa fa-underline"></i></li>
-				<li class="btn btn-secondary" title="Unordered list"><i class="fa fa-list-ul"></i></li>
-				<li class="btn btn-secondary" title="Ordered List"><i class="fa fa-list-ol"></i></li>
-			</ul>
-		</div>
-		<textarea name="book_description" class="form-control" rows="5" placeholder="Enter book's description" style="resize: none;"></textarea><br>
-	    <input name="submit" type="submit" class="btn btn-primary" value="REGISTER">
+		<br>
+		<br>
+		Book description
+		<br>
+		
+		<textarea id="editor" name="book_description" class="form-control" rows="10" placeholder="Enter book's description" style="resize: none;"></textarea><br>
+	    <input name="submit" type="submit" class="btn btn-primary btn-center" value="Save Details">
 	</form>
 </div>
+<br>
+<br>
+<br>
+<br>
