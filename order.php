@@ -19,11 +19,36 @@
                 $query = "UPDATE notification SET offer_status = 'accepted' WHERE notification_id = {$notification_id}";
                 $message = "{$seller_username} has accepted your order";
                 $reply_query = "INSERT INTO notification(username,message,status,buyer_name,offer_status,date) VALUES('$buyer_username','$message','Unseen','$seller_username','reply',now())";
+
+                $mail_query = "SELECT email FROM users WHERE username = '{$buyer_username}'";
+                $mail_query_result = mysqli_query($connection,$mail_query);
+                if(!$mail_query_result){
+                    die('QUERY FAILED '.mysqli_error($connection));
+                }else{
+                    $row = mysqli_fetch_assoc($mail_query_result);
+                    $email = $row['email'];
+                }
+                $message = wordwrap($message);
+                $subject = "Offer accepted";
+                mail($email, $subject, $message);
                 break;
+
             case "declineOrder":
                 $query = "UPDATE notification SET offer_status = 'rejected' WHERE notification_id = {$notification_id}";
                 $message = "{$seller_username} has rejected your order";
                 $reply_query = "INSERT INTO notification(username,message,status,buyer_name,offer_status,date) VALUES('$buyer_username','$message','Unseen','$seller_username','reply',now())";
+
+                $mail_query = "SELECT email FROM users WHERE username = '{$buyer_username}'";
+                $mail_query_result = mysqli_query($connection,$mail_query);
+                if(!$mail_query_result){
+                    die('QUERY FAILED '.mysqli_error($connection));
+                }else{
+                    $row = mysqli_fetch_assoc($mail_query_result);
+                    $email = $row['email'];
+                }
+                $message = wordwrap($message);
+                $subject = "Offer rejected";
+                mail($email, $subject, $message);
                 break;
             default:
                 $query = null;

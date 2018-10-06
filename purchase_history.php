@@ -39,7 +39,6 @@
 				        <td><?php echo $price ?></td>
 				        <td><?php echo $date ?></td>
 				        <td><?php echo $transaction_method ?></td>
-				        <td><button class="btn btn-default"><i class="glyphicon glyphicon-envelope" style="color: red"></i></button></td>
 	      			</tr>
 	      		<?php  
 	      			}}}

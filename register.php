@@ -3,7 +3,6 @@
         echo "<script type='text/javascript' src='./includes/javascript/register.js'></script>";
     }
 ?>
-
 <?php include "./templates/header.php"; ?>
 
 <?php include "./templates/navigation.php"; ?>
@@ -22,19 +21,18 @@
         $user_contact = $_POST['contact'];
         $user_category = $_POST['user_category'];
         $user_role = "user";
+        $is_verified = 'false';
         //CALL procedure
-        $query = "CALL addUser('$username','$user_password','$user_email','$user_firstName','$user_middleName','$user_lastname','$user_city',$user_pincode,'$user_category','$user_role',$user_contact)";
+        $query = "CALL addUser('$username','$user_password','$user_email','$user_firstName','$user_middleName','$user_lastname','$user_city',$user_pincode,'$user_category','$user_role',$user_contact,'$is_verified')";
         
         $query_result = mysqli_query($connection,$query);
         
         if(!$query_result){
             die('QUERY FAILED '.mysqli_error($connection));
         }else{
-            echo "<h3 class='text-center'>
-                        <strong>Registration Successfull</strong>
-                    </h3>";
-            echo "<h5 class='text-center'><a data-toggle='modal' data-target='#loginModal'>Click Here to Login</a></h5>";
+            header("Location: verify_user.php?email_id='{$user_email}'&username='{$username}'");
         }
+       
     }
 ?>
 <div class="container">
@@ -146,7 +144,7 @@
                         </div>
                     </div>
                     <div class='form-group'>
-                    <input name="submit" type="submit" class="btn btn-primary" value="REGISTER">
+                    <input name="submit" type="submit" class="btn btn-primary" value="Verify and Register">
                     </div>
                 </div>
             <div class="col-sm-3"></div>
