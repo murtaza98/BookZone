@@ -588,69 +588,46 @@
 </div>
 <div id="detailed_review_detail">
    
-   <?php
-    
-        for($i = 0 ; $i < $total_reviews ; $i++){
-         
-    ?>  
-        <div>
-            <!-- Left-aligned -->
-            <div class="media">
-              <div class="media-left">
-                <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
-              </div>
-              <div class="media-body">
-                <h4 class="media-heading"><?php echo $reviewers_name[$i]; ?></h4>
-                <span id="avgRating<?php echo $i; ?>" style="font-size: 15px">
-                    <script>starRating('avgRating<?php echo $i; ?>', <?php echo $reviewers_ratings[$i]; ?>)</script>  
-                </span>
-                <p><?php echo $reviewers_content[$i]; ?></p>
-              </div>
-            </div>
-        </div>
-        <hr>            
-            
-    <?php
-        }
-    
-    ?>
-   
-   
-   
-<!--
+<?php
+    for($i = 0 ; $i < $total_reviews ; $i++){   
+?>  
     <div>
-         Left-aligned 
+        <!-- Left-aligned -->
         <div class="media">
           <div class="media-left">
             <img src="./includes/images/img_avatar.png" class="media-object" style="width:60px">
           </div>
           <div class="media-body">
-            <h4 class="media-heading">John Doe</h4>
-            <span id="avgRating1" style="font-size: 15px">
-                <script>starRating('avgRating1', <?php// echo $ratings ?>)</script>  
+            <h4 class="media-heading"><?php echo $reviewers_name[$i]; ?></h4>
+            <span id="avgRating<?php echo $i; ?>" style="font-size: 15px">
+                <script>starRating('avgRating<?php echo $i; ?>', <?php echo $reviewers_ratings[$i]; ?>)</script>  
             </span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti non reiciendis ratione hic impedit, cumque! Quisquam distinctio, voluptatem maxime ex natus est deserunt cupiditate nostrum pariatur amet! Consequuntur, quaerat, aliquam?</p>
+            <p><?php echo $reviewers_content[$i]; ?></p>
           </div>
         </div>
     </div>
-    <hr>
--->
+    <hr>                  
+<?php
+    }
+?>
+    <a data-toggle="modal" href="" data-target="#reviewModal" style="color: white"><button class="btn btn-primary">Write a review</button></a>
+
+    <div id="reviewModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px;">&times;</button>
+                    <h3 class="modal-title"><b>&nbsp;Write a review</b></h3>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="./book_details.php" id="reviewform">
+                        <textarea class="form-control" rows="5" name="review" form="reviewform" placeholder="Write a review!!!" style="width: 100%; resize: none;"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer" style="margin-right: 10px;">
+                <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-bottom: 10px; margin-right: 10px; right: 0; bottom: 0">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-
-
-
-<!--
-<script>
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
--->
-
-
-
-
-<!-- <a href="<?php echo $openPage ?>?book_id=<?php echo $book_id ?>" id="bookmark" type="button" class="btn" style="background-color: #396a94; color: white">Bookmark</a>
-            <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #18456b; color: white">Buy Now</a> -->

@@ -31,7 +31,6 @@
 					</div>
 				</div>
             </form>
-            <a href='register.php' style='font-size: 16px; margin-left: 85px;'>Back to registration form</a>
         </div>
     </div>
 </div>
@@ -59,17 +58,13 @@
             echo "<script>var att = document.createAttribute('disabled');
                 att.value = 'disabled';
                document.getElementById('verify').setAttributeNode(att);</script>";
+                $delete_query = "DELETE FROM verification WHERE email_id= {$email_id}";
+    			$result = mysqli_query($connection, $delete_query);
 
             echo "<div class='col-sm-offset-5 col-sm-4'><a href='index.php' style='font-size: 16px;'>Back to home</a></div>";
-
-            $delete_query = "DELETE FROM verification WHERE username = {$username}";
-            $result = mysqli_query($connection, $delete_query);
     	}else{
-    		$delete_query = "DELETE FROM verification WHERE username = {$username}";
-            $result = mysqli_query($connection, $delete_query);
-    		echo "<div class='col-sm-offset-5 col-sm-6'>";
-    		echo "<a href='verify_user.php' style='font-size: 16px; margin-left: 85px;'>Resend verification code</a>";
-    		echo "</div>";
+    		$delete_query = "DELETE FROM verification WHERE email_id= {$email_id} and code = {$code}";
+    		$result = mysqli_query($connection, $delete_query);
     	}
     }
 ?>

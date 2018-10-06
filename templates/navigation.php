@@ -30,22 +30,22 @@
           ?>
             <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
             <li><a href="#"><i class="fa fa-info" style="color: white"> About</i></a></li>
-            <li><a href="addBook.php"><span class="glyphicon glyphicon-book" style="color: white"></span> Sell Book</a></li>
+            <li><a href="addBook.php" style="color: white"><span class="glyphicon glyphicon-book" style="color: white"></span> Sell Book</a></li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" style="color: white"></i><b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="dashboard"><i class="fa fa-user" style="color: white"></i><b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                        <a>WELCOME <?php echo $_SESSION['username'] ?></a>
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="view_details.php"><i class="fa fa-fw fa-user" style="color: white"></i>Profile</a>
+                        <a href="view_details.php"><i class="fa fa-fw fa-user" style="color: black"></i> Profile</a>
                     </li>
                     <li>
-                        <a href="notification.php"><i class="fa fa-fw fa-gear" style="color: white"></i>Notifications</a>
+                        <a href="notification.php"><i class="fa fa-fw fa-gear" style="color: black"></i> Notifications</a>
                     </li>
                     <li>
-                        <a href="purchase_history.php"><i class="fa fa-fw fa-user" style="color: white"></i>Purchase history</a>
+                        <a href="purchase_history.php"><i class="fa fa-history style="color: black"></i> Purchase history</a>
                     </li>
                     <li class="divider"></li>
                     <li>

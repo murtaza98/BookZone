@@ -6,8 +6,27 @@
         
     }
 ?>
-
 <?php include "./templates/header.php"; ?>
+<?php 
+    if (isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        $verify_query = "SELECT * FROM users WHERE username = '{$username}'";
+        
+        $verify_query_result = mysqli_query($connection,$verify_query);
+        
+        if(!$verify_query_result){
+            die("FAILED" . mysqli_error($connection));
+        }else{
+            $verify_row = mysqli_fetch_assoc($verify_query_result);
+            $email_id = $verify_row['email'];
+            $username = $verify_row['username'];
+            $is_verified = $verify_row['is_verified'];
+            if ($is_verified == 'false') {
+                header("Location: verify_user.php?email_id='{$email_id}'&username='{$username}'");
+            }
+        }
+    }
+?>
 <div id="wrapper">
 <?php include "./templates/navigation.php"; ?>
 <div class= "container close_bookmark_sidebar" id="page-content-wrapper" style="margin: 0px; padding: 0px">
