@@ -214,7 +214,7 @@
                 </span>
                 &nbsp;&nbsp;
                 <span>
-                    <a href="#" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
+                    <a href="javascript:$('#reviewModal').modal('show');" data-target="#reviewModal" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
 ;"><u>Write a review</u></a>
                 </span>
                 &nbsp;&nbsp;

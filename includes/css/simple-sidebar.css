@@ -113,33 +113,5 @@ body {
     position: relative;
     margin-right: 0;
   }
-  .sidebar-nav {
-    width: 100%;
-  }
 }
-
-@media(max-width:768px) {
-  #wrapper {
-    padding-right: 0;
-  }
-  #wrapper.toggled {
-    padding-right: 0;
-  }
-  #sidebar-wrapper {
-    width: 0;
-  }
-  #wrapper.toggled #sidebar-wrapper {
-    width: 100%;
-  }
-  #page-content-wrapper {
-    padding: 20px;
-    position: relative;
-  }
-  #wrapper.toggled #page-content-wrapper {
-    position: relative;
-    margin-right: 0;
-  }
-  .sidebar-nav {
-    width: 100%;
-  }
 }

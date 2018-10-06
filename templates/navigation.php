@@ -45,7 +45,7 @@
                         <a href="notification.php"><i class="fa fa-fw fa-gear" style="color: black"></i> Notifications</a>
                     </li>
                     <li>
-                        <a href="purchase_history.php"><i class="fa fa-history style="color: black"></i> Purchase history</a>
+                        <a href="purchase_history.php"><i class="fa fa-history" style="color: black"></i> Purchase history</a>
                     </li>
                     <li class="divider"></li>
                     <li>

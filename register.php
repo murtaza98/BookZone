@@ -46,8 +46,9 @@
                         <label for="username">Username</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input name="username" type="text" class="form-control" id="username" placeholder="Username" required="true"> 
-                        </div>                   
+                            <input onfocusout="checkUsername(this.value)" name="username" type="text" class="form-control" id="username" placeholder="Username" required="true">
+                        </div>              
+                        <p id="username_error" style="color:red;display:none;"><b>Sorry!! This username is already taken</b></p>      
                     </div>
                     <div class='form-group'>
                         <label for="passwd">Password</label>
@@ -69,8 +70,9 @@
                         <label for="email">Email</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input name="email" type="Email" class="form-control" id="email" placeholder="Enter Email" required="true">
+                            <input onfocusout="checkEmail(this.value)" name="email" type="Email" class="form-control" id="email" placeholder="Enter Email" required="true">
                         </div>
+                        <p id="email_error" style="color:red;display:none;"><b>This email is already used, Please try some other email</b></p>
                     </div>
                     <div class="row">
                         <div class="col-sm-4">

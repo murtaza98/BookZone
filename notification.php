@@ -56,8 +56,8 @@
 			  					}elseif ($offer_status == "pending"){
 			  				?>
 			  				<span>
-			  					<button class="btn btn-success" id="accept" onclick="accepted(<?php echo $notification_id?>)">Accept</button>
-			  					<button class="btn btn-danger" id="decline" onclick="rejected(<?php echo $notification_id?>)">Decline</button>	
+			  					<button class="btn btn-success" id="accept<?php echo $notification_id ?>" onclick="accepted(<?php echo $notification_id?>)">Accept</button>
+			  					<button class="btn btn-danger" id="decline<?php echo $notification_id ?>" onclick="rejected(<?php echo $notification_id?>)">Decline</button>	
 			  				</span>
 			  				<?php
 			  					}else{ }		

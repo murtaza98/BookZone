@@ -202,7 +202,7 @@
 
         if (isset($_POST['order'])) {
             $message = "{$username} is interested in buying {$book_name} , Preferred payment method: {$payment_method} , Preferred delivary mode: {$delivary_method}";
-            $buyer_query = "INSERT INTO notification VALUES(NULL,'$seller_username','$message','Unseen','$username','$date','pending')";
+            $buyer_query = "INSERT INTO notification VALUES(NULL,'$seller_username','$message','Unseen','$username',now(),'pending')";
             $buyer_query_result = mysqli_query($connection, $buyer_query);
             if(!$buyer_query_result){
                 die('QUERY FAILED '.mysqli_error($connection));
@@ -219,7 +219,7 @@
                 $email = $row['email'];
             }
             $message = wordwrap($message);
-            $subject = "new buyer";
+            $subject = "We have found someone who is interested in buying your book";
             mail($email, $subject, $message);
         }
     ?>
