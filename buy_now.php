@@ -218,7 +218,8 @@
                 $row = mysqli_fetch_assoc($mail_query_result);
                 $email = $row['email'];
             }
-            $subject = "";
+            $message = wordwrap($message);
+            $subject = "new buyer";
             mail($email, $subject, $message);
         }
     ?>
