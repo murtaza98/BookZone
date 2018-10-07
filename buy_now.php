@@ -210,7 +210,7 @@
                 echo "Notification send";
             }
 
-            $mail_query = "SELECT email FROM users WHERE username = '{$username}'";
+            $mail_query = "SELECT email FROM users WHERE username = '{$seller_username}'";
             $mail_query_result = mysqli_query($connection,$mail_query);
             if(!$mail_query_result){
                 die('QUERY FAILED '.mysqli_error($connection));
