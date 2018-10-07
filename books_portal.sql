@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 07, 2018 at 05:56 AM
+-- Generation Time: Oct 07, 2018 at 06:46 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -26,8 +26,8 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `addUser` (IN `param_username` VARCHAR(255), IN `param_password` VARCHAR(255), IN `param_email` VARCHAR(255), IN `param_firstName` VARCHAR(255), IN `param_middleName` VARCHAR(255), IN `param_lastName` VARCHAR(255), IN `param_city` VARCHAR(255), IN `param_pincode` INT(11), IN `param_category` VARCHAR(255), IN `param_role` VARCHAR(255), IN `param_contact` INT(20))  BEGIN
-        	INSERT INTO users(username,password,email,first_name,middle_name,last_name,city,pincode,user_category,role)  VALUES(param_username,param_password,param_email,param_firstName,param_middleName,param_lastName,param_city,param_pincode,param_category,param_role);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addUser` (IN `param_username` VARCHAR(255), IN `param_password` VARCHAR(255), IN `param_email` VARCHAR(255), IN `param_firstName` VARCHAR(255), IN `param_middleName` VARCHAR(255), IN `param_lastName` VARCHAR(255), IN `param_city` VARCHAR(255), IN `param_pincode` INT(11), IN `param_category` VARCHAR(255), IN `param_role` VARCHAR(255), IN `param_contact` INT(20), IN `param_isverified` VARCHAR(25))  BEGIN
+        	INSERT INTO users(username,password,email,first_name,middle_name,last_name,city,pincode,user_category,role,is_verified)  VALUES(param_username,param_password,param_email,param_firstName,param_middleName,param_lastName,param_city,param_pincode,param_category,param_role,param_isverified);
             INSERT INTO contacts(username,contact_no) VALUES(param_username,param_contact);
        END$$
 
@@ -123,7 +123,8 @@ INSERT INTO `buyers` (`username`, `book_name`, `seller_name`, `date`, `price`, `
 ('murtaza', 'Data Structures Using C', 'ojas', '05/10/2018', 0, 'None'),
 ('ojas', 'AOA', 'ojas', '05/10/2018', 250, 'None'),
 ('murtaza', 'AOA', 'ojas', '05/10/2018', 250, 'Cash'),
-('ojas', 'JAVA,The Complete Reference', 'murtaza', '05/10/2018', 1000, 'Net Banking');
+('ojas', 'JAVA,The Complete Reference', 'murtaza', '05/10/2018', 1000, 'Net Banking'),
+('ojas', 'AOA', 'ojas', '07/10/2018', 250, 'None');
 
 -- --------------------------------------------------------
 
@@ -197,7 +198,9 @@ INSERT INTO `notification` (`notification_id`, `username`, `message`, `status`, 
 (11, 'ojas', 'murtaza is interested in buying AOA , Preferred payment method: Cash , Preferred delivary mode: Courier', 'Unseen', 'murtaza', '0000-00-00 00:00:00', 'accepted'),
 (12, 'murtaza', 'ojas is interested in buying JAVA,The Complete Reference , Preferred payment method: Net Banking , Preferred delivary mode: Personal', 'Unseen', 'ojas', '0000-00-00 00:00:00', 'rejected'),
 (15, 'ojas', 'murtaza has rejected your order', 'Unseen', 'murtaza', '2018-10-05 18:13:22', 'reply'),
-(16, 'murtaza', 'ojas has accepted your order', 'Unseen', 'ojas', '2018-10-05 18:13:56', 'reply');
+(16, 'murtaza', 'ojas has accepted your order', 'Unseen', 'ojas', '2018-10-05 18:13:56', 'reply'),
+(17, 'ojas', 'ojas is interested in buying AOA , Preferred payment method: None , Preferred delivary mode: None', 'Unseen', 'ojas', '2018-10-07 03:59:07', 'rejected'),
+(18, 'ojas', 'ojas has rejected your order', 'Unseen', 'ojas', '2018-10-07 03:59:12', 'reply');
 
 -- --------------------------------------------------------
 
@@ -335,7 +338,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
