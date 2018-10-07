@@ -49,7 +49,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="./templates/logout.php"><i class="fa fa-fw fa-power-off" style="color: white"></i>Log Out</a>
+                        <a href="./templates/logout.php"><i class="fa fa-fw fa-power-off" style="color: black"></i>Log Out</a>
                     </li>
                 </ul>
             </li>

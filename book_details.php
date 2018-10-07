@@ -89,6 +89,7 @@
         $openPage = "bookmark.php"; 
     }
     // add else here to print message
+
     $review_query = "SELECT * FROM reviews WHERE book_id='$book_id'";
     $review_result = mysqli_query($connection, $review_query);
     if (!$review_result) {
@@ -238,6 +239,17 @@
             <div id="buynow_parent">
                 <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <?php
+
+                    if ($book_status == 'unavailable') {
+                        echo "<script>
+                                document.getElementById('buyNow');
+                                var att = document.createAttribute('disabled');
+                                att.value = 'disabled';
+                                element.setAttributeNode(att);
+                              </script>";
+                    }
+                ?>
                 
                 <?php
                     if(isset($_SESSION["username"]) && $_SESSION["username"]){

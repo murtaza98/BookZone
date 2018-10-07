@@ -138,7 +138,6 @@
                             if(!$query_result_category){
                                 die("QUERY FAILED ".mysqli_error($connection));
                             }
-
                             while ($row_category = mysqli_fetch_assoc($query_result_category)) {
                                 $category_id = $row_category['category_id'];
                                 $category_name = $row_category['category_name'];

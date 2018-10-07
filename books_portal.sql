@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 05, 2018 at 08:26 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Host: localhost
+-- Generation Time: Oct 07, 2018 at 05:56 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -239,19 +239,20 @@ CREATE TABLE `users` (
   `user_category` varchar(255) NOT NULL DEFAULT 'FirstYear',
   `role` varchar(255) NOT NULL,
   `street_no` int(11) DEFAULT '-1',
-  `area` varchar(255) DEFAULT NULL
+  `area` varchar(255) DEFAULT NULL,
+  `is_verified` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `city`, `pincode`, `user_category`, `role`, `street_no`, `area`) VALUES
-('admin', 'asd', 'patrawalamurtaza52@gmail.com', 'Gabrielle', 'asd', 'Lewis', 'Mumbai', 400055, 'Computer', 'user', -1, NULL),
-('murtaza', '1234', 'noemail@noemail@noemail', 'murtaza', NULL, 'patrawala', 'Mumbai', 400070, 'ThirdYear', 'admin', 8, 'mumbai'),
-('ojas', '1234', 'noemail@noemail@noemail', 'ojas', NULL, 'kapre', 'Mumbai', 400070, 'SecondYear', 'admin', -1, 'mumbai'),
-('patrawalamurtaza52@gmail.com', '1234', 'noemail@noemail@noemail', 'Gabrielle', NULL, 'Lewis', '', -1, 'FirstYear', 'user', -1, '9-65, Western Express Highway'),
-('priyesh', '1234', 'noemail@noemail@noemail', 'priyesh', NULL, 'patel', 'Mumbai', 400070, 'ThirdYear', 'admin', -1, 'mumbai');
+INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `city`, `pincode`, `user_category`, `role`, `street_no`, `area`, `is_verified`) VALUES
+('admin', 'asd', 'patrawalamurtaza52@gmail.com', 'Gabrielle', 'asd', 'Lewis', 'Mumbai', 400055, 'Computer', 'user', -1, NULL, 'true'),
+('murtaza', '1234', 'noemail@noemail@noemail', 'murtaza', NULL, 'patrawala', 'Mumbai', 400070, 'ThirdYear', 'admin', 8, 'mumbai', 'true'),
+('ojas', '1234', 'noemail@noemail@noemail', 'ojas', NULL, 'kapre', 'Mumbai', 400070, 'SecondYear', 'admin', -1, 'mumbai', 'true'),
+('patrawalamurtaza52@gmail.com', '1234', 'noemail@noemail@noemail', 'Gabrielle', NULL, 'Lewis', '', -1, 'FirstYear', 'user', -1, '9-65, Western Express Highway', 'true'),
+('priyesh', '1234', 'noemail@noemail@noemail', 'priyesh', NULL, 'patel', 'Mumbai', 400070, 'ThirdYear', 'admin', -1, 'mumbai', 'true');
 
 --
 -- Indexes for dumped tables
