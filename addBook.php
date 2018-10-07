@@ -4,17 +4,20 @@
         echo '<script type="text/javascript" src="includes/javascript/add_book.js"></script>';
     }
 ?>
-
 <?php include "./templates/header.php"; ?>
-
 <?php include "./templates/navigation.php"; ?>
-
 <?php
     if(!isset($_SESSION['username'])){
         header('Location: ./');
     }
 ?>
+<?php
+    if(isset($_SESSION['page_message'])){
+        echo $_SESSION['page_message'];
+        $_SESSION['page_message'] = null;
+    }
 
+?>
 <?php
 	if(isset($_POST['submit'])&&isset($_SESSION['username'])){
 		$book_name=$_POST['book_name'];
@@ -48,35 +51,23 @@
                 die('QUERY FAILED '.mysqli_error($connection));
             }else{
                 $book_id = mysqli_insert_id($connection);
-                $_SESSION['inter_page_message'] = '<h4 class="text-center text-success">Book Added....Click <a href="book_details.php?book_id='.$book_id.'">here</a> to view the book</h4>';
+                
+                $_SESSION['page_message'] = '<h4 class="text-center text-success"><b>Book Added....Click <a href="book_details.php?book_id='.$book_id.'">here</a> to view the book</b></h4>';
+                
                 
                 header('Location: addBook.php');
             }
             
             
         }else{
-            $_SESSION['inter_page_message'] = '<h3 class="text-center text-danger">Error Uploading Image</h3>';
+            $_SESSION['page_message'] = '<h3 class="text-center text-danger"><b>Error Uploading Image</b></h3>';
             header('Location: addBook.php');
-        }
-        
-        
-        
-
-//		$query = "INSERT INTO books(username,book_name,author,edition,subject,category_id,book_price,book_original_price,book_description,date) ";
-//        $query .= "VALUES('{$seller_name}','{$book_name}','{$book_author}','{$book_edition}','{$book_subject}',{$book_category},{$book_price},{$book_original_price},'{$book_description}',now())";
-        
-        
+        }       
         
 	}
 ?>
 
-<?php
-    if(isset($_SESSION['inter_page_message'])){
-        echo $_SESSION['inter_page_message'];
-        $_SESSION['inter_page_message'] = null;
-    }
 
-?>
 
 <h3 class="text-center text-success"><b><u>Tell us more about your book</u></b></h3>
 <br>
