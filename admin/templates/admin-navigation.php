@@ -66,7 +66,7 @@
             <a href="categories.php"><i class="fa fa-fw fa-desktop"></i> Categories</a>
         </li>
         <li>
-            <a href="#"><i class="fa fa-fw fa-wrench"></i> Reviews</a>
+            <a href="reviews.php"><i class="fa fa-fw fa-wrench"></i> Reviews</a>
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#users_toggle"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
