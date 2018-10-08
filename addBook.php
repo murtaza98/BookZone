@@ -122,7 +122,7 @@
                     <select class="form-control" name="book_category">
                         <option selected>Choose...</option>
                         <?php
-                            $query = "SELECT * FROM CATEGORIES WHERE parent_category_id = 0";
+                            $query = "SELECT * FROM categories WHERE parent_category_id = 0";
 
                             $query_result_category = mysqli_query($connection,$query);
 

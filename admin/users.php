@@ -4,7 +4,6 @@
     }
 ?>
 <?php include "./templates/admin-header.php"; ?>
-
 <?php include "./templates/admin-navigation.php"; ?>
 
 <?php

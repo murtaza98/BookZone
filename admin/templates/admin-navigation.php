@@ -11,7 +11,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">CMS Admin</a>
+        <a class="navbar-brand" href="admin_index.php">BookZone Admin</a>
         <script>
           function goBack() {
               window.history.back();
@@ -26,7 +26,7 @@
     <div class="nav navbar-nav collapse navbar-collapse navbar-ex1-collapse navbar-right">
         <li><a href="../">Home Site</a></li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>Name<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin<b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
                     <a href="#"><i class="fa fa-fw fa-user"></i>Profile</a>
@@ -49,13 +49,13 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav side-nav">
         <li>
-          <a href="./"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+          <a href="admin_index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Books <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="posts_dropdown" class="collapse">
                 <li>
-                    <a href="#">View All Books</a>
+                    <a href="   books.php">View All Books</a>
                 </li>
                 <li>
                     <a href="#">Add Books</a>
@@ -73,9 +73,6 @@
             <ul id="users_toggle" class="collapse">
                 <li>
                     <a href="users.php">View All Users</a>
-                </li>
-                <li>
-                    <a href="#">Add User</a>
                 </li>
             </ul>
         </li>
