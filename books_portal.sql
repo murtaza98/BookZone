@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 09, 2018 at 04:03 PM
+-- Generation Time: Oct 09, 2018 at 05:51 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -79,9 +79,9 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_original_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
-(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 3, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-10-09'),
-(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-10-08'),
-(4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 0, 'No Description Available', 'coa.jpg', 'unavailable', '2018-08-05'),
+(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '6', 'Maths', 3, 500, 688, 'Best book for maths', 'kumbhojkar.jpg', 'available', '2018-10-09'),
+(3, 'ojas', 'Analysis of Algorithms', 'Sartaj Sahani', '5', 'AOA', 1, 250, 400, '', 'aoa.jpg', 'unavailable', '2018-10-08'),
+(4, 'priyesh', 'Computer Organisation and Architecture', 'William Stalling', '6', 'COA', 1, 450, 750, '', 'coa.jpg', 'unavailable', '2018-08-05'),
 (5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 0, 'No Description Available', 'java.jpg', 'unavailable', '2018-08-08'),
 (6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-10-08'),
 (7, 'priyesh', 'COA', 'someone', '6', 'COA', 6, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
@@ -143,15 +143,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_name`, `parent_category_id`) VALUES
-(1, 'Computer Engineering', 0),
+(1, 'EXTC', 0),
 (2, 'Mechanical Engineering', 0),
 (3, 'Civil Engineering', 0),
 (4, 'Electrical Engineering', 0),
-(5, 'Semester 1', 1),
-(6, 'Semester 1', 2),
-(7, 'Semester 1', 3),
-(8, 'Semester 1', 4),
-(9, 'Semester 2', 1);
+(5, 'EXTC', 0);
 
 -- --------------------------------------------------------
 
@@ -331,7 +327,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `notification`
