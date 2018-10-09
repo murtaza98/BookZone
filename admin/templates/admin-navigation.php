@@ -49,35 +49,29 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav side-nav">
         <li>
-          <a href="admin_index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+          <a href="admin_index.php"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Books <i class="fa fa-fw fa-caret-down"></i></a>
-            <ul id="posts_dropdown" class="collapse">
-                <li>
-                    <a href="   books.php">View All Books</a>
-                </li>
-                <li>
-                    <a href="#">Add Books</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="categories.php"><i class="fa fa-fw fa-desktop"></i> Categories</a>
-        </li>
-        <li>
-            <a href="reviews.php"><i class="fa fa-fw fa-wrench"></i> Reviews</a>
-        </li>
-        <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#users_toggle"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
+            <a href="javascript:;" data-toggle="collapse" data-target="#users_toggle"><i class="glyphicon glyphicon-user"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="users_toggle" class="collapse">
                 <li>
                     <a href="users.php">View All Users</a>
                 </li>
             </ul>
         </li>
-        <li class="active">
-            <a href="#"><i class="fa fa-fw fa-file"></i> Profile</a>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="glyphicon glyphicon-book"></i>  Books <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="posts_dropdown" class="collapse">
+                <li>
+                    <a href="books.php">View All Books</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="categories.php"><i class="fa fa-list-alt"></i> Categories</a>
+        </li>
+        <li>
+            <a href="reviews.php"><i class="fa fa-fw fa-wrench"></i> Reviews</a>
         </li>
       </ul>
     </div>

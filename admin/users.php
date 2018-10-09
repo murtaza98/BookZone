@@ -4,6 +4,7 @@
     }
 ?>
 <?php include "./templates/admin-header.php"; ?>
+<?php if(isset($_SESSION['username'])) { ?>
 <?php include "./templates/admin-navigation.php"; ?>
 
 <?php
@@ -60,3 +61,7 @@
 
 
 <?php include "templates/admin-footer.php"; ?>
+<?php }else{
+		header("Location: ../index.php");
+	} 
+?>

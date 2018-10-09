@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 07, 2018 at 06:46 AM
+-- Generation Time: Oct 09, 2018 at 11:30 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -79,23 +79,23 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_original_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
-(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 3, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
-(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-08-05'),
+(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 3, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-10-09'),
+(3, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 1, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-10-08'),
 (4, 'priyesh', 'COA', 'someone', '6', 'COA', 1, 450, 0, 'No Description Available', 'coa.jpg', 'unavailable', '2018-08-05'),
 (5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 0, 'No Description Available', 'java.jpg', 'unavailable', '2018-08-08'),
-(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-08-08'),
+(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-10-08'),
 (7, 'priyesh', 'COA', 'someone', '6', 'COA', 6, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
 (8, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 2, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-08-08'),
 (9, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 2, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
 (11, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 2, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'unavailable', '2018-08-05'),
 (12, 'priyesh', 'COA', 'someone', '6', 'COA', 3, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
 (13, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 3, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-08-08'),
-(14, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 3, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-08-05'),
-(15, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 4, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-08-05'),
+(14, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 3, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-10-04'),
+(15, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 4, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-10-11'),
 (16, 'priyesh', 'COA', 'someone', '6', 'COA', 4, 450, 0, 'No Description Available', 'coa.jpg', 'available', '2018-08-05'),
 (17, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 4, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
-(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-08-08'),
-(19, 'murtaza', 'asd', 'asd', 'asd', 'asd', 1, 132, 456, 'basjbdjk', 'default.jpg', 'unavailable', '2018-08-14');
+(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-10-10'),
+(19, 'murtaza', 'asd', 'asd', 'asd', 'asd', 1, 132, 456, 'basjbdjk', 'default.jpg', 'unavailable', '2018-10-04');
 
 -- --------------------------------------------------------
 
@@ -220,7 +220,6 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`username`, `book_id`, `ratings`, `review_content`) VALUES
-('murtaza', 3, 4, 'Nice Book'),
 ('ojas', 4, 3, 'useful'),
 ('priyesh', 1, 1, 'Worth reading');
 
@@ -243,19 +242,20 @@ CREATE TABLE `users` (
   `role` varchar(255) NOT NULL,
   `street_no` int(11) DEFAULT '-1',
   `area` varchar(255) DEFAULT NULL,
-  `is_verified` varchar(25) DEFAULT NULL
+  `is_verified` varchar(25) DEFAULT NULL,
+  `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `city`, `pincode`, `user_category`, `role`, `street_no`, `area`, `is_verified`) VALUES
-('admin', 'asd', 'patrawalamurtaza52@gmail.com', 'Gabrielle', 'asd', 'Lewis', 'Mumbai', 400055, 'Computer', 'user', -1, NULL, 'true'),
-('murtaza', '1234', 'noemail@noemail@noemail', 'murtaza', NULL, 'patrawala', 'Mumbai', 400070, 'ThirdYear', 'admin', 8, 'mumbai', 'true'),
-('ojas', '1234', 'noemail@noemail@noemail', 'ojas', NULL, 'kapre', 'Mumbai', 400070, 'SecondYear', 'admin', -1, 'mumbai', 'true'),
-('patrawalamurtaza52@gmail.com', '1234', 'noemail@noemail@noemail', 'Gabrielle', NULL, 'Lewis', '', -1, 'FirstYear', 'user', -1, '9-65, Western Express Highway', 'true'),
-('priyesh', '1234', 'noemail@noemail@noemail', 'priyesh', NULL, 'patel', 'Mumbai', 400070, 'ThirdYear', 'admin', -1, 'mumbai', 'true');
+INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `city`, `pincode`, `user_category`, `role`, `street_no`, `area`, `is_verified`, `date`) VALUES
+('admin', 'asd', 'patrawalamurtaza52@gmail.com', 'Gabrielle', 'asd', 'Lewis', 'Mumbai', 400055, 'FirstYear', 'user', 106, 'mulund', 'true', '2018-10-09'),
+('murtaza', '1234', 'noemail@noemail@noemail', 'murtaza', NULL, 'patrawala', 'Mumbai', 400070, 'ThirdYear', 'admin', 8, 'mumbai', 'true', '2018-10-01'),
+('ojas', '1234', 'noemail@noemail@noemail', 'ojas', NULL, 'kapre', 'Mumbai', 400070, 'SecondYear', 'admin', -1, 'mumbai', 'true', '2018-10-07'),
+('patrawalamurtaza52@gmail.com', '1234', 'noemail@noemail@noemail', 'Gabrielle', NULL, 'Lewis', 'nalasopara', 400609, 'LastYear', 'user', -1, '9-65, Western Express Highway', 'true', '2018-10-04'),
+('priyesh', '1234', 'noemail@noemail@noemail', 'priyesh', NULL, 'patel', 'Mumbai', 400070, 'ThirdYear', 'admin', -1, 'mumbai', 'true', '2018-10-08');
 
 --
 -- Indexes for dumped tables

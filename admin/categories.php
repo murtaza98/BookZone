@@ -132,9 +132,4 @@
 	</div>
 
 </div>
-
-
-
-
-
 <?php include "templates/admin-footer.php"; ?>
