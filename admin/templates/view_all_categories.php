@@ -40,7 +40,7 @@
 									<td class="text-center"><?php echo $category_id ?></td>
 									<td class="text-center"><?php echo $category_name ?></td>
 									<td class="text-center"><a href="categories.php?source=edit_category&edit=<?php echo $category_id ?>" class="btn btn-primary">Edit</a></td>
-									<td class="text-center"><a href="categories.php?delete=<?php echo $category_id ?>" class="btn btn-danger">Delete</a></td>
+									<td class="text-center"><a onClick="javascript: return confirm('Are you sure you want to delete this review'); " href="categories.php?delete=<?php echo $category_id ?>" class="btn btn-danger">Delete</a></td>
 								</tr>
 					<?php
 							}
