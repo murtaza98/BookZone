@@ -12,8 +12,8 @@
 					<th class="text-center">Pincode</th>
 					<th class="text-center">Contact</th>
 					<th class="text-center">User Category</th>
-					<th class="text-center">Edit</th>
-					<th class="text-center">Delete</th>
+					<th class="text-center"></th>
+					<th class="text-center"></th>
 				</tr>
 			</thead>
 			<tbody>

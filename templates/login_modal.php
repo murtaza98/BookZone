@@ -7,7 +7,9 @@
       </div>
       <?php 
         if(isset($_SESSION['autostart_modal'])){
-          echo "<p style='padding-left: 7px; color: red;'>Username or Password is incorrect</p>";
+          echo '<div class="alert alert-danger alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Error!</strong> Username or Password is wrong!!!
+          </div>';
         }
       ?>
       <div class="modal-body">

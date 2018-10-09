@@ -47,7 +47,7 @@
 								<td class="text-center"><?php echo $price ?></td>
 								<td class="text-center"><?php echo $originalprice ?></td>
 								<td class="text-center"><a href="view_more_books.php?bookid=<?php echo $bookid ?>" class="btn btn-primary">View More</a></td>
-								<td class="text-center"><a href="books.php?editId=<?php echo $bookid ?>" class="btn btn-primary">Edit</a></td>
+								<td class="text-center"><a href="books.php?source=edit_book&editId=<?php echo $bookid ?>" class="btn btn-primary">Edit</a></td>
 								<td class="text-center"><a href="books.php?delete=<?php echo $bookid ?>" class="btn btn-danger">Delete</a></td>
 							</tr>
 				<?php
