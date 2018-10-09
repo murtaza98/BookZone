@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 09, 2018 at 11:30 AM
+-- Generation Time: Oct 09, 2018 at 04:03 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -220,7 +220,6 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`username`, `book_id`, `ratings`, `review_content`) VALUES
-('ojas', 4, 3, 'useful'),
 ('priyesh', 1, 1, 'Worth reading');
 
 -- --------------------------------------------------------
