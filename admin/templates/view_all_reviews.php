@@ -1,5 +1,27 @@
 <h3 class="text-center"><b><u>ALL BOOKS</u></b></h3>
 
+<div id="reviewModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px;">&times;</button>
+                <h3 class="modal-title"><b>&nbsp;Edit review</b></h3>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="reviews.php">
+                    <input id="modal_book_id" type="text" value="" name="book_id" style="display:none;">
+                    <textarea id="review_modal" name="review" rows="5" class="form-control" cols="30" rows="10" style="width: 100%; resize: none;" ></textarea>
+                    <br>
+                    <input type="submit" class="btn btn-primary" name="review_submit">
+                </form>                
+            </div>
+            <div class="modal-footer" style="margin-right: 10px;">
+            <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-bottom: 10px; margin-right: 10px; right: 0; bottom: 0">Close</button>
+            </div>	
+        </div>
+    </div>
+</div>
+
 <div class="row">
 	<div class="col-lg-12">
 		<table class="table table-bordered table-hover table-responsive">
@@ -44,9 +66,15 @@
 								<td class="text-center"><?php echo $username ?></td>
 								<td class="text-center"><?php echo $bookname ?></td>
 								<td class="text-center"><?php echo $ratings ?></td>
-								<td class="text-center"><?php echo $review ?></td>
-								<td class="text-center"><a data-toggle="modal" href="" data-target="#reviewModal" style="color: white"><button class="btn btn-primary">Edit</button></a></td>
-								<td class="text-center"><a href="reviews.php?delete=<?php echo $bookid ?>" class="btn btn-danger">Delete</a></td>
+								<td id="content_<?php echo $bookid; ?>" class="text-center"><?php echo $review ?></td>
+								<td  class="text-center">
+								    <a data-toggle="modal" href="" data-target="#reviewModal" style="color: white">
+								        <button onclick="javacript: showReviewModal(<?php echo $bookid; ?>)" class="btn btn-primary">Edit Review</button>
+								    </a>
+								</td>
+								<td class="text-center">
+								    <a onClick="javascript: return confirm('Are you sure you want to delete this review'); " href="reviews.php?delete=<?php echo $bookid ?>" class="btn btn-danger">Delete</a>
+								</td>
 							</tr>
 				<?php
 						}
@@ -57,22 +85,3 @@
 	</div>	
 </div>
 
-<div id="reviewModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px;">&times;</button>
-                <h3 class="modal-title"><b>&nbsp;Write a review</b></h3>
-            </div>
-            <div class="modal-body">
-                <form method="post" action="reviews.php">
-                    <textarea class="form-control" rows="5" name="review" placeholder="Write a review!!!" style="width: 100%; resize: none;"></textarea>
-                </form><br>
-                <input type="submit" class="btn btn-primary" name="review_submit">
-            </div>
-            <div class="modal-footer" style="margin-right: 10px;">
-            <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-bottom: 10px; margin-right: 10px; right: 0; bottom: 0">Close</button>
-            </div>	
-        </div>
-    </div>
-</div>

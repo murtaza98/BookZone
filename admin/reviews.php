@@ -1,6 +1,7 @@
 <?php
     function customPageHeader(){
     	 echo "<link rel='stylesheet' type='text/css' href='includes/css/users.css'>";
+         echo "<script type='text/javascript' src='includes/javascript/reviews.js'></script>";        
     }
 ?>
 <?php include "./templates/admin-header.php"; ?>
@@ -27,9 +28,10 @@
 <div id="wrapper">
 	<div id="page-wrapper">
 		<div class="container-fluid">
-			<?php if(isset($_POST['review_submit'])) {
+			<?php if(isset($_POST['review_submit'])&&isset($_POST['book_id'])) {
+                    $book_id = $_POST['book_id'];
 					$content  = $_POST['review'];
-					$edit_query = "UPDATE reviews SET review_content = '{$review}' WHERE book_id = '{$bookid}'";
+					$edit_query = "UPDATE reviews SET review_content = '{$content}' WHERE book_id = '{$book_id}'";
 					$result = mysqli_query($connection, $edit_query);
 					if (!$result) {
 							die("QUERY FAILED " .mysqli_error($connection));
@@ -44,7 +46,8 @@
 	</div>
 </div>
 <?php include "templates/admin-footer.php"; ?>
-<?php }else{
+<?php 
+    }else{
 		header("Location: ../index.php");
 	} 
 ?>
