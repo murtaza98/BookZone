@@ -39,7 +39,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
+                    <a href=../templates/logout.php><i class="fa fa-fw fa-power-off"></i>Log Out</a>
                 </li>
             </ul>
         </li>
@@ -52,20 +52,13 @@
           <a href="admin_index.php"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#users_toggle"><i class="glyphicon glyphicon-user"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
-            <ul id="users_toggle" class="collapse">
-                <li>
-                    <a href="users.php">View All Users</a>
-                </li>
-            </ul>
+            <a href="recent_activity.php"><i class="glyphicon glyphicon-dashboard"></i> Recent activities</a>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#posts_dropdown"><i class="glyphicon glyphicon-book"></i>  Books <i class="fa fa-fw fa-caret-down"></i></a>
-            <ul id="posts_dropdown" class="collapse">
-                <li>
-                    <a href="books.php">View All Books</a>
-                </li>
-            </ul>
+            <a href="users.php"><i class="glyphicon glyphicon-user"></i> Users</a>
+        </li>
+        <li>
+            <a href="books.php"><i class="fa fa-book"></i> View All Books</a>
         </li>
         <li>
             <a href="categories.php"><i class="fa fa-list-alt"></i> Categories</a>

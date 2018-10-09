@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 09, 2018 at 05:51 PM
+-- Generation Time: Oct 09, 2018 at 08:57 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -107,7 +107,7 @@ CREATE TABLE `buyers` (
   `username` varchar(255) NOT NULL,
   `book_name` varchar(255) NOT NULL,
   `seller_name` varchar(255) NOT NULL,
-  `date` varchar(255) NOT NULL,
+  `date` date NOT NULL,
   `price` float NOT NULL,
   `transaction_method` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -117,14 +117,14 @@ CREATE TABLE `buyers` (
 --
 
 INSERT INTO `buyers` (`username`, `book_name`, `seller_name`, `date`, `price`, `transaction_method`) VALUES
-('ojas', 'JAVA,The Complete Reference', 'murtaza', '05/10/2018', 1000, 'None'),
-('ojas', 'Kumbhojkar', 'murtaza', '05/10/2018', 500, 'None'),
-('murtaza', 'AOA', 'ojas', '05/10/2018', 250, 'None'),
-('murtaza', 'Data Structures Using C', 'ojas', '05/10/2018', 0, 'None'),
-('ojas', 'AOA', 'ojas', '05/10/2018', 250, 'None'),
-('murtaza', 'AOA', 'ojas', '05/10/2018', 250, 'Cash'),
-('ojas', 'JAVA,The Complete Reference', 'murtaza', '05/10/2018', 1000, 'Net Banking'),
-('ojas', 'AOA', 'ojas', '07/10/2018', 250, 'None');
+('ojas', 'JAVA,The Complete Reference', 'murtaza', '2018-10-04', 1000, 'None'),
+('ojas', 'Kumbhojkar', 'murtaza', '2018-10-04', 500, 'None'),
+('murtaza', 'AOA', 'ojas', '2018-09-04', 250, 'None'),
+('murtaza', 'Data Structures Using C', 'ojas', '2018-09-04', 0, 'None'),
+('ojas', 'AOA', 'ojas', '2018-10-04', 250, 'None'),
+('murtaza', 'AOA', 'ojas', '2018-09-04', 250, 'Cash'),
+('ojas', 'JAVA,The Complete Reference', 'murtaza', '2018-10-04', 1000, 'Net Banking'),
+('ojas', 'AOA', 'ojas', '2018-10-04', 250, 'None');
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_name`, `parent_category_id`) VALUES
-(1, 'EXTC', 0),
+(1, 'Computer Engineering', 0),
 (2, 'Mechanical Engineering', 0),
 (3, 'Civil Engineering', 0),
 (4, 'Electrical Engineering', 0),

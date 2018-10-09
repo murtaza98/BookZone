@@ -26,8 +26,11 @@
         <ul class="nav navbar-nav navbar-right">
           <?php
             if(isset($_SESSION['username'])){
-              //SHOW SELL BOOK AND LOGOUT IN NAVBAR
+              $role = $_SESSION['user_role'];
+              if ($role == 'admin') {
           ?>
+            <li><a href="admin/admin_index.php" style="color: white">Admin Site</a></li>
+          <?php } ?>
             <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
             <li><a href="#"><i class="fa fa-info" style="color: white"> About</i></a></li>
             <li><a href="addBook.php" style="color: white"><span class="glyphicon glyphicon-book" style="color: white"></span> Sell Book</a></li>

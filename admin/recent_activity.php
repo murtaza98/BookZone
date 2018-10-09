@@ -28,8 +28,9 @@
 								<i class="fa fa-user fa-8x"></i>
 							</div>
 							<div class="col-sm-9 text-right">
-								<?php  
-									$count_users = "SELECT COUNT(*) as total FROM users";
+								<?php 
+									$date = date('Y-m-d', strtotime('-7 days')); 
+									$count_users = "SELECT COUNT(*) as total FROM users WHERE date > '{$date}' ";
 									$users_result = mysqli_query($connection, $count_users);
 									$users = mysqli_fetch_assoc($users_result)['total'];
 								?>
@@ -61,7 +62,8 @@
 							</div>
 							<div class="col-sm-9 text-right">
 								<?php  
-									$count_books = "SELECT COUNT(*) as total FROM books";
+									$date = date('Y-m-d', strtotime('-7 days'));
+									$count_books = "SELECT COUNT(*) as total FROM books WHERE date > '{$date}'";
 									$books_result = mysqli_query($connection, $count_books);
 									$books = mysqli_fetch_assoc($books_result)['total'];
 								?>
@@ -93,7 +95,8 @@
 							</div>
 							<div class="col-sm-9 text-right">
 								<?php  
-									$count_orders = "SELECT COUNT(*) as total FROM buyers";
+								    $date = date('Y-m-d', strtotime('-7 days'));	
+									$count_orders = "SELECT COUNT(*) as total FROM buyers WHERE date > '{$date}'";
 									$orders_result = mysqli_query($connection, $count_orders);
 									$orders = mysqli_fetch_assoc($orders_result)['total'];
 								?>
@@ -117,71 +120,83 @@
 			</div>
 		</div>
 
-		<script type="text/javascript">
-			var months = ['August','September','October','November','December'];
-		</script>
-
-		<?php
-			for ($i=0; $i < 5; $i++) { 
-				$month = 8 + $i;
-				if ($i < 2) {
-					$month_match = '0'.$month;
-				}else{
-					$month_match = $month;
-				}	
-
-				$query1 = "SELECT COUNT(*) as total FROM users WHERE date LIKE '%-$month_match-%'";
-				$query1_result = mysqli_query($connection, $query1);
-				$users = mysqli_fetch_assoc($query1_result)['total'];
-
-				$query2 = "SELECT COUNT(*) as total FROM books WHERE date LIKE '%-$month_match-%'";
-				$query2_result = mysqli_query($connection, $query2);
-				$books = mysqli_fetch_assoc($query2_result)['total'];
-
-				$query3 = "SELECT COUNT(*) as total FROM buyers WHERE date LIKE '%-$month_match-%'";
-				$query3_result = mysqli_query($connection, $query3);
-				$buyers = mysqli_fetch_assoc($query3_result)['total'];
-		?>
-
-		<script type="text/javascript">
-			var data<?php echo $i?>	= [months[<?php echo $i ?>], <?php echo $users ?>, <?php echo $books ?>, <?php echo $buyers ?>]; 	
-		</script>
-
-		<?php
-			}
-		?>
-
-		<script type="text/javascript">
-	      	google.charts.load('current', {'packages':['bar']});
-	      	google.charts.setOnLoadCallback(drawChart);
-
-	      	function drawChart() {
-	        	var data = google.visualization.arrayToDataTable([
-		        ['Month', 'Users', 'Books', 'Transactions'],
-		        data0,
-		        data1,
-		        data2,
-		        data3,
-		        data4
-		        ]);
-
-	        var options = {
-	          	chart: {
-	            title: 'BookZone Performance',
-	            subtitle: 'No. of Users, Books and transactions: August-December, 2018',
-	          	}
-	        };
-
-	        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-	        chart.draw(data, google.charts.Bar.convertOptions(options));
-	      }
-	    </script>
-
-    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
-    
+		<div class="container-fluid">
+			<h3 class="text-center"><b><u>New Users</u></b></h3>
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th class="text-center">Username</th>
+							<th class="text-center">Email Id</th>
+							<th class="text-center">Verified</th>
+							<th class="text-center">Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php  
+							$date = date('Y-m-d', strtotime('-7 days'));
+							$newuser_query = "SELECT username,email,is_verified,date FROM users WHERE date > '{$date}' ORDER BY date DESC, username ASC";
+							$newuser_query_result = mysqli_query($connection, $newuser_query);
+							if(!$newuser_query_result){
+								die("QUERY FAILED ".mysqli_error($connection));
+							}else{
+								while($row = mysqli_fetch_assoc($newuser_query_result)){
+								$username = $row['username'];
+								$email = $row['email'];
+								$isverified = $row['is_verified'];
+								$date = $row['date'];
+						?>
+						<tr>
+							<td class="text-center"><?php echo $username ?></td>
+							<td class="text-center"><?php echo $email ?></td>
+							<td class="text-center"><?php echo $isverified ?></td>
+							<td class="text-center"><?php echo $date ?></td>
+						</tr>
+						<?php  
+							}
+						}
+						?>
+					</tbody>
+				</table>
+			</div>
+			<h3 class="text-center"><b><u>New Books</u></b></h3>
+			<div class="table-responsive">
+				<table class="table table-bordered table-hover table-responsive">
+					<thead>
+						<tr>
+							<th class="text-center">SellerName</th>
+							<th class="text-center">BookName</th>
+							<th class="text-center">Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php  
+							$date = date('Y-m-d', strtotime('-7 days'));
+							$newbook_query = "SELECT username,book_name,date FROM books WHERE date > '{$date}' ORDER BY date DESC, username ASC";
+							$newbook_query_result = mysqli_query($connection, $newbook_query);
+							if(!$newbook_query_result){
+								die("QUERY FAILED ".mysqli_error($connection));
+							}else{
+								while($row = mysqli_fetch_assoc($newbook_query_result)){
+								$sellername = $row['username'];
+								$bookname = $row['book_name'];
+								$upload_date = $row['date'];
+						?>
+						<tr>
+							<td class="text-center"><?php echo $sellername ?></td>
+							<td class="text-center"><?php echo $bookname ?></td>
+							<td class="text-center"><?php echo $upload_date ?></td>
+						</tr>
+						<?php  
+							}
+						}
+						?>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
-</div> 
+</div>
 
 <?php include "templates/admin-footer.php"; ?>
 <?php }else{
