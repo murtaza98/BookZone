@@ -237,18 +237,20 @@
                 }
             ?>
             <div id="buynow_parent">
-                <a href='<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>' type="button" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 <?php
-
                     if ($book_status == 'unavailable') {
-                        echo "<script>
-                                document.getElementById('buyNow');
-                                var att = document.createAttribute('disabled');
-                                att.value = 'disabled';
-                                element.setAttributeNode(att);
-                              </script>";
-                    }
+                ?>
+						<a href="#" type="button" disabled="true" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
+				<?php
+                    }else if(isset($_SESSION['username'])&&$seller_username==$_SESSION['username']){
+				?>
+						<a href="#" type="button" disabled="true" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
+				<?php
+					}else{
+				?>
+						<a href="<?php echo $openBuyNow ?>?book_id=<?php echo $book_id ?>" type="button" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
+				<?php	
+					}
                 ?>
                 
                 <?php
