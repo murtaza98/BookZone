@@ -39,7 +39,7 @@
 <p align="center" style="color: white; font-size: 30px;font-family: fantasy;">Buy and Sell Books Online</p>
 <!-- search box start -->
 <form method="GET" action="./search.php">
-    <div class="container-fluid close_bookmark_sidebar autocomplete"  style="background-color: transparent; margin-top: 20px;">
+    <div class="container-fluid close_bookmark_sidebar autocomplete" style="background-color: transparent; margin-top: 20px;">
         <div class="full-width-util input-group" id="searchBox">
             <input id="myInput" type="text" name="search"  class="form-control home-search-bar acInput" placeholder="Search by title, author, semester" autocomplete="off" style="width:100%; background-color:#fff" required>
             <span class="input-group-btn">
@@ -118,7 +118,7 @@
                 $title_printed =false;
 
                 foreach ($all_category_ids as $single_category_id) {
-                    $product_query = "SELECT * FROM books WHERE category_id = {$single_category_id}";
+                    $product_query = "SELECT * FROM books WHERE category_id = {$single_category_id} AND book_status='available'";
 
                     $product_query_result = mysqli_query($connection,$product_query);
 

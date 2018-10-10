@@ -679,7 +679,19 @@
 <?php
     }
 ?>
+    <?php if (isset($_SESSION['username']) && $_SESSION['username']!=$seller_username) {
+    ?>
     <a data-toggle="modal" href="" data-target="#reviewModal" style="color: white"><button class="btn btn-primary">Write a review</button></a>
+
+    <?php  
+        }else{
+    ?>
+
+    <a data-toggle="modal" href="" data-target="#reviewModal" style="color: white"><button class="btn btn-primary" disabled>Write a review</button></a>
+
+    <?php
+        }
+    ?>
 
     <div id="reviewModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -689,8 +701,22 @@
                     <h3 class="modal-title"><b>&nbsp;Write a review</b></h3>
                 </div>
                 <div class="modal-body">
-                    <form method="post" action="./book_details.php" id="reviewform">
-                        <textarea class="form-control" rows="5" name="review" form="reviewform" placeholder="Write a review!!!" style="width: 100%; resize: none;"></textarea>
+                    <form method="post" action="./templates/addReviews.php" id="reviewform">
+                        <input id="modal_book_id" type="text" value="<?php echo $_GET['book_id']; ?>" name="book_id" style="display:none;">
+                        <input id="modal_book_username" type="text" value="<?php echo $_SESSION['username']; ?>" name="username" style="display:none;">
+                        <div>
+                            <label><i class="fa fa-star"></i> Ratings</label>
+                            <select class="form-control" name="ratings">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                            </select>
+                        </div>
+                        <label>Comments</label>
+                        <textarea class="form-control" rows="5" name="review_content" form="reviewform" placeholder="Write a review!!!" style="width: 100%; resize: none;"></textarea>
+                        <input type="submit" class="btn btn-primary" name="review_submit">
                     </form>
                 </div>
                 <div class="modal-footer" style="margin-right: 10px;">
