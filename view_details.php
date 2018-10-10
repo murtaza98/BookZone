@@ -112,14 +112,13 @@
                             <div class="col-sm-6">
                                 <a href="edit_details.php" class="btn btn-primary form-control"><i class="glyphicon glyphicon-edit"> Edit</i></a>
                             </div>
-                                <button class=" form-control btn btn-warning">Report</button>
                             <div class="col-sm-6">
+                                <button class=" form-control btn btn-warning">Report</button>
                             </div>
                         </div>
                     </div>
                 </div>
             <div class="col-sm-3"></div>
-            </div>
         </div>
     </form>
 </div>

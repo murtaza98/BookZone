@@ -70,10 +70,16 @@
 
 
 <h3 class="text-center text-success"><b><u>Tell us more about your book</u></b></h3>
+
 <br>
+<div id="error_message" class="alert alert-danger" style="width:80%;margin:0 auto;display:none;">
+   
+</div>
 <br>
+
+
 <div class="container">
-	<form method="POST" action="" enctype="multipart/form-data">
+	<form method="POST" action="" onsubmit="return checkForm()" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-lg-6">
 			    <div class="form-group">
@@ -87,7 +93,7 @@
                     <label for="book_category">Selling Price</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-inr"></i></span>
-                        <input name="book_price" type="text" class="form-control" placeholder="Enter price" required="true">
+                        <input id="book_selling_price" onfocusout="checkPrice();" name="book_price" type="number" class="form-control" placeholder="Enter Selling price" required="true">
                     </div>
                 </div>
                 <div class="form-group">
@@ -99,7 +105,7 @@
                 </div>
                 <div class="form-group">
                     <label for="book_category">Edition</label>
-				    <input name="book_edition" type="text" class="form-control" placeholder="Enter book edition" required="true">
+				    <input name="book_edition" type="number" class="form-control" placeholder="Enter book edition" required="true">
                 </div>
 			</div>
 			<div class="col-lg-6">
@@ -114,7 +120,7 @@
                     <label for="book_category">Original Price</label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-inr"></i></span>
-                        <input name="book_original_price" type="text" class="form-control" placeholder="Enter price" required="true">
+                        <input id="book_original_price" onfocusout="checkPrice();" name="book_original_price" type="number" class="form-control" placeholder="Enter Original price" required="true">
                     </div>
                 </div>
                 <div class="form-group">

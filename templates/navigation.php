@@ -21,7 +21,7 @@
 
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="index.php"><i id="website-name" style="margin-top: 0px;"><img src="includes/images/pingo5.png" style="top: 0px; height: 30px;"></i></a></li>
+          <li><a href="index.php" style="padding:10px;"><i id="website-name" style="margin-top: 0px;"><img src="includes/images/pingo5.png" style="top: 0px; height: 25px;"></i></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <?php
