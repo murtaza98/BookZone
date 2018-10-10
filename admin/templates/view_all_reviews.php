@@ -1,4 +1,4 @@
-<h3 class="text-center"><b><u>ALL BOOKS</u></b></h3>
+<h3 class="text-center"><b><u>ALL REVIEWS</u></b></h3>
 
 <div id="reviewModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
