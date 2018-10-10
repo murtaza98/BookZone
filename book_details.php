@@ -247,6 +247,11 @@
                         
 				?>
 						<a href="#" type="button" disabled="true" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
+                <?php
+                    }else if(!isset($_SESSION['username'])){
+                        
+                ?>
+                        <a href="#" type="button" onclick="javascript:showLoginModal('#loginModal')" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
 				<?php
 					}else{
 				?>

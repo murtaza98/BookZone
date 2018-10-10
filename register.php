@@ -38,7 +38,7 @@
 <div class="container">
     <h1 class="text-center">Registration Form</h1>
     <p id="errorMsg" style='color:#F00'></p>
-    <form method="post" action="./register.php">
+    <form method="post" onsubmit="return checkForm()" action="./register.php">
         <div class="row">
             <div class="col-sm-3"></div>
                 <div class="col-sm-6">
@@ -46,7 +46,7 @@
                         <label for="username">Username</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input onfocusout="checkUsername(this.value)" name="username" type="text" class="form-control" id="username" placeholder="Username" required="true">
+                            <input onkeyup="checkUsername(this.value)" name="username" type="text" class="form-control" id="username" placeholder="Username" required="true">
                         </div>              
                         <p id="username_error" style="color:red;display:none;"><b>Sorry!! This username is already taken</b></p>      
                     </div>
@@ -62,7 +62,7 @@
                         <label for="confirmpwd">Confirm Password</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input onfocusout="sayHello()"  name="confirmpassword" type="Password" class="form-control" id="confirmpwd" placeholder="Re-type password" required="true">
+                            <input onfocusout="checkPassword()"  name="confirmpassword" type="Password" class="form-control" id="confirmpwd" placeholder="Re-type password" required="true">
                         </div>
                         <p id="error_msg_confirmpwd" style="color:#F00; padding-top: 5px; display:none">ERROR!!! Password doesnt match</p> 
                     </div>
@@ -70,7 +70,7 @@
                         <label for="email">Email</label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input onfocusout="checkEmail(this.value)" name="email" type="Email" class="form-control" id="email" placeholder="Enter Email" required="true">
+                            <input onkeyup="checkEmail(this.value)" name="email" type="Email" class="form-control" id="email" placeholder="Enter Email" required="true">
                         </div>
                         <p id="email_error" style="color:red;display:none;"><b>This email is already used, Please try some other email</b></p>
                     </div>
@@ -80,7 +80,7 @@
                                 <label for="fname">First Name</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input name="firstname" type="text" class="form-control" id="fname" placeholder="First name" required="true">
+                                    <input name="firstname" onfocusout="checkName(this.value)" type="text" class="form-control" id="fname" placeholder="First name" required="true">
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                 <label for="mname">Middle Name</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input name="middlename" type="text" class="form-control" id="mname" placeholder="Middle name">
+                                    <input name="middlename" onfocusout="checkName(this.value)" type="text" class="form-control" id="mname" placeholder="Middle name">
                                 </div>
                             </div>
                         </div>
@@ -100,11 +100,12 @@
                                 <label for="lname">Last Name</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input name="lastname" type="text" class="form-control" id="lname" placeholder="Last name" required="true">
+                                    <input name="lastname" onfocusout="checkName(this.value)" type="text" class="form-control" id="lname" placeholder="Last name" required="true">
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <p id="name_error" style="color:red;display:none;"><b>Name cannot contain numbers!!!</b></p>
                     
                     <div class="row">
                         <div class="col-sm-6">
@@ -114,14 +115,15 @@
                                     <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
                                     <input name="city" type="text" class="form-control" id="city" placeholder="City" required="true">
                                 </div>
-                            </div> 
+                            </div>
                             <div class='form-group'>                           
                                 <label for="contact">Contact</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                                    <input name="contact" type="number" class="form-control" id="contact" placeholder="Contact Number" valid><br>
+                                    <input name="contact" onfocusout="checkContact(this.value);" type="number" class="form-control" id="contact" placeholder="Contact Number" valid><br>
                                 </div>
                             </div>
+                            <p id="contact_error" style="color:red;"></p>
                         </div>
                     
                         <div class="col-sm-6">
@@ -130,9 +132,10 @@
                                 <label for="pincode">Pincode</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                    <input name="pincode" type="number" class="form-control" id="pincode" placeholder="Pincode" required="true" valid>
+                                    <input name="pincode" onfocusout="checkPincode(this.value)" type="number" class="form-control" id="pincode" placeholder="Pincode" required="true" valid>
                                 </div>
                             </div>
+                            <p id="pincode_error" style="color:red;display:none;"><b>Enter 6 digit pincode!!!</b></p>
                             <div class="form-group">
                                   <label for="preference">Your Preference</label>
                                   <select name="user_category" class="form-control" id="preference">
@@ -146,7 +149,7 @@
                         </div>
                     </div>
                     <div class='form-group'>
-                    <input name="submit" type="submit" class="btn btn-primary" value="Verify and Register">
+                    <input name="submit" type="submit" id="final_submit" class="btn btn-primary" value="Verify and Register">
                     </div>
                 </div>
             <div class="col-sm-3"></div>
