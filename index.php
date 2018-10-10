@@ -9,6 +9,7 @@ function customPageHeader(){
 <style type="text/css">
     .viewMore {
         height: 300px;
+        background-color: #d5e6f3
     }
     .books {
         padding-right: 15px;
@@ -181,7 +182,7 @@ function customPageHeader(){
                 }
                 if($title_printed){
                     echo "<div class='col-sm-1'>
-                          <a href='category_index.php?category={$category_name}'><button class='viewMore btn btn-primary' title='View More'><i class='glyphicon glyphicon-plus'></i></button></a>
+                          <a href='category_index.php?category={$category_name}'><button class='viewMore btn' title='View More' ><i class='glyphicon glyphicon-plus' style='color: black'></i></button></a>
                           </div>";
                     //row div end
                     echo "</div>";
