@@ -165,7 +165,7 @@ function customPageHeader(){
                                                     <button class="w3-button" style="background-color: #0b113e; color: white">View Details</button></a>
                                             </div>
                                             <div class="w3-display-topright w3-display-hover">
-                                                <a data-toggle="modal" href="" data-target="#quick_view" style="color: white" title="quick look"><button><span class="glyphicon glyphicon-zoom-in" style="color: black"></span></button></a>
+                                                <a onclick="showQuickView('<?php echo $book_name; ?>','<?php echo $book_author; ?>','<?php echo $book_price; ?>','<?php echo $book_subject; ?>','<?php echo $book_image; ?>','<?php echo $book_id; ?>');" data-toggle="modal" href="" data-target="" style="color: white" title="quick look"><button><span class="glyphicon glyphicon-zoom-in" style="color: black"></span></button></a>
                                             </div>
                                         </div>
                                             <div class="caption" style="height: 60px; border-top: 5px solid blue">
@@ -203,11 +203,14 @@ function customPageHeader(){
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-5">
-                        <img src="includes/images/<?php echo $book_image ?>">
+                        <img style="max-width:300px;max-height:300px;" id="modal_image" src="">
                     </div>
                     <div class="col-sm-7">
-                        <?php echo $book_name ?>
-                        &#x20b9; <?php echo $book_price ?>
+                        <div id="modal_name"></div>
+                        <div id="modal_author"></div>
+                        <div id="modal_subject"></div>
+                        <div id="modal_price"></div>
+                        <button id="modal_view_more" class="btn btn-primary">View More</button>
                     </div>
                 </div>
             <div class="modal-footer" style="margin-right: 10px;">

@@ -169,3 +169,31 @@ document.addEventListener("click", function (e) {
 function searchFunction(){
     alert("found");
 }
+
+function showQuickView(title,author,price,subject,image,book_id){
+//    alert(title+author+price+subject+image);
+    
+    var image_element = document.getElementById("modal_image");
+    image_element.setAttribute("src","includes/images/"+image);
+    
+    var name_element = document.getElementById("modal_name");
+    name_element.innerHTML = title;
+    
+    var author_element = document.getElementById("modal_author");
+    author_element.innerHTML = author;
+    
+    var subject_element = document.getElementById("modal_subject");
+    subject_element.innerHTML = subject;
+    
+    var price_element = document.getElementById("modal_price");
+    price_element.innerHTML = price;
+    
+    var view_more_element = document.getElementById("modal_view_more");
+    view_more_element.setAttribute("href","book_details.php?book_id="+book_id);
+    
+    
+    $('#quick_view').modal('show');
+    
+    
+    
+}
