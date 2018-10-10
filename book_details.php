@@ -542,10 +542,10 @@
 </div>
 
 <div class="container">
-    <h3 id="more_seller">More from this Sellers</h3>
+    <h3 id="more_seller">More from other Sellers</h3>
     <div class='row'>
     <?php 
-        $morebook_query = "SELECT * FROM books WHERE book_name = '$book_name'";
+        $morebook_query = "SELECT * FROM books WHERE book_name = '$book_name' AND username != '$seller_username'";
         $morebook_set = mysqli_query($connection, $morebook_query);
         if(!$morebook_set){
             die('QUERY FAILED '.mysqli_error($connection));
