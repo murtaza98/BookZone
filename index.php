@@ -210,7 +210,7 @@ function customPageHeader(){
                         <div id="modal_author"></div>
                         <div id="modal_subject"></div>
                         <div id="modal_price"></div>
-                        <button id="modal_view_more" class="btn btn-primary">View More</button>
+                        <a id="modal_view_more" class="btn btn-primary">View More</a>
                     </div>
                 </div>
             <div class="modal-footer" style="margin-right: 10px;">
