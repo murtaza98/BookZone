@@ -296,7 +296,7 @@
                         }
                     }else{
                 ?>
-                        <a id="bookmark" type="button" class="btn" style=" color: black">Bookmark</a>
+                        <a href="#" type="button" onclick="javascript:showLoginModal('#loginModal')" id="bookmark" type="button" class="btn" style=" color: black">Bookmark</a>
                 <?php                        
                     }   
                 ?>
