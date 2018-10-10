@@ -438,7 +438,7 @@
        <div class="container desc_container">
             <!-- Tab links -->
             <div class="tab">
-              <button class="tablinks active" onclick="openCity(event, 'Description')" id="defaultOpen">DESCRIPTION</button>
+              <button class="tablinks active" id="defaultOpen">DESCRIPTION</button>
         <!--      <button class="tablinks" onclick="openCity(event, '')">Paris</button>-->
         <!--      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
             </div>
@@ -456,7 +456,7 @@
        <div class="container desc_container">
             <!-- Tab links -->
             <div class="tab">
-              <button class="tablinks active" onclick="openCity(event, 'Description')" id="defaultOpen">DETAILED INFO</button>
+              <button class="tablinks active" id="defaultOpen">DETAILED INFO</button>
         <!--      <button class="tablinks" onclick="openCity(event, '')">Paris</button>-->
         <!--      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
             </div>
