@@ -9,6 +9,7 @@
 <div class= "container close_bookmark_sidebar" id="page-content-wrapper" style="margin: 0px; padding: 0px">
 	<div class="container" style="padding-top: 15px;">
 		<div class="container close_bookmark_sidebar" id='container'>
+		    
 			<div class="row" >
 		    <!--   id="#category"-->
 		        <div class="col-sm-3">
@@ -21,6 +22,10 @@
 					    $category = $_GET['category'];
 						$product_query = "SELECT * FROM books WHERE book_status='available' AND category_id = (SELECT category_id FROM categories WHERE category_name = '{$category}')";
 					    $product_query_result = mysqli_query($connection,$product_query);
+                        $num_rows = mysqli_num_rows($product_query_result);
+                        if($num_rows==0){
+                            echo "<br><br><h3 style='margin-left:30%;'><b>No Books Found for this Category</b></h3>";
+                        }
 					    if(!$product_query_result){
 					        die("QUERY FAILED ".mysqli_error($connection));
 					    }else{

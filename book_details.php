@@ -216,10 +216,32 @@
                     <script>starRating('avgRating', <?php echo $avg_rating ?>)</script>  
                 </span>
                 &nbsp;&nbsp;
+                
+                <?php 
+                    if (isset($_SESSION['username']) && $_SESSION['username']!=$seller_username) {
+                ?>
+                <span>
+                    <a href="javascript:$('#reviewModal').modal('show');" data-target="#reviewModal"style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif;">
+                        <u>Write a review</u>
+                    </a>
+                </span>
+                <?php  
+                    }else if(!isset($_SESSION['username'])){
+                ?>
+                    <a href="javascript:showLoginModal('#loginModal')" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif;">
+                        <u>Write a review</u>
+                    </a>
+                <?php
+                    }
+                ?>
+                
+                
+<!--
                 <span>
                     <a href="javascript:$('#reviewModal').modal('show');" data-target="#reviewModal" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
 ;"><u>Write a review</u></a>
                 </span>
+-->
                 &nbsp;&nbsp;
                 <span>
                     <a href="#detailed_review_div" style="font-size: 15px;font-family:Karla, Arial, Helvetica, sans-serif
@@ -247,7 +269,7 @@
                     }else if(isset($_SESSION['username'])&&$seller_username==$_SESSION['username']){
                         
 				?>
-						<a href="#" type="button" disabled="true" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
+						<a href="#" type="button" disabled="true" title="You Cannot Buy Your Own Book" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
                 <?php
                     }else if(!isset($_SESSION['username'])){
                         
@@ -274,7 +296,7 @@
                         }
                     }else{
                 ?>
-                        <a id="bookmark" onclick="javascript:showLoginModal('#loginModal')" type="button" class="btn" style=" color: black">Bookmark</a>
+                        <a id="bookmark" type="button" class="btn" style=" color: black">Bookmark</a>
                 <?php                        
                     }   
                 ?>
@@ -301,7 +323,7 @@
                 <a href="#more_details" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More Details</u>
                 </a>
                 &emsp;&emsp;
-                <a href="#more_seller" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More Sellers</u>
+                <a href="#more_seller" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More from this Sellers</u>
                 </a>
             </div>
 
@@ -440,7 +462,7 @@
        <div class="container desc_container">
             <!-- Tab links -->
             <div class="tab">
-              <button class="tablinks active" onclick="openCity(event, 'Description')" id="defaultOpen">DESCRIPTION</button>
+              <button class="tablinks active" id="defaultOpen">DESCRIPTION</button>
         <!--      <button class="tablinks" onclick="openCity(event, '')">Paris</button>-->
         <!--      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
             </div>
@@ -458,7 +480,7 @@
        <div class="container desc_container">
             <!-- Tab links -->
             <div class="tab">
-              <button class="tablinks active" onclick="openCity(event, 'Description')" id="defaultOpen">DETAILED INFO</button>
+              <button class="tablinks active" id="defaultOpen">DETAILED INFO</button>
         <!--      <button class="tablinks" onclick="openCity(event, '')">Paris</button>-->
         <!--      <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>-->
             </div>
@@ -520,7 +542,7 @@
 </div>
 
 <div class="container">
-    <h3 id="more_seller">More Sellers</h3>
+    <h3 id="more_seller">More from this Sellers</h3>
     <div class='row'>
     <?php 
         $morebook_query = "SELECT * FROM books WHERE book_name = '$book_name'";
@@ -686,11 +708,15 @@
     <a data-toggle="modal" href="" data-target="#reviewModal" style="color: white"><button class="btn btn-primary">Write a review</button></a>
 
     <?php  
-        }else{
+        }else if(!isset($_SESSION['username'])){
     ?>
 
-    <a data-toggle="modal" href="" data-target="#reviewModal" style="color: white"><button class="btn btn-primary" disabled>Write a review</button></a>
+    <a data-toggle="modal" onclick="javascript:showLoginModal('#loginModal')"  style="color: white"><button class="btn btn-primary">Write a review</button></a>
 
+    <?php
+        }else{
+    ?>    
+        <a style="color: white"><button data-toggle="tooltip" title="You Cannot Review Your Own Book" class="btn btn-primary" disabled>Write a review</button></a>
     <?php
         }
     ?>
