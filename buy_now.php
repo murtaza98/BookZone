@@ -4,8 +4,9 @@
     }
 ?>
 <?php include "./templates/header.php"; ?>
-
+<div id="wrapper">
 <?php include "./templates/navigation.php"; ?>
+<div class= "container close_bookmark_sidebar" id="page-content-wrapper" style="margin: 0px; padding: 0px">
 
 <?php 
 	if(isset($_GET['book_id'])){
@@ -51,104 +52,104 @@
 	        } 
 	}
 ?>
-
-<div class="container" style="margin-top: 10px;">
-    <div class="row">
-        <div class="col-sm-4" id="bookImage">
-            <img style="width:100%;" src="includes/images/<?php echo $book_image; ?>">
-        </div>
-        <div class="col-sm-8">
-            <div class="row">
-                <div class="col-sm-5">
-                	<div style="font-size: 35px;font-weight: 550; font-family: Karla, Arial, Helvetica">
-                        <span><?php echo $book_name; ?></span><br>
-                    </div>
-                    <div class="price" style="font-family: Karla, Arial, Helvetica, sans-serif; font-size: 28px; ">
-                        <span>&#x20b9; <?php echo $book_price; ?></span>
-                    </div>
-                    <div style="font-size: 20px; font-family: Karla, Arial, Helvetica">
-                        <label for="seller_username">Username: </label>
-                        <span id="seller_username"><?php echo $seller_username ?></span><br>
-                        <label for="name">Name: </label>
-                        <span id="name"><?php echo $firstName; ?> <?php echo $lastName; ?></span><br>
-                        <label for="contactNo">Contact No.</label>
-                        <span id="contactNo"><?php echo $contactNo; ?></span>
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <form method="post">
-                        <div class="form-group">
-                            <label for="sel1">Payment Method:</label>
-                            <select class="form-control" name="payment_method" id="sel1">
-                                <option>None</option>
-                                <option>PayTM</option>
-                                <option>Cash</option>
-                                <option>Net Banking</option>
-                                <option>Freecharge</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="sel2">Delivary Method:</label>
-                            <select class="form-control" name="delivary_method" id="sel2">
-                                <option>None</option>
-                                <option>Personal</option>
-                                <option>Courier</option>
-                            </select>
-                        </div>
-
-                        <input type="submit" id="order" class="btn btn-primary form-control" value="Order" name="order">
-                    </form>
-                </div>
+<div class="container close_bookmark_sidebar" id='container'>
+    <div class="container" style="margin-top: 10px;">
+        <div class="row">
+            <div class="col-sm-4" id="bookImage">
+                <img style="width:100%;" src="includes/images/<?php echo $book_image; ?>">
             </div>
-        </div>
-    </div>
-
-    <hr>
-    <span style="font-size: 24px;font-weight: 450; font-family: Karla, Arial, Helvetica; color: ">More from <?php echo $seller_username ?></span>
-    <div class='row'>
-    <?php 
-        $morebook_query = "SELECT * FROM books WHERE username = '{$seller_username}'";
-        $morebook_set = mysqli_query($connection, $morebook_query);
-        if(!$morebook_set){
-            die('QUERY FAILED '.mysqli_error($connection));
-        }
-        else{
-            while($morebook_row = mysqli_fetch_assoc($morebook_set)){
-                $morebook_id = $morebook_row['book_id'];
-                $morebook_name = $morebook_row['book_name'];
-                $morebook_author = $morebook_row['author'];
-                $morebook_edition = $morebook_row['edition'];
-                $morebook_subject = $morebook_row['subject'];
-                $morebook_price = $morebook_row['book_price'];
-                $morebook_image = $morebook_row['book_image'];
-    ?>
-
-        <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6">
-            <div class="thumbnail">
-                <div class="w3-display-container w3-hover-opacity">
-                    <img src="includes/images/<?php echo $morebook_image ?>" alt="<?php echo $morebook_name ?>" style="width:100%; height: 290px;">
-                    <div class="w3-display-middle w3-display-hover">
-                        <a href="book_details.php?book_id=<?php echo $morebook_id?>">
-                            <button class="w3-button" style="background-color: #0b113e; color: white">View Details</button></a>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-5">
+                    	<div style="font-size: 35px;font-weight: 550; font-family: Karla, Arial, Helvetica">
+                            <span><?php echo $book_name; ?></span><br>
+                        </div>
+                        <div class="price" style="font-family: Karla, Arial, Helvetica, sans-serif; font-size: 28px; ">
+                            <span>&#x20b9; <?php echo $book_price; ?></span>
+                        </div>
+                        <div style="font-size: 20px; font-family: Karla, Arial, Helvetica">
+                            <label for="seller_username">Username: </label>
+                            <span id="seller_username"><?php echo $seller_username ?></span><br>
+                            <label for="name">Name: </label>
+                            <span id="name"><?php echo $firstName; ?> <?php echo $lastName; ?></span><br>
+                            <label for="contactNo">Contact No.</label>
+                            <span id="contactNo"><?php echo $contactNo; ?></span>
+                        </div>
                     </div>
-                    <div class="w3-display-topright w3-display-hover">
-                        <a data-toggle="modal" href="" data-target="#quick_look" style="color: white" title="quick look"><button><span class="glyphicon glyphicon-zoom-in" style="color: black"></span></button></a>
+                    <div class="col-sm-7">
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="sel1">Payment Method:</label>
+                                <select class="form-control" name="payment_method" id="sel1">
+                                    <option>None</option>
+                                    <option>PayTM</option>
+                                    <option>Cash</option>
+                                    <option>Net Banking</option>
+                                    <option>Freecharge</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sel2">Delivary Method:</label>
+                                <select class="form-control" name="delivary_method" id="sel2">
+                                    <option>None</option>
+                                    <option>Personal</option>
+                                    <option>Courier</option>
+                                </select>
+                            </div>
+
+                            <input type="submit" id="order" class="btn btn-primary form-control" value="Order" name="order">
+                        </form>
                     </div>
-                </div>
-                <div class="caption" style="height: 60px; border-top: 5px solid blue">
-                    <p align="center"><?php echo $morebook_name ?></p>
                 </div>
             </div>
         </div>
 
-    <?php 
+        <hr>
+        <span style="font-size: 24px;font-weight: 450; font-family: Karla, Arial, Helvetica; color: ">More from <?php echo $seller_username ?></span>
+        <div class='row'>
+        <?php 
+            $morebook_query = "SELECT * FROM books WHERE username = '{$seller_username}'";
+            $morebook_set = mysqli_query($connection, $morebook_query);
+            if(!$morebook_set){
+                die('QUERY FAILED '.mysqli_error($connection));
             }
-        }
-    ?>
+            else{
+                while($morebook_row = mysqli_fetch_assoc($morebook_set)){
+                    $morebook_id = $morebook_row['book_id'];
+                    $morebook_name = $morebook_row['book_name'];
+                    $morebook_author = $morebook_row['author'];
+                    $morebook_edition = $morebook_row['edition'];
+                    $morebook_subject = $morebook_row['subject'];
+                    $morebook_price = $morebook_row['book_price'];
+                    $morebook_image = $morebook_row['book_image'];
+        ?>
+
+            <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6">
+                <div class="thumbnail">
+                    <div class="w3-display-container w3-hover-opacity">
+                        <img src="includes/images/<?php echo $morebook_image ?>" alt="<?php echo $morebook_name ?>" style="width:100%; height: 290px;">
+                        <div class="w3-display-middle w3-display-hover">
+                            <a href="book_details.php?book_id=<?php echo $morebook_id?>">
+                                <button class="w3-button" style="background-color: #0b113e; color: white">View Details</button></a>
+                        </div>
+                        <div class="w3-display-topright w3-display-hover">
+                            <a data-toggle="modal" href="" data-target="#quick_look" style="color: white" title="quick look"><button><span class="glyphicon glyphicon-zoom-in" style="color: black"></span></button></a>
+                        </div>
+                    </div>
+                    <div class="caption" style="height: 60px; border-top: 5px solid blue">
+                        <p align="center"><?php echo $morebook_name ?></p>
+                    </div>
+                </div>
+            </div>
+
+        <?php 
+                }
+            }
+        ?>
+        </div>
     </div>
 </div>
-
 <div id="quick_look" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">

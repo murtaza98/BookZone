@@ -16,7 +16,7 @@
 		font-size: 16px;
 	}
 </style>
-
+<div class="container">
 <div id="wrapper">
 	<div id="page-wrapper">
 		<div class="row">
@@ -197,7 +197,7 @@
 		</div>
 	</div>
 </div>
-
+</div>
 <?php include "templates/admin-footer.php"; ?>
 <?php }else{
 		header("Location: ../index.php");

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 10, 2018 at 01:07 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Host: localhost
+-- Generation Time: Oct 10, 2018 at 04:06 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,13 +45,6 @@ CREATE TABLE `bookmark` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `bookmark`
---
-
-INSERT INTO `bookmark` (`username`, `book_id`, `date`) VALUES
-('murtaza', 3, '2018-10-10 10:54:14');
-
 -- --------------------------------------------------------
 
 --
@@ -79,35 +72,35 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`book_id`, `username`, `book_name`, `author`, `edition`, `subject`, `category_id`, `book_price`, `book_original_price`, `book_description`, `book_image`, `book_status`, `date`) VALUES
-(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '6', 'Maths', 3, 500, 688, 'Best book for maths', 'kumbhojkar.jpg', 'available', '2018-08-02'),
-(3, 'ojas', 'Analysis of Algorithms', 'Sartaj Sahani', '5', 'AOA', 1, 250, 400, '', 'aoa.jpg', 'unavailable', '2018-08-15'),
-(4, 'priyesh', 'Computer Architecture', 'William Stalling', '6', 'COA', 1, 450, 750, '', 'coa.jpg', 'unavailable', '2018-08-25'),
-(5, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 1, 1000, 0, 'No Description Available', 'java.jpg', 'unavailable', '2018-09-08'),
-(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-09-10'),
-(7, 'priyesh', 'Computer Architecture', 'someone', '6', 'COA', 6, 450, 0, '', 'coa.jpg', 'available', '2018-09-24'),
-(8, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 2, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-09-28'),
-(9, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 2, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-10-08'),
-(11, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 2, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'unavailable', '2018-10-05'),
-(12, 'priyesh', 'Computer Architecture', 'someone', '6', 'COA', 3, 450, 0, '', 'coa.jpg', 'available', '2018-10-25'),
-(13, 'murtaza', 'JAVA,The Complete Reference', 'SOMEONE', '5', 'OOPM', 3, 1000, 0, 'No Description Available', 'java.jpg', 'available', '2018-10-28'),
-(14, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 3, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-10-04'),
-(15, 'ojas', 'AOA', 'Sartaj Sahani', '5', 'AOA', 4, 250, 0, 'No Description Available', 'aoa.jpg', 'unavailable', '2018-10-11'),
-(16, 'priyesh', 'Computer Architecture', 'someone', '6', 'COA', 4, 450, 0, '', 'coa.jpg', 'available', '2018-10-05'),
-(17, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 4, 500, 0, 'No Description Available', 'kumbhojkar.jpg', 'available', '2018-08-05'),
-(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 0, 0, 'No Description Available', 'ds.jpg', 'unavailable', '2018-10-10'),
-(19, 'murtaza', 'asd', 'asd', 'asd', 'asd', 1, 132, 456, 'basjbdjk', 'default.jpg', 'unavailable', '2018-11-04'),
-(20, 'auctor', 'Fundamental of Heat and Mass Transfer', '', '7', 'Fundamental of Heat and Mass Transfer', 2, 395, 152, 'no description', 'fohmt.jpg', 'Available', '2018-11-01'),
-(22, 'cubilia', 'Theory of Automata', '', '7', 'Theory of Automata', 1, 455, 151, 'no description', 'Tcs.jpg', 'Unavailable', '2018-11-12'),
-(23, 'cubilia', 'Theory of Machines', '', '1', 'Theory of Machines', 2, 306, 59, 'no description', 'Tom.jpg', 'Unavailable', '2018-11-05'),
-(24, 'dictum', 'Mechanical Engineering Design', '', '8', 'Mechanical Engineering Design', 2, 124, 66, 'no description', 'Med.jpg', 'Available', '2018-11-25'),
-(25, 'dictum', 'Fundamental of Fluid Mechanics', '', '7', 'Fundamental of Fluid Mechanics', 2, 109, 76, 'no description', 'fluid.jpg', 'Unavailable', '2018-09-22'),
-(26, 'auctor', 'Thermodynamics', '', '3', 'Thermodynamics', 2, 420, 72, 'no description', 'thermo.jpg', 'Unavailable', '2018-11-02'),
-(28, 'dictum', 'Mechanical Engineering Design', '', '10', 'Mechanical Engineering Design', 2, 89, 195, 'no description', 'Med.jpg', 'Unavailable', '2018-10-29'),
-(29, 'auctor', 'Theory of Automata', '', '3', 'Theory of Automata', 1, 363, 179, 'no description', 'Tcs.jpg', 'Unavailable', '2018-12-10'),
-(30, 'auctor', 'Thermodynamics', '', '3', 'Thermodynamics', 3, 420, 72, 'no description', 'thermo.jpg', 'Unavailable', '2018-12-12'),
-(31, 'dictum', 'Mechanical Engineering Design', '', '10', 'Mechanical Engineering Design', 3, 89, 195, 'no description', 'Med.jpg', 'Unavailable', '2018-10-21'),
-(32, 'auctor', 'Theory of Automata', '', '3', 'Theory of Automata', 4, 363, 179, 'no description', 'Tcs.jpg', 'Unavailable', '2018-11-25'),
-(33, 'cubilia', 'Theory of Machines', '', '1', 'Theory of Machines', 4, 306, 59, 'no description', 'Tom.jpg', 'Unavailable', '2018-11-01');
+(1, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '6', 'Maths', 3, 250, 400, '90% of his book contains questions which have already appeared on previous years question papers. So it gives a wrong idea that question papers of Mumbai University are set from his book. ', 'kumbhojkar.jpg', 'available', '2018-08-02'),
+(3, 'ojas', 'Analysis of Algorithms', 'Sartaj Sahani', '5', 'AOA', 1, 275, 400, 'The first section of each of these chapters describes the design method. The remaining sections apply the method to solve real world applications. Allows students to compare the efficiency of the solution resulting from the design method and some other methods', 'aoa.jpg', 'available', '2018-08-15'),
+(4, 'priyesh', 'Computer Architecture', 'WIlliam Stalling', '6', 'COA', 1, 499, 650, 'Four-time winner of the best Computer Science and Engineering textbook of the year award from the Textbook and Academic Authors Association, Computer Organization and Architecture: Designing for Performance provides a thorough discussion of the fundamentals of computer organization and architecture, covering not just processor design, but memory, I/O, and parallel systems.Coverage is supported by a wealth of concrete examples emphasizing modern systems', 'coa.jpg', 'available', '2018-08-25'),
+(5, 'murtaza', 'JAVA,The Complete Reference', 'Herbert Schildt', '5', 'OOPM', 1, 550, 700, 'Fully updated for Java SE 8, Java: The Complete Reference, explains how to develop, compile, debug, and run Java programs. Bestselling programming author Herb Schildt covers the entire Java language, including its syntax, keywords, and fundamental programming principles, as well as significant portions of the Java API library. JavaBeans, servlets, applets, and Swing are examined and real-world examples demonstrate Java in action', 'java.jpg', 'available', '2018-09-08'),
+(6, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 1, 250, 300, 'Data Structures Using C has been developed to provide a comprehensive and consistent coverage of both the abstract concepts of data structures as well as the implementation of these concepts using C language. It begins with a thorough overview of the concepts of C programming followed by introduction of different data structures and methods to analyse the complexity of different algorithms. It then connects these concepts and applies them to the study of various data structures such as arrays, strings, linked lists, stacks, queues, trees, heaps, and graphs.', 'ds.jpg', 'available', '2018-09-10'),
+(7, 'priyesh', 'Computer Architecture', 'WIlliam Stalling', '6', 'COA', 6, 450, 650, 'Four-time winner of the best Computer Science and Engineering textbook of the year award from the Textbook and Academic Authors Association, Computer Organization and Architecture: Designing for Performance provides a thorough discussion of the fundamentals of computer organization and architecture, covering not just processor design, but memory, I/O, and parallel systems.Coverage is supported by a wealth of concrete examples emphasizing modern systems', 'coa.jpg', 'available', '2018-09-24'),
+(8, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 2, 230, 300, 'Data Structures Using C has been developed to provide a comprehensive and consistent coverage of both the abstract concepts of data structures as well as the implementation of these concepts using C language. It begins with a thorough overview of the concepts of C programming followed by introduction of different data structures and methods to analyse the complexity of different algorithms. It then connects these concepts and applies them to the study of various data structures such as arrays, strings, linked lists, stacks, queues, trees, heaps, and graphs.', 'ds.jpg', 'available', '2018-09-28'),
+(9, 'murtaza', 'JAVA,The Complete Reference', 'Herbert Schildt', '5', 'OOPM', 2, 499, 700, 'Fully updated for Java SE 8, Java: The Complete Reference, explains how to develop, compile, debug, and run Java programs. Bestselling programming author Herb Schildt covers the entire Java language, including its syntax, keywords, and fundamental programming principles, as well as significant portions of the Java API library. JavaBeans, servlets, applets, and Swing are examined and real-world examples demonstrate Java in action', 'java.jpg', 'available', '2018-10-08'),
+(11, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 2, 350, 400, '90% of his book contains questions which have already appeared on previous years question papers. So it gives a wrong idea that question papers of Mumbai University are set from his book. ', 'kumbhojkar.jpg', 'available', '2018-10-05'),
+(12, 'priyesh', 'Computer Architecture', 'WIlliam Stalling', '6', 'COA', 3, 550, 650, 'Four-time winner of the best Computer Science and Engineering textbook of the year award from the Textbook and Academic Authors Association, Computer Organization and Architecture: Designing for Performance provides a thorough discussion of the fundamentals of computer organization and architecture, covering not just processor design, but memory, I/O, and parallel systems.Coverage is supported by a wealth of concrete examples emphasizing modern systems', 'coa.jpg', 'available', '2018-10-25'),
+(13, 'murtaza', 'JAVA,The Complete Reference', 'Herbert Schildt', '5', 'OOPM', 3, 499, 700, 'Fully updated for Java SE 8, Java: The Complete Reference, explains how to develop, compile, debug, and run Java programs. Bestselling programming author Herb Schildt covers the entire Java language, including its syntax, keywords, and fundamental programming principles, as well as significant portions of the Java API library. JavaBeans, servlets, applets, and Swing are examined and real-world examples demonstrate Java in action', 'java.jpg', 'available', '2018-10-28'),
+(14, 'ojas', 'Analysis of Algorithms', 'Sartaj Sahani', '5', 'AOA', 3, 250, 400, 'The first section of each of these chapters describes the design method. The remaining sections apply the method to solve real world applications. Allows students to compare the efficiency of the solution resulting from the design method and some other methods', 'aoa.jpg', 'available', '2018-10-04'),
+(15, 'ojas', 'Analysis of Algorithms', 'Sartaj Sahani', '5', 'AOA', 4, 300, 400, 'The first section of each of these chapters describes the design method. The remaining sections apply the method to solve real world applications. Allows students to compare the efficiency of the solution resulting from the design method and some other methods', 'aoa.jpg', 'available', '2018-10-11'),
+(16, 'priyesh', 'Computer Architecture', 'WIlliam Stalling', '6', 'COA', 4, 450, 650, 'Four-time winner of the best Computer Science and Engineering textbook of the year award from the Textbook and Academic Authors Association, Computer Organization and Architecture: Designing for Performance provides a thorough discussion of the fundamentals of computer organization and architecture, covering not just processor design, but memory, I/O, and parallel systems.Coverage is supported by a wealth of concrete examples emphasizing modern systems', 'coa.jpg', 'available', '2018-10-05'),
+(17, 'murtaza', 'Kumbhojkar', 'Kumbhojkar', '5', 'Maths', 4, 325, 400, '90% of his book contains questions which have already appeared on previous years question papers. So it gives a wrong idea that question papers of Mumbai University are set from his book. ', 'kumbhojkar.jpg', 'available', '2018-08-05'),
+(18, 'ojas', 'Data Structures Using C', 'Reema Thareja', '5', 'DS', 4, 150, 300, 'Data Structures Using C has been developed to provide a comprehensive and consistent coverage of both the abstract concepts of data structures as well as the implementation of these concepts using C language. It begins with a thorough overview of the concepts of C programming followed by introduction of different data structures and methods to analyse the complexity of different algorithms. It then connects these concepts and applies them to the study of various data structures such as arrays, strings, linked lists, stacks, queues, trees, heaps, and graphs.', 'ds.jpg', 'available', '2018-10-10'),
+(19, 'murtaza', 'asd', 'asd', 'asd', 'asd', 1, 132, 456, 'qwertyasdfghzxcvbn', 'default.jpg', 'available', '2018-11-04'),
+(20, 'sasha#22', 'Fundamental of Heat and Mass Transfer', 'Bergemann', '7', 'Fundamental of Heat and Mass Transfer', 2, 395, 550, 'Fundamentals of Heat and Mass Transfer is the gold standard of heat transfer pedagogy for more than 30 years, with a commitment to continuous improvement by four authors having more than 150 years of combined experience in heat transfer education, research and practice. Using a rigorous and systematic problem-solving methodology pioneered by this text, it is abundantly filled with examples and problems that reveal the richness and beauty of the discipline. ', 'fohmt.jpg', 'available', '2018-11-01'),
+(22, 'quon@2212', 'Theory of Automata', 'Rajeev Motwani', '7', 'Theory of Automata', 1, 399, 450, 'This classic book on formal languages, automata theory and computational complexity has been updated to present theoretical concepts in a concise and straightforward manner with the increase of hands-on, practical applications. This edition offers students a less formal writing style while providing the most accessible coverage of automata theory, solid treatment on constructing proofs, many figures and diagrams to help convey ideas and sidebars to highlight related material. Each chapter offers an abundance of exercises for hands-on learning.', 'Tcs.jpg', 'available', '2018-11-12'),
+(23, 'quon@2212', 'Theory of Machines', 'JK Gupta', '1', 'Theory of Machines', 2, 300, 400, 'A textbook of machine design is useful for students preparing for entrance exams like upsc engineering services exam, amie (india) examinations. It is also recommended for students studying btech, be, and other professional courses related to machine design. The book is systematic and is presented in clear and simple language.', 'Tom.jpg', 'available', '2018-11-05'),
+(24, 'rebecca12', 'Mechanical Engineering Design', 'Keiss Nisbertt', '8', 'Mechanical Engineering Design', 2, 699, 800, 'A textbook of machine design is useful for students preparing for entrance exams like upsc engineering services exam, amie (india) examinations. It is also recommended for students studying btech, be, and other professional courses related to machine design. The book is systematic and is presented in clear and simple language.', 'Med.jpg', 'available', '2018-11-25'),
+(25, 'rebecca12', 'Fundamental of Fluid Mechanics', 'Rothmayour', '7', 'Fundamental of Fluid Mechanics', 2, 130, 250, 'Fundamentals of Fluid Mechanics offers comprehensive topical coverage, with varied examples and problems, application of visual component of fluid mechanics, and strong focus on effective learning.Each important concept is introduced in easy–to–understand terms before more complicated examples are discussed.  Continuing this book?s tradition of extensive real–world applications, this latest edition includes more Fluid in the News case study boxes in each chapter, new problem types, an increased number of real–world photos, and additional videos to augment the text material and help generate interest in the topic.', 'fluid.jpg', 'available', '2018-09-22'),
+(26, 'sasha#22', 'Thermodynamics', 'RK Rajput', '3', 'Thermodynamics', 2, 500, 750, 'This book titled \"Basic Thermodynamics\" makes an attempt to cover the portions keeping in view of the syllabus for IIIrd semester B.E., Mechanical, prescribed by Visveswaraiah Technological University. This book can also be useful for students of other engineering disciplines like B.E. in Industrial production, Industrial Engineering management, Automobile, Diploma in Mechanical and IP, IEM and Automobile engineering, AMIE, etc. ', 'thermo.jpg', 'available', '2018-11-02'),
+(28, 'rebecca12', 'Mechanical Engineering Design', 'Keiss Nisbertt', '10', 'Mechanical Engineering Design', 2, 699, 800, 'A textbook of machine design is useful for students preparing for entrance exams like upsc engineering services exam, amie (india) examinations. It is also recommended for students studying btech, be, and other professional courses related to machine design. The book is systematic and is presented in clear and simple language.', 'Med.jpg', 'available', '2018-10-29'),
+(29, 'sasha#22', 'Theory of Automata', 'Rajeev Motwani', '3', 'Theory of Automata', 1, 350, 450, 'This classic book on formal languages, automata theory and computational complexity has been updated to present theoretical concepts in a concise and straightforward manner with the increase of hands-on, practical applications. This edition offers students a less formal writing style while providing the most accessible coverage of automata theory, solid treatment on constructing proofs, many figures and diagrams to help convey ideas and sidebars to highlight related material. Each chapter offers an abundance of exercises for hands-on learning.', 'Tcs.jpg', 'available', '2018-12-10'),
+(30, 'sasha#22', 'Thermodynamics', '', '3', 'Thermodynamics', 3, 420, 72, 'no description', 'thermo.jpg', 'available', '2018-12-12'),
+(31, 'rebecca12', 'Mechanical Engineering Design', 'Keiss Nisbertt', '10', 'Mechanical Engineering Design', 3, 89, 195, 'A textbook of machine design is useful for students preparing for entrance exams like upsc engineering services exam, amie (india) examinations. It is also recommended for students studying btech, be, and other professional courses related to machine design. The book is systematic and is presented in clear and simple language.', 'Med.jpg', 'available', '2018-10-21'),
+(32, 'sasha#22', 'Theory of Automata', 'Rajeev Motwani', '3', 'Theory of Automata', 4, 363, 450, 'This classic book on formal languages, automata theory and computational complexity has been updated to present theoretical concepts in a concise and straightforward manner with the increase of hands-on, practical applications. This edition offers students a less formal writing style while providing the most accessible coverage of automata theory, solid treatment on constructing proofs, many figures and diagrams to help convey ideas and sidebars to highlight related material. Each chapter offers an abundance of exercises for hands-on learning.', 'Tcs.jpg', 'available', '2018-11-25'),
+(33, 'quon@2212', 'Theory of Machines', '', '1', 'Theory of Machines', 4, 306, 59, 'no description', 'Tom.jpg', 'available', '2018-11-01');
 
 -- --------------------------------------------------------
 
@@ -123,20 +116,6 @@ CREATE TABLE `buyers` (
   `price` float NOT NULL,
   `transaction_method` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `buyers`
---
-
-INSERT INTO `buyers` (`username`, `book_name`, `seller_name`, `date`, `price`, `transaction_method`) VALUES
-('ojas', 'JAVA,The Complete Reference', 'murtaza', '2018-10-04', 1000, 'None'),
-('ojas', 'Kumbhojkar', 'murtaza', '2018-10-04', 500, 'None'),
-('murtaza', 'AOA', 'ojas', '2018-09-04', 250, 'None'),
-('murtaza', 'Data Structures Using C', 'ojas', '2018-09-04', 0, 'None'),
-('ojas', 'AOA', 'ojas', '2018-10-04', 250, 'None'),
-('murtaza', 'AOA', 'ojas', '2018-09-04', 250, 'Cash'),
-('ojas', 'JAVA,The Complete Reference', 'murtaza', '2018-10-04', 1000, 'Net Banking'),
-('ojas', 'AOA', 'ojas', '2018-10-04', 250, 'None');
 
 -- --------------------------------------------------------
 
@@ -169,7 +148,7 @@ INSERT INTO `categories` (`category_id`, `category_name`, `parent_category_id`) 
 
 CREATE TABLE `contacts` (
   `username` varchar(255) NOT NULL,
-  `contact_no` int(20) NOT NULL
+  `contact_no` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -177,10 +156,31 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`username`, `contact_no`) VALUES
-('admin', 789),
-('murtaza', 123456789),
-('ojas', 789456132),
-('priyesh', 456789132);
+('adam1234', '992065413'),
+('admin', '9910233211'),
+('aidan1234', '8890022133'),
+('arsitotle99', '8890133445'),
+('baisa00', '7788713452'),
+('basil55', '9992288721'),
+('cameran12', '7764411221'),
+('germaine21', '9876511111'),
+('haley001', '7744532154'),
+('harsh', '8665577664'),
+('ivan76', '9990077662'),
+('kylynn@301', '9930111221'),
+('leandra12', '8887722112'),
+('madeson88', '7788765432'),
+('mark@123', '8879312349'),
+('murtaza', '9021199821'),
+('norman01', '9002387672'),
+('ojas', '7738870439'),
+('priyesh', '7786543210'),
+('quon@2212', '9988788779'),
+('rebecca12', '99922255566'),
+('sasha#22', '9123188088'),
+('tanay', '9930422112'),
+('urielle21', '8188122121'),
+('wade@2021991', '8789900099');
 
 -- --------------------------------------------------------
 
@@ -198,18 +198,6 @@ CREATE TABLE `notification` (
   `offer_status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `notification`
---
-
-INSERT INTO `notification` (`notification_id`, `username`, `message`, `status`, `buyer_name`, `date`, `offer_status`) VALUES
-(11, 'ojas', 'murtaza is interested in buying AOA , Preferred payment method: Cash , Preferred delivary mode: Courier', 'Unseen', 'murtaza', '0000-00-00 00:00:00', 'accepted'),
-(12, 'murtaza', 'ojas is interested in buying JAVA,The Complete Reference , Preferred payment method: Net Banking , Preferred delivary mode: Personal', 'Unseen', 'ojas', '0000-00-00 00:00:00', 'rejected'),
-(15, 'ojas', 'murtaza has rejected your order', 'Unseen', 'murtaza', '2018-10-05 18:13:22', 'reply'),
-(16, 'murtaza', 'ojas has accepted your order', 'Unseen', 'ojas', '2018-10-05 18:13:56', 'reply'),
-(17, 'ojas', 'ojas is interested in buying AOA , Preferred payment method: None , Preferred delivary mode: None', 'Unseen', 'ojas', '2018-10-07 03:59:07', 'rejected'),
-(18, 'ojas', 'ojas has rejected your order', 'Unseen', 'ojas', '2018-10-07 03:59:12', 'reply');
-
 -- --------------------------------------------------------
 
 --
@@ -222,13 +210,6 @@ CREATE TABLE `reviews` (
   `ratings` int(11) NOT NULL DEFAULT '0',
   `review_content` varchar(255) NOT NULL DEFAULT 'No Review Content'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `reviews`
---
-
-INSERT INTO `reviews` (`username`, `book_id`, `ratings`, `review_content`) VALUES
-('priyesh', 1, 1, 'Worth reading');
 
 -- --------------------------------------------------------
 
@@ -258,31 +239,31 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `city`, `pincode`, `user_category`, `role`, `street_no`, `area`, `is_verified`, `date`) VALUES
-('admin', 'asd', 'patrawalamurtaza52@gmail.com', 'Gabrielle', 'asd', 'Lewis', 'Mumbai', 400055, 'FirstYear', 'user', 106, 'mulund', 'true', '2018-10-09'),
-('amet,', '86298', 'noemail@noemail@noemail', 'Leandra', 'Declan', 'Blackburn', 'Cholchol', 5933, 'ThirdYear', 'user', 8, 'pretium aliquet, metus urna convallis erat,', 'true', '2018-10-02'),
-('arcu.', '74108', 'noemail@noemail@noemail', 'Mark', 'Colby', 'Lang', 'Farciennes', 45459, 'SecondYear', 'user', 14, 'Nullam enim. Sed nulla ante, iaculis', 'true', '2018-08-02'),
-('at', '5892 KF', 'noemail@noemail@noemail', 'Cameran', 'Carter', 'Bartlett', 'Eberswalde-Finow', 11271, '', 'user', 3, 'imperdiet ullamcorper. Duis at lacus. Quisque', 'true', '2018-08-05'),
-('auctor', '50981', 'noemail@noemail@noemail', 'Sasha', 'Jonas', 'Hurley', 'Swan', 50394, 'SecondYear', 'user', 5, 'Nullam ut nisi a odio semper', 'true', '2018-08-02'),
-('congue.', '19777', 'noemail@noemail@noemail', 'Norman', 'Addison', 'Stuart', 'Vallenar', 3066, 'FirstYear', 'user', 1, 'lectus rutrum urna, nec luctus felis', 'true', '2018-09-10'),
-('cubilia', '25367', 'noemail@noemail@noemail', 'Quon', 'Logan', 'Glover', 'Sogliano Cavour', 8700, 'FirstYear', 'user', 18, 'ullamcorper, nisl arcu iaculis enim, sit', 'true', '2018-09-15'),
-('cursus.', '61915', 'noemail@noemail@noemail', 'Aidan', 'Wade', 'Wiley', 'Reus', 34330, 'ThirdYear', 'user', 10, 'Integer id magna et ipsum cursus', 'true', '2018-09-20'),
-('dictum', 'L3M 6Y8', 'noemail@noemail@noemail', 'Rebecca', 'Travis', 'Knight', 'Glendon', 6390, 'ThirdYear', 'user', 17, 'nulla vulputate dui, nec tempus mauris', 'true', '2018-10-05'),
-('dolor', 'VL59 2CC', 'noemail@noemail@noemail', 'Basia', 'Wade', 'House', 'Chapecó', 9448, 'FourthYear', 'user', 11, 'magna. Phasellus dolor elit, pellentesque a,', 'true', '2018-11-11'),
-('Donec', 'I0 0JU', 'noemail@noemail@noemail', 'Urielle', 'Cairo', 'Burt', 'Cunco', 0, 'FirstYear', 'user', 9, 'dictum magna. Ut tincidunt orci quis', 'true', '2018-11-05'),
-('est', '165392', 'noemail@noemail@noemail', 'Madeson', 'Jason', 'Conrad', 'San Miguel', 56443, 'ThirdYear', 'user', 19, 'imperdiet dictum magna. Ut tincidunt orci', 'true', '2018-11-04'),
-('faucibus.', '30223-997', 'noemail@noemail@noemail', 'Ivan', 'Richard', 'Gaines', 'Rae Lakes', 6330, 'SecondYear', 'user', 2, 'Aliquam nisl. Nulla eu neque pellentesque', 'true', '2018-12-12'),
-('mauris.', '31815', 'noemail@noemail@noemail', 'Kylynn', 'Adrian', 'White', 'Araban', 26, '', 'user', 16, 'et tristique pellentesque, tellus sem mollis', 'true', '2018-12-11'),
-('murtaza', '1234', 'noemail@noemail@noemail', 'murtaza', NULL, 'patrawala', 'Mumbai', 400070, 'ThirdYear', 'admin', 8, 'mumbai', 'true', '2018-10-01'),
-('netus', '9461', 'noemail@noemail@noemail', 'Ebony', 'Lee', 'Wooten', 'Gijzegem', 2152, 'FirstYear', 'user', 13, 'diam nunc, ullamcorper eu, euismod ac,', 'true', '0000-00-00'),
-('ojas', '1234', 'noemail@noemail@noemail', 'ojas', NULL, 'kapre', 'Mumbai', 400070, 'SecondYear', 'admin', -1, 'mumbai', 'true', '2018-10-07'),
-('patrawalamurtaza52@gmail.com', '1234', 'noemail@noemail@noemail', 'Gabrielle', NULL, 'Lewis', 'nalasopara', 400609, 'LastYear', 'user', -1, '9-65, Western Express Highway', 'true', '2018-10-04'),
-('Phasellus', '740521', 'noemail@noemail@noemail', 'Germaine', 'Warren', 'Pollard', 'Springfield', 968312, 'SecondYear', 'user', 4, 'in, tempus eu, ligula. Aenean euismod', 'true', '0000-00-00'),
-('priyesh', '1234', 'noemail@noemail@noemail', 'priyesh', NULL, 'patel', 'Mumbai', 400070, 'ThirdYear', 'admin', -1, 'mumbai', 'true', '2018-10-08'),
-('sit', '31085', 'noemail@noemail@noemail', 'Rebecca', 'Channing', 'House', 'Poulseur', 911554, 'ThirdYear', 'user', 7, 'habitant morbi tristique senectus et netus', 'true', '0000-00-00'),
-('Suspendisse', '788131', 'noemail@noemail@noemail', 'Haley', 'Leonard', 'Brock', 'Montignoso', 5111, 'FourthYear', 'user', 12, 'sit amet, dapibus id, blandit at,', 'true', '0000-00-00'),
-('tellus', '31913', 'noemail@noemail@noemail', 'Basil', 'Malik', 'Clemons', 'Idaho Falls', 595640, '', 'user', 15, 'pede nec ante blandit viverra. Donec', 'true', '0000-00-00'),
-('ullamcorper.', '6880', 'noemail@noemail@noemail', 'Aristotle', 'Fulton', 'Duffy', 'Bassano in Teverina', 9093, 'FourthYear', 'user', 20, 'penatibus et magnis dis parturient montes,', 'true', '0000-00-00'),
-('vestibulum', '92920', 'noemail@noemail@noemail', 'Wade', 'Branden', 'Durham', 'FerriŽres', 149513, '', 'user', 6, 'in magna. Phasellus dolor elit, pellentesque', 'true', '0000-00-00');
+('adam1234', 'adam1234', 'adam@gmail.com', 'Adam', 'Lee', 'Wooten', 'Byculla', 2152, 'FirstYear', 'user', 13, 'diam nunc, ullamcorper eu, euismod ac,', 'true', '2018-09-02'),
+('admin', 'admin123', 'ojas.kapre@somaiya.edu', 'admin', '', 'admin', 'Thane', 400604, '', 'admin', 106, 'Mulund', 'true', '2018-08-01'),
+('aidan1234', 'aidan1234', 'aidan@gmail.com', 'Aidan', 'Wade', 'Wiley', 'Vikhroli', 34330, 'ThirdYear', 'user', 10, 'Vikhroli', 'true', '2018-09-20'),
+('arsitotle99', 'arsitotle1234', 'arsitotle@gmail.com', 'Aristotle', 'Fulton', 'Duffy', 'Dadar', 9093, 'FourthYear', 'user', 20, 'Dadar', 'true', '2018-11-20'),
+('baisa00', 'basia1234', 'basia@gmail.com', 'Basia', 'Wade', 'House', 'Kurla', 9448, 'FourthYear', 'user', 11, 'Kurla', 'true', '2018-11-11'),
+('basil55', 'basil1234', 'basil@gmail.com', 'Basil', 'Malik', 'Clemons', 'Charni Road', 595640, '', 'user', 15, 'Charni road', 'true', '2018-10-23'),
+('cameran12', 'cameran1234', 'cameran@gmail.com', 'Cameran', 'Carter', 'Bartlett', 'Dahisar', 11271, '', 'user', 3, 'Dahisar', 'true', '2018-08-05'),
+('germaine21', 'germaine1234', 'germaine@gmail.com', 'Germaine', 'Warren', 'Pollard', 'Churchgate', 968312, 'SecondYear', 'user', 4, 'Churchgate', 'true', '2018-11-18'),
+('haley001', 'haley1234', 'haley@gmail.com', 'Haley', 'Leonard', 'Brock', 'Dombivali', 5111, 'FourthYear', 'user', 12, 'Dombivali', 'true', '2018-10-01'),
+('harsh', '1234', 'harsh.patel4@somaiya.edu', 'Harsh', NULL, 'Patel', 'Nalasopara', 400609, 'LastYear', 'user', -1, 'Kalyan', 'true', '2018-10-11'),
+('ivan76', 'ivan1234', 'ivan@gmail.com', 'Ivan', 'Richard', 'Gaines', 'Borivali', 6330, 'SecondYear', 'user', 2, 'Borivali', 'true', '2018-12-12'),
+('kylynn@301', 'kylynn1234', 'kylynn@gmail.com', 'Kylynn', 'Adrian', 'White', 'Bhandup', 26, '', 'user', 16, 'Bhandup', 'true', '2018-12-11'),
+('leandra12', 'leandra1234', 'leandra@gmail.com', 'Leandra', 'Declan', 'Blackburn', 'Badlapur', 5933, 'ThirdYear', 'user', 8, 'Badlapur', 'true', '2018-10-02'),
+('madeson88', 'madeson1234', 'madeson@gmail.com', 'Madeson', 'Jason', 'Conrad', 'Virar', 56443, 'ThirdYear', 'user', 19, 'Virar', 'true', '2018-11-04'),
+('mark@123', 'mark1234', 'mark@gmail.com', 'Mark', 'Colby', 'Lang', 'Ghatkopar', 45459, 'SecondYear', 'user', 14, '', 'true', '2018-08-02'),
+('murtaza', '1234', 'murtaza.patrawala@somaiya.edu', 'Murtaza', NULL, 'Patrawala', 'Kurla', 400070, 'ThirdYear', 'user', 8, 'mumbai', 'true', '2018-10-10'),
+('norman01', 'norman1234', 'norman@gmail.com', 'Norman', 'Addison', 'Stuart', 'Airoli', 3066, 'FirstYear', 'user', 1, 'lectus rutrum urna, nec luctus felis', 'true', '2018-09-10'),
+('ojas', '1234', 'ojask1205@gmail.com', 'Ojas', NULL, 'Kapre', 'Thane', 400070, 'SecondYear', 'user', -1, 'mumbai', 'true', '2018-10-11'),
+('priyesh', '1234', 'priyesh.patel@somaiya.edu', 'Priyesh', NULL, 'Patel', 'Badlapur', 400070, 'ThirdYear', 'user', -1, 'mumbai', 'true', '2018-10-11'),
+('quon@2212', 'quon1234', 'quon@gmail.com', 'Quon', 'Logan', 'Glover', 'Nerul', 8700, 'FirstYear', 'user', 18, 'ullamcorper, nisl arcu iaculis enim, sit', 'true', '2018-09-15'),
+('rebecca12', 'rebecca1234', 'rebecca@gmail.com', 'Rebecca', 'Travis', 'Knight', 'Panvel', 6390, 'ThirdYear', 'user', 17, 'nulla vulputate dui, nec tempus mauris', 'true', '2018-11-05'),
+('sasha#22', 'sasha1234', 'sasha@gmail.com', 'Sasha', 'Jonas', 'Hurley', 'Vashi', 50394, 'SecondYear', 'user', 5, 'Nullam ut nisi a odio semper', 'true', '2018-08-02'),
+('tanay', '1234', 'tanay.raul@somaiya.edu', 'Tanay', '', 'Raul', 'Mulund', 400701, 'ThirdYear', 'user', 7, 'habitant morbi tristique senectus et netus', 'true', '2018-10-11'),
+('urielle21', 'urielle1234', 'urielle@gmail.com', 'Urielle', 'Cairo', 'Burt', 'Sion', 0, 'FirstYear', 'user', 9, 'dictum magna. Ut tincidunt orci quis', 'true', '2018-11-05'),
+('wade@2021991', 'wade1234', 'wade@gmail.com', 'Wade', 'Branden', 'Durham', 'Ghatkopar', 410220, 'FirstYear', 'user', 6, '', 'true', '2018-09-21');
 
 --
 -- Indexes for dumped tables

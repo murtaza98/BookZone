@@ -19,7 +19,7 @@
 			<tbody>
 
 				<?php
-					$query = "SELECT * from users";
+					$query = "SELECT * from users WHERE username != 'admin'";
 
 					$query_result = mysqli_query($connection,$query);
 

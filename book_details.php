@@ -8,8 +8,9 @@
     }
 ?>
 <?php include "./templates/header.php"; ?>
-
+<div id="wrapper">
 <?php include "./templates/navigation.php"; ?>
+<div class= "container close_bookmark_sidebar" id="page-content-wrapper" style="margin: 0px; padding: 0px">
 
 <?php
     if(isset($_GET['book_id'])){
@@ -175,7 +176,7 @@
     }
 ?>
 
-
+<div class="container close_bookmark_sidebar" id='container'>
 <div class="container" style="width: 100%;margin-left: 2%;margin-right: 2%;">
     <div class="row">
         <div class="col-lg-6 col-sm-12 col-xs-12 col-md-12" id="bookImage">
@@ -453,6 +454,7 @@
         </div> -->
         </div>
     </div>
+</div>
 </div>
 
 <div class="row" id="more_details">

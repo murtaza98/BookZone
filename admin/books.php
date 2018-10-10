@@ -23,7 +23,7 @@
 		}
 	}
 ?>
-
+<div class="container">
 <div id="wrapper">
 	<div id="page-wrapper">
 		<div class="container-fluid">
@@ -53,6 +53,7 @@
 			?>
 		</div>
 	</div>
+</div>
 </div>
 <?php include "templates/admin-footer.php"; ?>
 <?php }else{
