@@ -16,7 +16,7 @@
 		font-size: 16px;
 	}
 </style>
-
+<div class="container">
 <div id="wrapper">
 	<div id="page-wrapper">
 		<div class="row">
@@ -181,6 +181,7 @@
     <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
     
 	</div>
+</div>
 </div> 
 
 <?php include "templates/admin-footer.php"; ?>

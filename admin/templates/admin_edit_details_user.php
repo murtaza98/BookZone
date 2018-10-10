@@ -8,11 +8,15 @@
         $user_pincode = $_POST['pincode'];
         $user_contact = $_POST['contact'];
         $user_category = $_POST['category'];
+        $user_contact = $_POST['contact'];
         
         $query = "UPDATE users SET street_no=$user_flatNo,area='$user_area',city='$user_city',pincode=$user_pincode,user_category='$user_category' WHERE username='".addslashes($username)."'";
 //        echo $query;
         $query_result = mysqli_query($connection,$query);
         
+        $query1 = "UPDATE contacts SET contact_no = '$user_contact' WHERE username='".addslashes($username)."'";
+        $query_result1 = mysqli_query($connection,$query1);
+
         if(!$query_result){
             die("QUERY FAILED ".mysqli_error($connection));
         }else{

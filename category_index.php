@@ -16,7 +16,7 @@
 			<?php
 			if(isset($_GET['category'])){
 			    $category = $_GET['category'];
-				$product_query = "SELECT * FROM books WHERE category_id = (SELECT category_id FROM categories WHERE category_name = '{$category}')";
+				$product_query = "SELECT * FROM books WHERE book_status='available' AND category_id = (SELECT category_id FROM categories WHERE category_name = '{$category}')";
 			    $product_query_result = mysqli_query($connection,$product_query);
 			    if(!$product_query_result){
 			        die("QUERY FAILED ".mysqli_error($connection));

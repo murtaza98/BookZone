@@ -126,14 +126,17 @@
                         die("QUERY FAILED ".mysqli_error($connection));
                     }else{
                         $num_products = mysqli_num_rows($product_query_result);
-                        if($num_products!=0){
+                        if($num_products != 0){
                             if(!$title_printed){
+                                $count = 0;
                                 echo "<h3>{$category_name}</h3>";
                                 //row div started
                                 echo "<div class='row'>";
                                 $title_printed = true;
                             }
-                            while($product_row = mysqli_fetch_assoc($product_query_result)){
+
+                            while($count < 4 && $product_row = mysqli_fetch_assoc($product_query_result)){
+                                $count = $count + 1;
                                 $book_id = $product_row['book_id'];
                                 $book_name = $product_row['book_name'];
                                 $book_author = $product_row['author'];
