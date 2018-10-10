@@ -17,6 +17,7 @@
         if(!$update_query_result){
             die("QUERY FAILED ".mysqli_error($connection));
         }else{
+        	$_SESSION['edit_book'] = 'true';
         	header("Location: books.php");
 		}
 	}	

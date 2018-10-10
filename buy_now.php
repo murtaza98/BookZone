@@ -182,8 +182,7 @@
         if (isset($_POST['order'])) {
             $payment_method = $_POST['payment_method'];
             $delivary_method = $_POST['delivary_method'];
-            $date = date("d/m/Y");
-            $query = "INSERT INTO buyers VALUES('{$username}','{$book_name}','{$seller_username}','{$date}','{$book_price}','{$payment_method}')";
+            $query = "INSERT INTO buyers VALUES('{$username}','{$book_name}','{$seller_username}',now(),'{$book_price}','{$payment_method}')";
             $query_result = mysqli_query($connection,$query);
             
             if(!$query_result){

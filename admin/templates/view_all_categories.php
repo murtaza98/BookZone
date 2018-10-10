@@ -1,7 +1,27 @@
+<?php if (isset($_SESSION['edit_category'])): ?>
+	<div class="alert alert-success alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Changes Made</strong>!!!
+    </div>'
+<?php
+	$_SESSION['edit_category'] = null;
+	endif 
+?>
+
+<?php if (isset($_SESSION['add_category'])): ?>
+	<div class="alert alert-success alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>New category added</strong>!!!
+    </div>'
+<?php
+	$_SESSION['add_category'] = null;
+	endif 
+?>
+
 <div class="row">
 	<div class="col-sm-4">
 		<h3>ADD CATEGORY</h3>
-			<form method="POST" action="categories.php">
+			<form method="POST" action="add_category.php">
 				<div class='form-group'>
                     <label for="category-name">Category Name</label>
                     <input name="category-name" type="text" class="form-control" id="category-name" placeholder="Name" required="true">                

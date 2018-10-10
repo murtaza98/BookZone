@@ -1,7 +1,6 @@
     <?php
     function customPageHeader(){
         echo "<link rel='stylesheet' type='text/css' href='includes/css/main_page.css'>";
-        echo '<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">';
         echo "<script type='text/javascript' src='includes/javascript/main_page.js'></script>";
         
     }

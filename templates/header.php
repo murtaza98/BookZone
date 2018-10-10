@@ -20,6 +20,9 @@
     <!--include navigation bar css -->  
     <link rel='stylesheet' type='text/css' href='includes/css/navbar.css'>
     <link type='text/css' href="includes/css/simple-sidebar.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
     <?php 
         if(function_exists('customPageHeader')){
             customPageHeader();

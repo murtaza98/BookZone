@@ -36,25 +36,6 @@
 			?>
 
 			<?php
-				if(isset($_POST['add_category'])){
-					$category_name = $_POST['category-name'];
-					$query = "INSERT INTO categories(category_name,parent_category_id) VALUES('$category_name',0)";
-					$query_result = mysqli_query($connection, $query);
-					if(!$query_result){
-						echo'<div class="alert alert-danger alert-dismissible">
-						  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						  <strong>Error! </strong>Category already exists!!!
-						 </div>';
-					}else{
-						echo'<div class="alert alert-success alert-dismissible">
-						  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						  <strong>Success! </strong>New Category added!!!
-						 </div>';
-					}
-				}
-			?>
-
-			<?php
 				if(isset($_GET['source'])){
 					switch($_GET['source']){
 						case 'view_all_categories':

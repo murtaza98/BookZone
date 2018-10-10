@@ -1,4 +1,12 @@
-
+<?php if (isset($_SESSION['edit_book'])): ?>
+	<div class="alert alert-success alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Changes Made</strong>!!!
+    </div>'
+<?php
+	$_SESSION['edit_book'] = null;
+	endif 
+?>
 <h3 class="text-center"><b><u>ALL BOOKS</u></b></h3>
 
 <div class="row">
