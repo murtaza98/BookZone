@@ -5,7 +5,7 @@
 <?php include "./templates/header.php"; ?>
 <div id="wrapper">
 <?php include "./templates/navigation.php"; ?>
-<div class= "container close_bookmark_sidebar" id="page-content-wrapper" style="margin: 0px; padding: 0px">
+<div class= "container close_bookmark_sidebar" id="page-content-wrapper" style="margin: 0px; padding: 0px">	
 
 <div class="container close_bookmark_sidebar" id='container'>
 	<div class="container">

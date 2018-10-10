@@ -32,7 +32,7 @@
 			</form>
 	</div>
 	<div class="col-sm-8">
-		<h3 class="text-center"><b><u>ALL USERS</u></b></h3>
+		<h3 class="text-center"><b><u>ALL CATEGORIES</u></b></h3>
 			<table class="table table-bordered table-hover table-responsive">
 				<thead>
 					<tr>

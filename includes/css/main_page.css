@@ -83,3 +83,11 @@ input[type=submit] {
 }
 
 /*autocomplete css end*/
+@media(max-width: 992px) {
+  .viewMore {
+    display: none;
+  }
+  .showButton {
+    display: none;
+  }
+}

@@ -6,6 +6,16 @@ function customPageHeader(){
 }
 ?>
 <?php include "./templates/header.php"; ?>
+<style type="text/css">
+    .viewMore {
+        height: 300px;
+    }
+    .books {
+        padding-right: 15px;
+        padding-left: 5px;
+    }
+</style>
+
 <?php 
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
@@ -118,7 +128,7 @@ function customPageHeader(){
                 $title_printed =false;
 
                 foreach ($all_category_ids as $single_category_id) {
-                    $product_query = "SELECT * FROM books WHERE category_id = {$single_category_id} AND book_status='available'";
+                    $product_query = "SELECT * FROM books WHERE category_id = {$single_category_id} AND book_status='available' ORDER BY date DESC";
 
                     $product_query_result = mysqli_query($connection,$product_query);
 
@@ -131,7 +141,8 @@ function customPageHeader(){
                                 $count = 0;
                                 echo "<h3>{$category_name}</h3>";
                                 //row div started
-                                echo "<div class='row'>";
+                                echo "<div class='row'>
+                                      <div class='col-sm-11'>";
                                 $title_printed = true;
                             }
 
@@ -145,7 +156,7 @@ function customPageHeader(){
                                 $book_price = $product_row['book_price'];
                                 $book_image = $product_row['book_image'];
 ?>
-                                <div class="col-sm-6 col-md-3 col-lg-3 col-xs-6">
+                                <div class="books col-sm-6 col-md-3 col-lg-3 col-xs-6">
                                     <div class="thumbnail">
                                         <div class="w3-display-container w3-hover-opacity">
                                             <img src="includes/images/<?php echo $book_image ?>" alt="<?php echo $book_name ?>" style="width:100%; height: 230px;">
@@ -164,10 +175,14 @@ function customPageHeader(){
                                 </div>
 <?php
                             }
+                            echo "</div>";
                         }
                     }
                 }
                 if($title_printed){
+                    echo "<div class='col-sm-1'>
+                          <a href='category_index.php?category={$category_name}'><button class='viewMore btn btn-primary' title='View More'><i class='glyphicon glyphicon-plus'></i></button></a>
+                          </div>";
                     //row div end
                     echo "</div>";
                 }
