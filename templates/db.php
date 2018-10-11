@@ -1,8 +1,8 @@
 <?php
     $servername = "localhost";
-    $username = "id6856741_bookzone";
-    $password = "bookzone";
-    $database_name = "id6856741_bookzone";
+    $username = "root";
+    $password = "";
+    $database_name = "books-portal";
 
     // Create connection
     $connection = mysqli_connect($servername, $username, $password,$database_name);
@@ -12,5 +12,4 @@
     }else{
 //        echo "<h1>Connected</h1>";
     }
-
 ?>
