@@ -269,7 +269,7 @@
                     }else if(isset($_SESSION['username'])&&$seller_username==$_SESSION['username']){
                         
 				?>
-						<a href="#" type="button" disabled="true" title="You Cannot Buy Your Own Book" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
+						<a type="button" data-toggle="tooltip" title="You Cannot Buy Your Own Book" class="btn" id="buyNow" style="background-color: #666; color: white;">Buy Now</a>
                 <?php
                     }else if(!isset($_SESSION['username'])){
                         
@@ -716,7 +716,12 @@
     <?php
         }else{
     ?>    
-        <a style="color: white"><button data-toggle="tooltip" title="You Cannot Review Your Own Book" class="btn btn-primary" disabled>Write a review</button></a>
+        <a style="color: white" data-toggle="tooltip" title="You Cannot Review Your Own Book"><button class="btn btn-primary">Write a review</button></a>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip(); 
+            });
+        </script>
     <?php
         }
     ?>
