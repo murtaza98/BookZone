@@ -1,11 +1,12 @@
 <?php
     function customPageHeader(){
+        echo "<script type='text/javascript' src='./includes/javascript/verify_user.js'></script>";
     }
 ?>
 <?php include "./templates/header.php"; ?>
 
 <?php 
-	if(isset($_GET['email_id']) && isset($_GET['username'])) {
+	if(isset($_GET['email_id']) && isset($_GET['username']) && !isset($_POST['verify'])) {
 		$email_id = $_GET['email_id'];
 		$username = $_GET['username'];
 		$subject = "Verification code";
@@ -38,6 +39,8 @@
 <?php
     if(isset($_POST['verify'])){
     	$entered_code = $_POST['code'];
+        $email_id = $_GET['email_id'];
+		$username = $_GET['username'];
     	$code_query = "SELECT code FROM verification WHERE email_id = {$email_id}";
     	$code_query_result = mysqli_query($connection, $code_query);
     	if(!$code_query_result){

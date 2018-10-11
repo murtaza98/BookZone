@@ -47,10 +47,10 @@ function checkEmail(email){
                 var response = this.responseText;
                 var element = document.getElementById("email_error");
                 if(response == "valid"){
-                    element.style.background = 'none';
+                    element.style.display = 'none';
                     flag_email = true;
                 }else{
-                    element.style.background = 'block';
+                    element.style.display = 'block';
                     flag_email = false;
                 }                
             }
