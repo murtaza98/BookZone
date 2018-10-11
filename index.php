@@ -207,10 +207,10 @@ function customPageHeader(){
                         <img style="max-width:300px;max-height:300px;" id="modal_image" src="">
                     </div>
                     <div class="col-sm-7">
-                        <div id="modal_name"></div>
-                        <div id="modal_author"></div>
-                        <div id="modal_subject"></div>
-                        <div id="modal_price"></div>
+                        <div id="modal_name" style="font-size:28px; font-weight:500;"></div>
+                        by <span id="modal_author" style="font-size:20px; font-weight:400;"></span><br><br>
+                        Subject <span id="modal_subject" style="font-size:18px; font-weight:400;"></span><br><br>
+                        &#8377<span id="modal_price" style="font-size:20px; font-weight:400;"></span><br><br>
                         <a id="modal_view_more" class="btn btn-primary">View More</a>
                     </div>
                 </div>

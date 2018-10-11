@@ -1,8 +1,8 @@
 <?php
     $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database_name = "books-portal";
+    $username = "id6856741_bookzone";
+    $password = "bookzone";
+    $database_name = "id6856741_bookzone";
 
     // Create connection
     $connection = mysqli_connect($servername, $username, $password,$database_name);

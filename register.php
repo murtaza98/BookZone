@@ -30,7 +30,7 @@
         if(!$query_result){
             die('QUERY FAILED '.mysqli_error($connection));
         }else{
-            header("Location: verify_user.php?email_id='{$user_email}'&username='{$username}'");
+            header("Location: verify_user.php?email_id=$user_email&username=$username");
         }
        
     }

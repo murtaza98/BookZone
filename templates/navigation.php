@@ -31,8 +31,8 @@
           ?>
             <li><a href="admin/admin_index.php" style="color: white">Admin Site</a></li>
           <?php } ?>
-            <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
-            <li><a href="#"><i class="fa fa-info" style="color: white"> About</i></a></li>
+            <li><a href="index.php"><i class="glyphicon glyphicon-home" style="font-size: 20px; color: white"></i></a></li>
+            <li><a href="#"><i title="About" class="glyphicon glyphicon-info-sign" style="font-size: 20px; color: white"> </i></a></li>
             <li><a href="addBook.php" style="color: white"><span class="glyphicon glyphicon-book" style="color: white"></span> Sell Book</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="dashboard"><i class="fa fa-user" style="color: white"></i><b class="caret"></b></a>
@@ -63,8 +63,8 @@
             }else{
               //SHOW LOGIN AND SIGN UP IN NAVBAR
           ?>
-              <li><a href="index.php"><i class="fa fa-home" style="font-size: 22px; color: white"></i></a></li>
-            <li><a href="#"><i class="fa fa-info" style="color: white">  About</i></a></li>
+              <li><a href="index.php"><i class="glyphicon glyphicon-home" style="font-size: 20px; color: white"></i></a></li>
+             <li><a href="#"><i title="About" class="glyphicon glyphicon-info-sign" style="font-size: 20px; color: white"> </i></a></li>
               <li><a href="register.php" style="color: white"><span class="glyphicon glyphicon-user" style="color: white"></span> Sign Up</a></li>
               <li><a data-toggle="modal" href="" data-target="#loginModal" style="color: white"><span class="glyphicon glyphicon-log-in" style="color: white"></span> Login</a></li>
               <?php include "templates/login_modal.php" ?>
