@@ -25,11 +25,6 @@
             $book_price = $row['book_price'];
             $book_image = $row['book_image'];
         }
-	    $updateQuery = "UPDATE books SET book_status='unavailable' WHERE book_id = $book_id";
-	    $updateResult =  mysqli_query($connection,$updateQuery);
-	    if(!$updateResult){
-	            die('QUERY FAILED '.mysqli_error($connection));
-	    }
 	    
 	    $userQuery = "SELECT * FROM users WHERE username = '{$seller_username}'";
 	    $userResult = mysqli_query($connection,$userQuery);
@@ -77,7 +72,7 @@
                         </div>
                     </div>
                     <div class="col-sm-7">
-                        <form method="post">
+                        <form method="post" action="">
                             <div class="form-group">
                                 <label for="sel1">Payment Method:</label>
                                 <select class="form-control" name="payment_method" id="sel1">
@@ -181,6 +176,9 @@
             $username = $_SESSION['username'];
         }
         if (isset($_POST['order'])) {
+            
+            $book_id=$_GET['book_id'];
+            
             $payment_method = $_POST['payment_method'];
             $delivary_method = $_POST['delivary_method'];
             $query = "INSERT INTO buyers VALUES('{$username}','{$book_name}','{$seller_username}',now(),'{$book_price}','{$payment_method}')";
@@ -197,7 +195,17 @@
                         document.getElementById('order').setAttributeNode(att);
                         document.getElementById('order').style.backgroundColor = 'red';
                     </script>";
+                
+                //make book status unavailable
+                $updateQuery = "UPDATE books SET book_status='unavailable' WHERE book_id = $book_id";
+                $updateResult =  mysqli_query($connection,$updateQuery);
+                if(!$updateResult){
+                        die('QUERY FAILED '.mysqli_error($connection));
+                }
+                
             }
+            
+            
         }
 
         if (isset($_POST['order'])) {
