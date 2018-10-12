@@ -1,19 +1,25 @@
 <?php include "./db.php"; ?>
 <?php
 
-    $query = "SELECT DISTINCT book_name from books";
+    if(isset($_GET['search_key'])){
+        $search_key = $_GET['search_key'];
+        
+        $query = "SELECT DISTINCT book_name from books WHERE book_name LIKE '%{$search_key}%'";
+//        echo $query;
 
-    $query_result = mysqli_query($connection,$query);
+        $query_result = mysqli_query($connection,$query);
 
-    $result = array();
+        $result = array();
 
-    while($row = mysqli_fetch_assoc($query_result)){
-        $result[] = $row['book_name'];
-    }    
+        while($row = mysqli_fetch_assoc($query_result)){
+            $result[] = $row['book_name'];
+        }    
 
 
-    $myJSON = json_encode($result);
-    echo $myJSON;
+        $myJSON = json_encode($result);
+        echo $myJSON;
+        
+    }
     
 
 

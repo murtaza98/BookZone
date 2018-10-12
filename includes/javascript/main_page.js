@@ -112,7 +112,7 @@ function autocomplete(inp,parent_element) {
         if (this.readyState==4 && this.status==200) {
     //      document.getElementById("livesearch").innerHTML=this.responseText;
     //      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
-//            alert(this.responseText);
+//            console.log(this.responseText);
             var data = JSON.parse(this.responseText);
             
 //            alert(data.length);
@@ -125,7 +125,7 @@ function autocomplete(inp,parent_element) {
         }
       }
     //  xmlhttp.open("GET","templates/livesearch.php?q="+str,true);
-      xmlhttp.open("GET","templates/livesearch.php",true);
+      xmlhttp.open("GET","templates/livesearch.php?search_key="+str,true);
       xmlhttp.send();
     }
     
