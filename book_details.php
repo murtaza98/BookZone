@@ -191,7 +191,7 @@
                 by <?php echo $author; ?>
             </div>
             <br>
-            <div class="price" style="font-family: Karla, Arial, Helvetica, sans-serif; ">
+            <div class="price" style="font-family: Karla, Arial, Helvetica">
                 <div style="font-size: 28px">
                     <span>Was : </span><span style="text-decoration: line-through;">&#x20b9; <?php echo $book_original_price; ?></span>
                 </div>

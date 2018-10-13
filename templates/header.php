@@ -28,6 +28,12 @@
             customPageHeader();
         }
     ?>
+
+    <style type="text/css">
+        .thumbnail{
+            box-shadow: 1px 1px 1px 1px #9e9d9d;
+        }
+    </style>
     <script type='text/javascript' src='includes/javascript/navigation.js'></script>
 </head>
-<body  style="background-color: #eaeded">
+<body>

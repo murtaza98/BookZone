@@ -6,6 +6,16 @@ function customPageHeader(){
 }
 ?>
 <?php include "./templates/header.php"; ?>
+<style type="text/css">
+    .viewMore {
+        height: 300px;
+        background-color: #d5e6f3
+    }
+    .books {
+        padding-right: 15px;
+        padding-left: 5px;
+    }
+</style>
 
 <?php 
     if (isset($_SESSION['username'])) {
@@ -73,7 +83,7 @@ function customPageHeader(){
 <div class="container close_bookmark_sidebar" id='container'>
     <div class="row" >
     <!--   id="#category"-->
-        <div class="col-sm-3" style="background-color: white; border-radius: 8px;">
+        <div class="col-sm-3">
             <h2>Categories</h2>
             <?php include "templates/sidebar.php"; ?>
         </div>
@@ -130,7 +140,7 @@ function customPageHeader(){
                         if($num_products != 0){
                             if(!$title_printed){
                                 $count = 0;
-                                echo "<h3 style='padding-top: 10px; padding-bottom: 8px;margin-top:0px;border-radius:8px;background-color: white;'>{$category_name}</h3>";
+                                echo "<h3>{$category_name}</h3>";
                                 //row div started
                                 echo "<div class='row'>";
                                 $title_printed = true;
