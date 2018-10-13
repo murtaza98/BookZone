@@ -29,8 +29,9 @@
 							</div>
 							<div class="col-sm-9 text-right">
 								<?php 
-									$date = date('Y-m-d', strtotime('-7 days')); 
-									$count_users = "SELECT COUNT(*) as total FROM users WHERE date > '{$date}' ";
+									$date = date('Y-m-d', strtotime('-7 days'));
+									$today = date('Y-m-d');
+									$count_users = "SELECT COUNT(*) as total FROM users WHERE date > '{$date}' AND date <= '{$today}'";
 									$users_result = mysqli_query($connection, $count_users);
 									$users = mysqli_fetch_assoc($users_result)['total'];
 								?>
@@ -63,7 +64,7 @@
 							<div class="col-sm-9 text-right">
 								<?php  
 									$date = date('Y-m-d', strtotime('-7 days'));
-									$count_books = "SELECT COUNT(*) as total FROM books WHERE date > '{$date}'";
+									$count_books = "SELECT COUNT(*) as total FROM books WHERE date > '{$date}' AND date <= '{$today}'";
 									$books_result = mysqli_query($connection, $count_books);
 									$books = mysqli_fetch_assoc($books_result)['total'];
 								?>
@@ -96,7 +97,7 @@
 							<div class="col-sm-9 text-right">
 								<?php  
 								    $date = date('Y-m-d', strtotime('-7 days'));	
-									$count_orders = "SELECT COUNT(*) as total FROM buyers WHERE date > '{$date}'";
+									$count_orders = "SELECT COUNT(*) as total FROM buyers WHERE date > '{$date}' AND date <= '{$today}'";
 									$orders_result = mysqli_query($connection, $count_orders);
 									$orders = mysqli_fetch_assoc($orders_result)['total'];
 								?>
@@ -135,7 +136,7 @@
 					<tbody>
 						<?php  
 							$date = date('Y-m-d', strtotime('-7 days'));
-							$newuser_query = "SELECT username,email,is_verified,date FROM users WHERE date > '{$date}' ORDER BY date DESC, username ASC";
+							$newuser_query = "SELECT username,email,is_verified,date FROM users WHERE date > '{$date}' AND date <= '{$today}' ORDER BY date DESC, username ASC";
 							$newuser_query_result = mysqli_query($connection, $newuser_query);
 							if(!$newuser_query_result){
 								die("QUERY FAILED ".mysqli_error($connection));
@@ -172,7 +173,7 @@
 					<tbody>
 						<?php  
 							$date = date('Y-m-d', strtotime('-7 days'));
-							$newbook_query = "SELECT username,book_name,date FROM books WHERE date > '{$date}' ORDER BY date DESC, username ASC";
+							$newbook_query = "SELECT username,book_name,date FROM books WHERE date > '{$date}' AND date <= '{$today}' ORDER BY date DESC, username ASC";
 							$newbook_query_result = mysqli_query($connection, $newbook_query);
 							if(!$newbook_query_result){
 								die("QUERY FAILED ".mysqli_error($connection));
