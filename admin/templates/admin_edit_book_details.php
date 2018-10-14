@@ -11,13 +11,14 @@
 		$book_description = $_POST['book_description'];
 		$status = $_POST['status'];
 		
-		$update_query = "UPDATE books SET book_name='$bookname', author='$author', book_description = '$book_description', book_price='$price',book_original_price='$original_price', subject='$subject', book_status='$status', edition='$edition' WHERE book_id = '$book_id'";
-        $update_query_result = mysqli_query($connection,$update_query);
-        
-        if(!$update_query_result){
+		$prepare_stmt = $connection->prepare("UPDATE books SET book_name= ?, author= ?, book_description = ?, book_price= ?,book_original_price= ?, subject= ?, book_status= ?, edition= ? WHERE book_id = ?");
+        $prepare_stmt->bind_param("sssiisssi",$bookname,$author,$book_description,$price,$original_price,$subject,$status,$edition,$book_id);
+        if(!$prepare_stmt->execute()){
             die("QUERY FAILED ".mysqli_error($connection));
+            $prepare_stmt->close();
         }else{
         	$_SESSION['edit_book'] = 'true';
+        	$prepare_stmt->close();
         	header("Location: books.php");
 		}
 	}	
@@ -29,7 +30,7 @@
 		$query = "SELECT * FROM books WHERE book_id = $book_id";
 		$result = mysqli_query($connection, $query);
 		if(!$result){
-			die("QUERY FAILED ".mysqli_error($connection));
+			header("Location:../error.php");
 		}else{
 			$row = mysqli_fetch_assoc($result);
 			$sellername = $row['username'];

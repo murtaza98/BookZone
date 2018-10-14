@@ -38,12 +38,16 @@
         <div class = "row">
 
 <?php
-        $query = "SELECT * from books WHERE book_name LIKE '%{$search_index}%'";
+        $search_index = mysqli_real_escape_string($connection,$search_index);
+        $query = "SELECT * from books WHERE book_name LIKE '%$search_index%'";
         $query_result = mysqli_query($connection,$query);
 
         if(!$query_result){
             die("QUERY FAILED ".mysqli_error($connection));
         }else{
+            if (mysqli_num_rows($query_result) == 0) {
+                echo "<h3 style='padding-left:17px;'>No Book found</h3>";
+            }
             while($product_row = mysqli_fetch_assoc($query_result)){
                 $book_id = $product_row['book_id'];
                 $book_name = $product_row['book_name'];
