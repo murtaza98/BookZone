@@ -5,7 +5,7 @@
     }
 ?>
 <?php include "./templates/admin-header.php"; ?>
-<?php if(isset($_SESSION['username'])) { ?>
+<?php if(isset($_SESSION['username'])&&isset($_SESSION['user_role'])&&$_SESSION['user_role']=='admin'){ ?>
 <?php include "./templates/admin-navigation.php"; ?>
 
 <?php

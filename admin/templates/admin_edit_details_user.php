@@ -10,24 +10,26 @@
         $user_category = $_POST['category'];
         $user_contact = $_POST['contact'];
         
-        $query = "UPDATE users SET street_no=$user_flatNo,area='$user_area',city='$user_city',pincode=$user_pincode,user_category='$user_category' WHERE username='".addslashes($username)."'";
-//        echo $query;
-        $query_result = mysqli_query($connection,$query);
+        $prepare_stmt = $connection->prepare("UPDATE users SET street_no=?,area=?,city=?,pincode=?,user_category=? WHERE username=?");
+        $prepare_stmt->bind_param("ississ",$user_flatNo,$user_area,$user_city,$user_pincode,$user_category,$username);
         
-        $query1 = "UPDATE contacts SET contact_no = '$user_contact' WHERE username='".addslashes($username)."'";
-        $query_result1 = mysqli_query($connection,$query1);
+        $prepare_stmt1 = $connection->prepare("UPDATE contacts SET contact_no = ? WHERE username=?");
+        $prepare_stmt1->bind_param("ss",$user_contact,$username);
+        $prepare_stmt1->execute();
 
-        if(!$query_result){
+        if(!$prepare_stmt->execute()){
             die("QUERY FAILED ".mysqli_error($connection));
+            $prepare_stmt->close();
+            $prepare_stmt1->close();
         }else{
-            // echo "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-            // echo "<h2 class='text-center text-success'><b>Changes made</b></h2>";
-            $_SESSION['ALERT'] = "<h2 class='text-center text-success'><b>Changes made</b></h2>";
+            $_SESSION['ALERT'] = '<div class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Changes Made!!!
+              </div>';
+            $prepare_stmt->close();
+            $prepare_stmt1->close();
             $redirect_url = "http://{$_SERVER['HTTP_HOST']}"."{$_SERVER['REQUEST_URI']}";
             header("Location: $redirect_url");
         }
-
-        
     }
 ?>
 
@@ -36,10 +38,10 @@
 <?php  
     if(isset($_GET['edit'])){
         $username = $_GET['edit'];
-        $query = "SELECT * FROM users WHERE username='".addslashes($username)."'";
+        $query = "SELECT * FROM users WHERE username='$username'";
         $details_set = mysqli_query($connection, $query);
         if(!$details_set){
-                die("QUERY FAILED ".mysqli_error($connection));
+                header("Location:../error.php");
             }else{
                     $detail_row = mysqli_fetch_assoc($details_set);
                     $username = $detail_row['username'];
@@ -57,7 +59,7 @@
         $contactQuery = "SELECT contact_no FROM contacts WHERE username='".addslashes($username)."'";
         $contacts_set = mysqli_query($connection, $contactQuery);
         if(!$contacts_set){
-            die("QUERY FAILED ".mysqli_error($connection));
+            header("Location:../error.php");
         }else{
                 $contact_row = mysqli_fetch_assoc($contacts_set); 
                 $contactNo = $contact_row['contact_no'];  
@@ -66,8 +68,14 @@
     }
 	 
 ?>
-
-
+<?php 
+    if(isset($_SESSION['passwd_changed'])){
+        echo '<div class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Password Changed!!!
+              </div>';
+        $_SESSION['passwd_changed'] = null;
+    }
+?>
 
   <div class="container">
     <h1 class="text-center"><?php echo $username?>'s details</h1>
@@ -160,11 +168,58 @@
                         </div>
                         <div class="col-sm-6 form-group">
                             <a data-toggle="modal" href="" data-target="#changePwdModal" class="btn btn-primary form-control">Change Password</a>
-                            <?php include "../templates/changePasswd.php" ?>
                         </div>
                     </div>
                 </div>
             <div class="col-sm-3"></div>
         </div>
     </form>
+</div>
+
+<div id="changePwdModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="margin-right: 9px;">&times;</button>
+        <h3 class="modal-title"><b>&nbsp;Change Password</b></h3>
+      </div>
+      <div class="modal-body">
+            <form method="post" action="./admin_changePasswd.php">
+                <input type="text" name="username" style="display: none" value="<?php echo $username?>">
+              <div class="form-group">
+                <label for="oldPasswd">Old Password</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="oldPasswd" type="password" class="form-control" name="oldPasswd" placeholder="Old Password">
+                </div>                     
+              </div>
+
+              <div class="form-group">
+                <label for="newPasswd">New Password</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="newPasswd" type="password" class="form-control" name="newPasswd" placeholder="New Password">
+                </div>                     
+              </div>
+
+              <div class="form-group">
+                <label for="password">Confirm Password</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="comfirmPasswd" type="password" class="form-control" name="comfirmPasswd" placeholder="Confirm Password">
+                </div>                     
+              </div>
+
+              <div class="form-group">
+                <input type="submit" class="btn btn-default" value="Change" name="submit_passwd" style="margin-bottom: 10px;">                
+              </div>
+
+            </form>   
+        </div>
+        <div class="modal-footer" style="margin-right: 10px;">
+          <button type="button" class="btn btn-default" data-dismiss="modal" style="position: absolute; margin-bottom: 10px; margin-right: 10px; right: 0; bottom: 0">Close</button>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>

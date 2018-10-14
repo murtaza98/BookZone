@@ -2,14 +2,23 @@
     function customPageHeader(){
     }
 ?>
-
 <?php include "./templates/header.php"; ?>
 
 <?php include "./templates/navigation.php"; ?>
 
 <!--Update User details-->
+<?php  
+    if (isset($_SESSION['edit_detail'])) {
+        echo'<div class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Changes Made!!!
+              </div>';
+         $_SESSION['edit_detail'] = null;
+    }
+?>
+
 <?php
     if(isset($_POST['submit'])){
+        $username = $_SESSION['username'];
         $user_flatNo = $_POST['street_no'];
         $user_area = $_POST['area'];
         $user_city = $_POST['city'];
@@ -17,19 +26,35 @@
         $user_contact = $_POST['contact'];
         $user_category = $_POST['category'];
         
-        $query = "UPDATE users SET street_no=$user_flatNo,area='$user_area',city='$user_city',pincode=$user_pincode,user_category='$user_category' WHERE username='".addslashes($_SESSION['username'])."'";
-//        echo $query;
-        $query_result = mysqli_query($connection,$query);
+        $prepare_stmt = $connection->prepare("UPDATE users SET street_no=?,area=?,city=?,pincode=?,user_category=? WHERE username=?");
+        $prepare_stmt->bind_param("ississ",$user_flatNo,$user_area,$user_city,$user_pincode,$user_category,$username);
         
-        if(!$query_result){
+        $prepare_stmt1 = $connection->prepare("UPDATE contacts SET contact_no = ? WHERE username=?");
+        $prepare_stmt1->bind_param("ss",$user_contact,$username);
+        $prepare_stmt1->execute();
+
+        if(!$prepare_stmt->execute()){
             die("QUERY FAILED ".mysqli_error($connection));
+            $prepare_stmt->close();
+            $prepare_stmt1->close();
         }else{
-            echo "<h2 class='text-center text-success'><b>Changes made</b></h2>";
+            $_SESSION['edit_detail'] = 'true';
+            $prepare_stmt->close();
+            $prepare_stmt1->close();
+            $redirect_url = "http://{$_SERVER['HTTP_HOST']}"."{$_SERVER['REQUEST_URI']}";
+            header("Location: $redirect_url");
         }
-        
     }
 ?>
 
+<?php 
+    if(isset($_SESSION['passwd_changed'])){
+        echo '<div class="alert alert-success alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Password Changed!!!
+              </div>';
+        $_SESSION['passwd_changed'] = null;
+    }
+?>
 
 <!--View User details-->
 <?php  
@@ -74,13 +99,6 @@
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                         <input type="Email" class="form-control" id="email" value="<?php echo $username?>" placeholder="Email ID" disabled> 
                     </div>
-                    <!--
-                    <label for="passwd">Password</label>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="Password" class="form-control" id="passwd" value="<?php //echo $password?>" placeholder="Password" disabled> 
-                    </div>
-                    -->
                     <div class="row">
                         <div class="col-sm-4">
                             <label for="fname">First Name</label>

@@ -6,14 +6,16 @@
         $password_result = mysqli_query($connection, $query); 
         $db_password = mysqli_fetch_assoc($password_result);
         if ($db_password['password'] == $oldPassword && $oldPassword != $newPassword) {
-          $query = "UPDATE users SET password='$newPassword' WHERE username='".addslashes($_SESSION['username'])."'";
-          $query_result = mysqli_query($connection, $query);
-          
-          if(!$query_result){
+          $prepare_stmt = $connection->prepare("UPDATE users SET password=? WHERE username=?");
+          $prepare_stmt->bind_param("ss",$newPassword,$username);          
+          if(!$prepare_stmt->execute()){
               die("QUERY FAILED ".mysqli_error($connection));
+              $prepare_stmt->close();
           }else{
+              $_SESSION['passwd_changed'] = 'true';
+              $prepare_stmt->close();
               echo "<script>
-                window.location.href = 'view_details.php';
+                window.location.href = 'edit_details.php';
                 window.alert('Password Changed');
               </script>";
           }
