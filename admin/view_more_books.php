@@ -4,7 +4,7 @@
     }
 ?>
 <?php include "./templates/admin-header.php"; ?>
-<?php if(isset($_SESSION['username'])) { ?>
+<?php if(isset($_SESSION['username'])&&isset($_SESSION['user_role'])&&$_SESSION['user_role']=='admin'){ ?>
 <?php include "./templates/admin-navigation.php"; ?>
 
 <div class="container">
@@ -19,7 +19,7 @@
 		$query_result = mysqli_query($connection,$query);
 
 		if(!$query_result){
-			die("QUERY FAILED " .mysqli_error($connection));
+			header("Location: ../error.php");
 		}else{
 			$row = mysqli_fetch_assoc($query_result);
 			$book_name = $row['book_name'];
@@ -40,7 +40,7 @@
             $category_query_result = mysqli_query($connection,$category_query);
 
             if(!$category_query_result){
-                die("QUERY FAILED " .mysqli_error($connection));
+                header("Location: ../error.php");
             }else{
                 $category_row = mysqli_fetch_assoc($category_query_result);
                 $category_name = $category_row['category_name'];

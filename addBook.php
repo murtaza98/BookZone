@@ -42,12 +42,10 @@
         if($post_image_error_code === 0){
 			move_uploaded_file($post_image_temp_location,"./includes/images/$final_image_name");
             
-            $query = "INSERT INTO books(username,book_name,author,edition,subject,category_id,book_price,book_original_price,book_description,date,book_image) ";
-            $query .= "VALUES('{$seller_name}','{$book_name}','{$book_author}','{$book_edition}','{$book_subject}',{$book_category},{$book_price},{$book_original_price},'{$book_description}',now(),'{$final_image_name}')";
-            
-            $query_result = mysqli_query($connection,$query);
-        
-            if(!$query_result){
+            $prepare_stmt = $connection->prepare("INSERT INTO books(username,book_name,author,edition,subject,category_id,book_price,book_original_price,book_description,date,book_image) VALUES(?,?,?,?,?,?,?,?,?,?,?) ");
+            $date = date('Y-m-d');  
+            $prepare_stmt->bind_param("ssssssiisss",$seller_name,$book_name,$book_author,$book_edition,$book_subject,$book_category,$book_price,$book_original_price,$book_description,$date,$final_image_name);
+            if(!$prepare_stmt->execute()){
                 die('QUERY FAILED '.mysqli_error($connection));
             }else{
                 $book_id = mysqli_insert_id($connection);

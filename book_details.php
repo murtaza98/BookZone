@@ -20,7 +20,7 @@
         $query_result = mysqli_query($connection,$query);
         
         if(!$query_result){
-            die('QUERY FAILED '.mysqli_error($connection));
+           header("Location: error.php");
         }
         $num_rows = mysqli_num_rows($query_result);
         if($num_rows==1){
@@ -45,7 +45,7 @@
         $query = "SELECT * FROM categories WHERE category_id = {$category_id}";
         $query_result = mysqli_query($connection,$query);
         if(!$query_result){
-            die('CATEGORY QUERY FAILED '.mysqli_error($connection));
+            header("Location: error.php");
         }
         $num_rows = mysqli_num_rows($query_result);
         if($num_rows != 0){
@@ -62,7 +62,7 @@
                     $query_result_parent = mysqli_query($connection,$query_parent);
                     
                     if(!$query_result_parent){
-                        die('Parent category query failed '.mysqli_error($connection));
+                        die("FAILED" . mysqli_error($connection));
                     }else{
                         $num_rows = mysqli_num_rows($query_result_parent);
                         if($num_rows != 0){
@@ -95,7 +95,7 @@
     $review_query = "SELECT * FROM reviews WHERE book_id='$book_id'";
     $review_result = mysqli_query($connection, $review_query);
     if (!$review_result) {
-        die('REVIEWS QUERY FAILED '.mysqli_error($connection));
+        die("FAILED" . mysqli_error($connection));
     }else {
         $avg_rating = 0;
         $total_5 = 0;
@@ -166,7 +166,7 @@
         $query = "SELECT * FROM bookmark where book_id = {$_GET['book_id']} AND username ='{$_SESSION['username']}'";   
         $query_result_bookmark = mysqli_query($connection,$query);
         if(!$query_result_bookmark){
-            die("QUERY FAILED ".mysqli_error($connection));
+            die("FAILED" . mysqli_error($connection));
         }
         $temp_no_of_bookmarks = mysqli_num_rows($query_result_bookmark);
         $book_is_bookmarked = false;
@@ -191,7 +191,7 @@
                 by <?php echo $author; ?>
             </div>
             <br>
-            <div class="price" style="font-family: Karla, Arial, Helvetica, sans-serif; ">
+            <div class="price" style="font-family: Karla, Arial, Helvetica">
                 <div style="font-size: 28px">
                     <span>Was : </span><span style="text-decoration: line-through;">&#x20b9; <?php echo $book_original_price; ?></span>
                 </div>
@@ -326,132 +326,6 @@
                 <a href="#more_seller" style="font-size: 13px;font-family:Karla, Arial, Helvetica, sans-serif ;"><u>More from this Sellers</u>
                 </a>
             </div>
-
-            
-
-<!--
-            <div class="Edition" style="margin-bottom: 20px">
-                <h5><font size="4"><strong>Edition</strong>&nbsp;&nbsp; 
-                <?php echo $edition; ?></font></h5>
-            </div>  
-            <div class="seller" style="margin-bottom: 20px">
-                <h5><font size="4"><strong>Seller's information</strong>&nbsp;&nbsp;
-                <?php echo $seller_username; ?></font></h5>
-            </div>
-            
-                      
-            <div class="bookDesc" style="margin-bottom: 20px">
-                <h5><font size="4"><strong>Book Description</strong>&nbsp;&nbsp;
-                <?php echo $book_description; ?></font></h5>
-
-            </div>
--->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <div class="row">
-            <div class="col-lg-12">
-
-                <div class="bookName" style="font-size: 28px; font-weight: bold;">
-                    <?php echo $book_name; ?>
-                </div>
-                <div class="author" style="font-size: 20px;">
-                    by <?php echo $author; ?>
-                </div><br>
-                <div class="price">
-                    <span style="font-size: 16px; color: #878787">MRP </span><span style="font-size: 16px; color: #878787; text-decoration: line-through;">&#x20b9; <?php echo $book_original_price; ?></span><br>
-                    <span style="font-size: 28px;">&#x20b9; <?php echo $book_price; ?></span>
-                    <span id="discount" style="font-size: 12px; color: #878787; border-style: solid; border-width: 1px;padding: 4px;margin-left: 8px; color: green;border-color: green">
-                        <script type="text/javascript">
-                            var discount = Math.round((<?php echo $book_original_price;?> - <?php echo $book_price; ?>)*100/<?php echo $book_original_price; ?>);
-                            document.getElementById('discount').innerHTML = discount+'% off';
-                        </script>
-                    </span>
-                </div>
-
-                <div class="Edition" style="margin-bottom: 20px">
-                    <h5><font size="4"><strong>Edition</strong>&nbsp;&nbsp; 
-                    <?php echo $edition; ?></font></h5>
-                </div>  
-                <div class="seller" style="margin-bottom: 20px">
-                    <h5><font size="4"><strong>Seller's information</strong>&nbsp;&nbsp;
-                    <?php echo $seller_username; ?></font></h5>
-                </div>
-                <div class="subject" style="margin-bottom: 20px">
-                    <h5><font size="4"><strong>Subject</strong>&nbsp;&nbsp;
-                    <?php echo $subject; ?></font></h5>
-                </div>
-                <div class="category" style="margin-bottom: 20px">
-                    <h5><font size="4"><strong>Category</strong>&nbsp;&nbsp;
-                    <?php echo $category_name; ?></font></h5>
-                </div>          
-                <div class="bookDesc" style="margin-bottom: 20px">
-                    <h5><font size="4"><strong>Book Description</strong>&nbsp;&nbsp;
-                    <?php echo $book_description; ?></font></h5>
-
-                </div>
-                <div class="bookReview">
-                    <h5><font size="4"><strong>Ratings</strong></font></h5>
-                    <p id="avgRating">
-                        <script>starRating('avgRating', <?php echo $ratings ?>)</script>  
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-
-                    <h5><strong>Reviews</strong></h5>
-                     <textarea class="form-control" id="editor" rows='10' placeholder="Give review" style="resize: none;"></textarea>
-                     <script>
-                        ClassicEditor
-                            .create( document.querySelector( '#editor' ) )
-                            .catch( error => {
-                                console.error( error );
-                            } );
-                    </script>
-                    <?php
-                        $review_query = "SELECT ratings,review_content FROM reviews WHERE book_id='$book_id'";
-                        $review_result = mysqli_query($connection, $review_query);
-                        if (!$review_result) {
-                            die('REVIEWS QUERY FAILED '.mysqli_error($connection));
-                        }
-
-                        $user_query = "SELECT first_name, last_name FROM users WHERE username IN (SELECT username FROM reviews WHERE book_id ='$book_id')";
-                        $user_result = mysqli_query($connection, $user_query);
-                        if(!$user_result) {
-                            die('QUERY FAILED'.mysqli_error($connection));
-                        }else {
-                            $i = 0;
-                            while($user_set = mysqli_fetch_assoc($user_result)) {
-                            $review_set = mysqli_fetch_assoc($review_result);
-                            $firstName = $user_set['first_name'];
-                            $lastName = $user_set['last_name'];
-                            $review_content = $review_set['review_content'];
-                            $ratings = $review_set['ratings'];
-                            echo '<h4><strong>'.$firstName.'</strong></h4><p id='.$i.'>';
-                            echo '<script>starRating("'.$i.'",'.$ratings.')</script>';
-                            echo '</p>';
-                            echo $review_content;
-                            $i = $i +1;
-                            }
-                        }
-                    ?>
-            </div>
-        </div> -->
         </div>
     </div>
 </div>
@@ -545,10 +419,11 @@
     <h3 id="more_seller">More from other Sellers</h3>
     <div class='row'>
     <?php 
-        $morebook_query = "SELECT * FROM books WHERE book_name = '$book_name' AND username != '$seller_username'";
+        $book_name = mysqli_real_escape_string($connection, $book_name);
+        $morebook_query = "SELECT * FROM books WHERE username != '$seller_username' AND book_name = '{$book_name}'";
         $morebook_set = mysqli_query($connection, $morebook_query);
         if(!$morebook_set){
-            die('QUERY FAILED '.mysqli_error($connection));
+            die("FAILED" . mysqli_error($connection));
         }
         else{
             while($morebook_row = mysqli_fetch_assoc($morebook_set)){
@@ -594,15 +469,7 @@
     <script>
         bigStarRating('average_review',<?php echo round($avg_rating); ?>)
     </script>
-    
-    
-<!--
-    <span class="fa fa-star checked review_star"></span>
-    <span class="fa fa-star checked review_star"></span>
-    <span class="fa fa-star checked review_star"></span>
-    <span class="fa fa-star checked review_star"></span>
-    <span class="fa fa-star review_star"></span>
--->
+
     <p><?php echo $avg_rating; ?> average based on <?php echo $total_reviews; ?> reviews.</p>
     <hr style="border:3px solid #f1f1f1">
 
