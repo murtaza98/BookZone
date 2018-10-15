@@ -149,11 +149,11 @@
             $avg_rating = ($sum_of_all_rating)/$total_reviews;
         }
         
-        $percent_1 = $total_1 != 0 ? round($total_1/$total_reviews) * 100 : 0;
-        $percent_2 = $total_2 != 0 ? round($total_2/$total_reviews) * 100 : 0;
-        $percent_3 = $total_3 != 0 ? round($total_3/$total_reviews) * 100 : 0;
-        $percent_4 = $total_4 != 0 ? round($total_4/$total_reviews) * 100 : 0;
-        $percent_5 = $total_5 != 0 ? round($total_5/$total_reviews) * 100 : 0;
+        $percent_1 = $total_1 != 0 ? round($total_1/$total_reviews * 100) : 0;
+        $percent_2 = $total_2 != 0 ? round($total_2/$total_reviews * 100) : 0;
+        $percent_3 = $total_3 != 0 ? round($total_3/$total_reviews * 100) : 0;
+        $percent_4 = $total_4 != 0 ? round($total_4/$total_reviews * 100) : 0;
+        $percent_5 = $total_5 != 0 ? round($total_5/$total_reviews * 100) : 0;
           
     
     }

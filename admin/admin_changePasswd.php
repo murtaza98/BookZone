@@ -9,13 +9,13 @@
         $oldPassword = mysqli_real_escape_string($connection,$oldPassword);
         $newPassword = mysqli_real_escape_string($connection,$newPassword);
         $hash_password = password_hash($newPassword, PASSWORD_DEFAULT);
-        
+
         $query = "SELECT password FROM users WHERE username='".addslashes($_POST['username'])."'";
-        $password_result = mysqli_query($connection, $query); 
+        $password_result = mysqli_query($connection, $query);
         $db_password = mysqli_fetch_assoc($password_result);
         if (password_verify($oldPassword, $db_password['password']) && $oldPassword != $newPassword) {
           $prepare_stmt = $connection->prepare("UPDATE users SET password=? WHERE username=?");
-          $prepare_stmt->bind_param("ss",$hash_password,$username);          
+          $prepare_stmt->bind_param("ss",$hash_password,$username);
           if(!$prepare_stmt->execute()){
               die("QUERY FAILED ".mysqli_error($connection));
               $prepare_stmt->close();
