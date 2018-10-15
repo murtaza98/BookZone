@@ -5,12 +5,17 @@
         $username = $_POST['username'];
         $oldPassword = $_POST['oldPasswd'];
         $newPassword = $_POST['newPasswd'];
-        $query = "SELECT password FROM users WHERE username='$username'";
+
+        $oldPassword = mysqli_real_escape_string($connection,$oldPassword);
+        $newPassword = mysqli_real_escape_string($connection,$newPassword);
+        $hash_password = password_hash($newPassword, PASSWORD_DEFAULT);
+
+        $query = "SELECT password FROM users WHERE username='".addslashes($_POST['username'])."'";
         $password_result = mysqli_query($connection, $query);
         $db_password = mysqli_fetch_assoc($password_result);
-        if ($db_password['password'] == $oldPassword && $oldPassword != $newPassword) {
+        if (password_verify($oldPassword, $db_password['password']) && $oldPassword != $newPassword) {
           $prepare_stmt = $connection->prepare("UPDATE users SET password=? WHERE username=?");
-          $prepare_stmt->bind_param("ss",$newPassword,$username);          
+          $prepare_stmt->bind_param("ss",$hash_password,$username);
           if(!$prepare_stmt->execute()){
               die("QUERY FAILED ".mysqli_error($connection));
               $prepare_stmt->close();
@@ -19,11 +24,12 @@
               $prepare_stmt->close();
               echo "<script>
                 window.location.href = 'users.php?source=edit_user&edit=$username';
-                window.alert('Password Changed');
               </script>";
           }
         }else{
-            echo "<script>window.alert('Old password did not match')</script>";
+            echo "<script>
+              window.location.href = 'users.php?source=edit_user&edit=$username';
+              window.alert('Old password did not match')</script>";
         }
     }
 ?>

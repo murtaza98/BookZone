@@ -22,8 +22,11 @@
         $user_category = $_POST['user_category'];
         $user_role = "user";
         $is_verified = 'false';
+        $date = date('Y-m-d');
+        $password = mysqli_real_escape_string($connection,$user_password);
+        $hash_password = password_hash($password, PASSWORD_DEFAULT);
         //CALL procedure
-        $query = "CALL addUser('$username','$user_password','$user_email','$user_firstName','$user_middleName','$user_lastname','$user_city',$user_pincode,'$user_category','$user_role',$user_contact,'$is_verified')";
+        $query = "CALL addUser('$username','$hash_password','$user_email','$user_firstName','$user_middleName','$user_lastname','$user_city',$user_pincode,'$user_category','$user_role',$user_contact,'$is_verified','$date')";
         
         $query_result = mysqli_query($connection,$query);
         
