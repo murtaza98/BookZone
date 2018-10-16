@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 10, 2018 at 07:35 PM
+-- Generation Time: Oct 16, 2018 at 08:14 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -26,8 +26,8 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `addUser` (IN `param_username` VARCHAR(255), IN `param_password` VARCHAR(255), IN `param_email` VARCHAR(255), IN `param_firstName` VARCHAR(255), IN `param_middleName` VARCHAR(255), IN `param_lastName` VARCHAR(255), IN `param_city` VARCHAR(255), IN `param_pincode` INT(11), IN `param_category` VARCHAR(255), IN `param_role` VARCHAR(255), IN `param_contact` INT(20), IN `param_isverified` VARCHAR(25))  BEGIN
-        	INSERT INTO users(username,password,email,first_name,middle_name,last_name,city,pincode,user_category,role,is_verified)  VALUES(param_username,param_password,param_email,param_firstName,param_middleName,param_lastName,param_city,param_pincode,param_category,param_role,param_isverified);
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addUser` (IN `param_username` VARCHAR(255), IN `param_password` VARCHAR(255), IN `param_email` VARCHAR(255), IN `param_firstName` VARCHAR(255), IN `param_middleName` VARCHAR(255), IN `param_lastName` VARCHAR(255), IN `param_city` VARCHAR(255), IN `param_pincode` INT(11), IN `param_category` VARCHAR(255), IN `param_role` VARCHAR(255), IN `param_contact` VARCHAR(20), IN `param_isverified` VARCHAR(25), IN `param_date` DATE)  BEGIN
+        	INSERT INTO users(username,password,email,first_name,middle_name,last_name,city,pincode,user_category,role,is_verified,date)  VALUES(param_username,param_password,param_email,param_firstName,param_middleName,param_lastName,param_city,param_pincode,param_category,param_role,param_isverified,param_date);
             INSERT INTO contacts(username,contact_no) VALUES(param_username,param_contact);
        END$$
 
@@ -157,7 +157,7 @@ CREATE TABLE `contacts` (
 
 INSERT INTO `contacts` (`username`, `contact_no`) VALUES
 ('adam1234', '992065413'),
-('admin', '9910233211'),
+('admin', '7738878906'),
 ('aidan1234', '8890022133'),
 ('arsitotle99', '8890133445'),
 ('baisa00', '7788713452'),
@@ -165,20 +165,20 @@ INSERT INTO `contacts` (`username`, `contact_no`) VALUES
 ('cameran12', '7764411221'),
 ('germaine21', '9876511111'),
 ('haley001', '7744532154'),
-('harsh', '8665577664'),
+('harsh', '8655422442'),
 ('ivan76', '9990077662'),
 ('kylynn@301', '9930111221'),
 ('leandra12', '8887722112'),
 ('madeson88', '7788765432'),
 ('mark@123', '8879312349'),
-('murtaza', '9021199821'),
+('murtaza', '8876521232'),
 ('norman01', '9002387672'),
-('ojas', '7738870439'),
-('priyesh', '7786543210'),
+('ojas', '8876512345'),
+('priyesh', '7765422998'),
 ('quon@2212', '9988788779'),
 ('rebecca12', '99922255566'),
 ('sasha#22', '9123188088'),
-('tanay', '9930422112'),
+('tanay', '9987622111'),
 ('urielle21', '8188122121'),
 ('wade@2021991', '8789900099');
 
@@ -240,7 +240,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `middle_name`, `last_name`, `city`, `pincode`, `user_category`, `role`, `street_no`, `area`, `is_verified`, `date`) VALUES
 ('adam1234', 'adam1234', 'adam@gmail.com', 'Adam', 'Lee', 'Wooten', 'Byculla', 2152, 'FirstYear', 'user', 13, 'diam nunc, ullamcorper eu, euismod ac,', 'true', '2018-09-02'),
-('admin', 'admin123', 'ojas.kapre@somaiya.edu', 'admin', '', 'admin', 'Thane', 400604, '', 'admin', 106, 'Mulund', 'true', '2018-08-01'),
+('admin', '$2y$10$wqeYW8EoWKStg2QKx/HZb.SIznv0tHSBmNW7onSsF6HCo080y0iAe', 'ojask1205@gmail.com', 'admin', 'admin', 'admin', 'Thane', 400609, 'Computer', 'admin', -1, NULL, 'true', '2018-10-16'),
 ('aidan1234', 'aidan1234', 'aidan@gmail.com', 'Aidan', 'Wade', 'Wiley', 'Vikhroli', 34330, 'ThirdYear', 'user', 10, 'Vikhroli', 'true', '2018-09-20'),
 ('arsitotle99', 'arsitotle1234', 'arsitotle@gmail.com', 'Aristotle', 'Fulton', 'Duffy', 'Dadar', 9093, 'FourthYear', 'user', 20, 'Dadar', 'true', '2018-11-20'),
 ('baisa00', 'basia1234', 'basia@gmail.com', 'Basia', 'Wade', 'House', 'Kurla', 9448, 'FourthYear', 'user', 11, 'Kurla', 'true', '2018-11-11'),
@@ -248,22 +248,33 @@ INSERT INTO `users` (`username`, `password`, `email`, `first_name`, `middle_name
 ('cameran12', 'cameran1234', 'cameran@gmail.com', 'Cameran', 'Carter', 'Bartlett', 'Dahisar', 11271, '', 'user', 3, 'Dahisar', 'true', '2018-08-05'),
 ('germaine21', 'germaine1234', 'germaine@gmail.com', 'Germaine', 'Warren', 'Pollard', 'Churchgate', 968312, 'SecondYear', 'user', 4, 'Churchgate', 'true', '2018-11-18'),
 ('haley001', 'haley1234', 'haley@gmail.com', 'Haley', 'Leonard', 'Brock', 'Dombivali', 5111, 'FourthYear', 'user', 12, 'Dombivali', 'true', '2018-10-01'),
-('harsh', '1234', 'harsh.patel4@somaiya.edu', 'Harsh', NULL, 'Patel', 'Nalasopara', 400609, 'LastYear', 'user', -1, 'Kalyan', 'true', '2018-10-11'),
+('harsh', '$2y$10$jcX33pTISzFgScUIe/FF7uNVzVy8dmhzecWanEQz8PS7GOU1UmsRW', 'harsh.patel4@somaiya.edu', 'harsh', 'j', 'patel', 'Nalasopara', 400609, 'Computer', 'user', -1, NULL, 'true', '2018-10-16'),
 ('ivan76', 'ivan1234', 'ivan@gmail.com', 'Ivan', 'Richard', 'Gaines', 'Borivali', 6330, 'SecondYear', 'user', 2, 'Borivali', 'true', '2018-12-12'),
 ('kylynn@301', 'kylynn1234', 'kylynn@gmail.com', 'Kylynn', 'Adrian', 'White', 'Bhandup', 26, '', 'user', 16, 'Bhandup', 'true', '2018-12-11'),
 ('leandra12', 'leandra1234', 'leandra@gmail.com', 'Leandra', 'Declan', 'Blackburn', 'Badlapur', 5933, 'ThirdYear', 'user', 8, 'Badlapur', 'true', '2018-10-02'),
 ('madeson88', 'madeson1234', 'madeson@gmail.com', 'Madeson', 'Jason', 'Conrad', 'Virar', 56443, 'ThirdYear', 'user', 19, 'Virar', 'true', '2018-11-04'),
 ('mark@123', 'mark1234', 'mark@gmail.com', 'Mark', 'Colby', 'Lang', 'Ghatkopar', 45459, 'SecondYear', 'user', 14, '', 'true', '2018-08-02'),
-('murtaza', '1234', 'murtaza.patrawala@somaiya.edu', 'Murtaza', NULL, 'Patrawala', 'Kurla', 400070, 'ThirdYear', 'user', 8, 'mumbai', 'true', '2018-10-10'),
+('murtaza', '$2y$10$Sn4W63RM4vR63aC6xif2hue4czMFmx9DXvlkyTQEuioyB8hPCSf4W', 'm.patrawala@somaiya.edu', 'murtaza', 't', 'patrawala', 'Kurla', 400070, 'Computer', 'user', -1, NULL, 'true', '2018-10-16'),
 ('norman01', 'norman1234', 'norman@gmail.com', 'Norman', 'Addison', 'Stuart', 'Airoli', 3066, 'FirstYear', 'user', 1, 'lectus rutrum urna, nec luctus felis', 'true', '2018-09-10'),
-('ojas', '1234', 'ojask1205@gmail.com', 'Ojas', NULL, 'Kapre', 'Thane', 400070, 'SecondYear', 'user', -1, 'mumbai', 'true', '2018-10-11'),
-('priyesh', '1234', 'priyesh.patel@somaiya.edu', 'Priyesh', NULL, 'Patel', 'Badlapur', 400070, 'ThirdYear', 'user', -1, 'mumbai', 'true', '2018-10-11'),
+('ojas', '$2y$10$RHyOaZ/ArTtrOEJtO9AHxekUeDsE6NpHGLDdpyd.bOQyBJ6Qdd8wq', 'ojas.kapre@somaiya.edu', 'ojas', 'suhas', 'kapre', 'Thane', 123456, 'Computer', 'user', -1, NULL, 'true', '2018-10-16'),
+('priyesh', '$2y$10$IYKAb0lJCD/AfWicMVkGx.2AZ82ajZ4pk.uvfrphhknaVkl3vo5YS', 'priyesh.patel@somaiya.edu', 'priyesh', '', 'patel', 'Badlapur', 410220, 'Computer', 'user', -1, NULL, 'true', '2018-10-16'),
 ('quon@2212', 'quon1234', 'quon@gmail.com', 'Quon', 'Logan', 'Glover', 'Nerul', 8700, 'FirstYear', 'user', 18, 'ullamcorper, nisl arcu iaculis enim, sit', 'true', '2018-09-15'),
 ('rebecca12', 'rebecca1234', 'rebecca@gmail.com', 'Rebecca', 'Travis', 'Knight', 'Panvel', 6390, 'ThirdYear', 'user', 17, 'nulla vulputate dui, nec tempus mauris', 'true', '2018-11-05'),
 ('sasha#22', 'sasha1234', 'sasha@gmail.com', 'Sasha', 'Jonas', 'Hurley', 'Vashi', 50394, 'SecondYear', 'user', 5, 'Nullam ut nisi a odio semper', 'true', '2018-08-02'),
-('tanay', '1234', 'tanay.raul@somaiya.edu', 'Tanay', '', 'Raul', 'Mulund', 400701, 'ThirdYear', 'user', 7, 'habitant morbi tristique senectus et netus', 'true', '2018-10-11'),
+('tanay', '$2y$10$yj2/q5Q4AV1eV25jfpEuKOZ0JnZs0eCgHwTr0wVV11BUIOUufNqM6', 'tanay.raul@somaiya.edu', 'tanay', '', 'raul', 'Mulund', 400070, 'Computer', 'user', -1, NULL, 'true', '2018-10-16'),
 ('urielle21', 'urielle1234', 'urielle@gmail.com', 'Urielle', 'Cairo', 'Burt', 'Sion', 0, 'FirstYear', 'user', 9, 'dictum magna. Ut tincidunt orci quis', 'true', '2018-11-05'),
 ('wade@2021991', 'wade1234', 'wade@gmail.com', 'Wade', 'Branden', 'Durham', 'Ghatkopar', 410220, 'FirstYear', 'user', 6, '', 'true', '2018-09-21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `verification`
+--
+
+CREATE TABLE `verification` (
+  `email_id` varchar(255) NOT NULL,
+  `code` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
