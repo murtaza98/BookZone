@@ -83,8 +83,8 @@ function searchUsers() {
 </div>
 
 <div class="row">
-	<div class="col-lg-12">
-		<table class="table table-bordered table-hover table-responsive">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
+		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
 					<th class="text-center" onclick="sortTable(0)">BookId</th>

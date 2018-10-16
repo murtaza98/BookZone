@@ -10,8 +10,8 @@
 <h3 class="text-center"><b><u>ALL BOOKS</u></b></h3>
 
 <div class="row">
-	<div class="col-lg-12">
-		<table class="table table-bordered table-hover table-responsive">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
+		<table class="table table-bordered table-hover">
 			<thead>
 				<tr>
 					<th class="text-center">SellerName</th>

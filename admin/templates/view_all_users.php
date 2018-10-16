@@ -81,7 +81,7 @@ function searchUsers() {
 <h3 class="text-center"><b><u>ALL USERS</u></b></h3>
 <input type="text" class="form-control" id="myInput" onkeyup="searchUsers()" placeholder="Search for names.."><br>
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
 		<table class="table table-bordered table-hover" id="usersTable">
 			<thead>
 				<tr>

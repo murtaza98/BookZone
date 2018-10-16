@@ -11,11 +11,18 @@
 	.huge {
     	font-size: 48px;
 	}	
-
 	.arrow-right {
 		font-size: 16px;
 	}
+	.chart {
+	  width: 100%; 
+	  min-height: 450px;
+	}
+	.row {
+	  margin:0 !important;
+	}
 </style>
+
 <div class="container">
 <div id="wrapper">
 	<div id="page-wrapper">
@@ -172,14 +179,21 @@
 	          	}
 	        };
 
-	        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+	        var chart = new google.charts.Bar(document.getElementById('performance_chart'));
 
 	        chart.draw(data, google.charts.Bar.convertOptions(options));
 	      }
 	    </script>
 
-    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
-    
+	    <div class="row">
+		  	<div class="col-md-4 col-md-offset-4">
+		    	<hr />
+		  	</div>
+		  	<div class="clearfix"></div>
+		  	<div class="col-md-12">
+		    	<div id="performance_chart" class="chart"></div>
+		  	</div>
+		</div>
 	</div>
 </div>
 </div> 

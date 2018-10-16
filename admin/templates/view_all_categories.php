@@ -31,9 +31,9 @@
             	</div>
 			</form>
 	</div>
-	<div class="col-sm-8">
+	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 table-responsive">
 		<h3 class="text-center"><b><u>ALL CATEGORIES</u></b></h3>
-			<table class="table table-bordered table-hover table-responsive">
+			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th class="text-center">Category Id</th>

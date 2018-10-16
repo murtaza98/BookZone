@@ -6,6 +6,17 @@
 <?php include "./templates/header.php"; ?>
 <div id="wrapper">
 <?php include "./templates/navigation.php"; ?>
+
+<?php  
+	if (isset($_POST['seen'])) {
+		$notification_id = $_POST['notification_id'];
+		$notification_id = mysqli_real_escape_string($connection, $notification_id);
+		$query = "UPDATE notification SET status='Seen' WHERE notification_id=$notification_id";
+		$result = mysqli_query($connection, $query);
+		header("Location: ./notification.php");
+	}
+?>
+
 <div class= "container close_bookmark_sidebar" id="page-content-wrapper" style="margin: 0px; padding: 0px">
 
 <div class="container close_bookmark_sidebar" id='container'>
@@ -31,13 +42,30 @@
 					    			$date = $row['date'];
 					    			$offer_status = $row['offer_status'];
 					    			$notification_id = $row['notification_id'];
+					    			$status = $row['status'];
 					?>	
 					<li class="list-group-item">
 				  		<div class="row">
+				  			<?php  
+				  				if ($status == "Unseen") {
+				  			?>
+					  			<div class="col-sm-1" align="center" style="width: 15px; padding-top: 23px; ">
+					  				<form action="./notification.php" method="post">
+							  			<input type="text" name="notification_id" value="<?php echo $notification_id ?>" style="display: none;">
+									  	<input type="checkbox" name="seen" title="mark as read" onchange="submit()">
+									</form>
+					  			</div>
+					  		<?php  
+					  			}else{
+					  		?>
+					  			<div class="col-sm-1" align="center" style="width: 15px; padding-top: 23px;">
+					  				<input type="checkbox" title="Seen" checked disabled>
+					  			</div>
+					  		<?php } ?>
 				  			<div class="col-sm-1">
 				  				<img src="./includes/images/img_avatar.png" class="media-object" style="width:60px; border-radius: 50%">
 				  			</div>
-				  			<div class='col-sm-11'>
+				  			<div class='col-sm-10'>
 				  				<span>From: <?php echo $buyer_name; ?></span>
 				  				<span>on: <?php echo $date ?></span><br>
 				  				<span style="font-size: 16px;font-weight: 550; font-family: Karla, Arial, Helvetica"><?php echo $message; ?></span><br>	

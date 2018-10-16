@@ -50,7 +50,7 @@
                 <label for="newPasswd">New Password</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="newPasswd" type="password" class="form-control" name="newPasswd" placeholder="New Password">
+                    <input id="newPasswd" type="password" class="form-control" name="newPasswd" placeholder="New Password" required>
                 </div>
               </div>
 
@@ -58,7 +58,7 @@
                 <label for="password">Confirm Password</label>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input id="comfirmPasswd" type="password" class="form-control" name="comfirmPasswd" placeholder="Confirm Password">
+                    <input id="comfirmPasswd" type="password" class="form-control" name="comfirmPasswd" placeholder="Confirm Password" required>
                 </div>
               </div>
 
