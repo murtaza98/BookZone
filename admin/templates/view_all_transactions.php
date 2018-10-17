@@ -1,6 +1,12 @@
+<script>
+	$(document).ready(function() {
+	    $('#orderTable').DataTable();
+	} );
+</script>
+
 <h3 class="text-center"><b><u>ALL TRANSACTIONS</u></b></h3>
 <div class="table-responsive">
-	<table class="table table-bordered table-hover">
+	<table class="table table-bordered table-hover" id="orderTable">
 		<thead>
 			<tr>
 				<th class="text-center">Buyer name</th>

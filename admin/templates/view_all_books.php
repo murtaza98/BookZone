@@ -7,11 +7,17 @@
 	$_SESSION['edit_book'] = null;
 	endif 
 ?>
+<script>
+	$(document).ready(function() {
+	    $('#booksTable').DataTable();
+	} );
+</script>
+
 <h3 class="text-center"><b><u>ALL BOOKS</u></b></h3>
 
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive">
-		<table class="table table-bordered table-hover">
+		<table class="table table-bordered table-hover" id="booksTable">
 			<thead>
 				<tr>
 					<th class="text-center">SellerName</th>
